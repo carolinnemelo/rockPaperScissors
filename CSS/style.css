@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "inter", sans-serif;
+    font-family: 'Roboto', sans-serif;
 
 }
   
@@ -11,17 +11,17 @@
     width: 100%;
 }
 
+/* -----------start hamburger menu CSS only */
 :root {
     --bar-width: 35px;
     --bar-height: 6px;
     --hamburger-gap: 6px;
-    --foreground: #F17B13;
+    --foreground: rgba(241, 123, 19, 0.90);;
     --background: #0A2A46;
     --hamburger-margin: 8px;
     --animation-timing: 200ms ease-in-out;
     --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 }
-
 
 .hamburger-menu {
   --x-width: calc(
@@ -92,11 +92,11 @@
 .sidebar {
   transition: translate var(--animation-timing);
   translate: -100%;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0rem;
   padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
   background-color: var(--foreground);
   color: var(--background);
-  width: 10rem;
+  width: 15rem;
   min-height: 100vh;
   border: 0;
 }
@@ -105,16 +105,29 @@
   translate: 0;
 }
 
-/* elements inside .sidebar */
-.player {
-  width: auto;
-  height: 14rem;
-}
-.cat.player {
-  background-image: url(/images/cat.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%;
+.asideButton {
+    padding: 1.4rem 1rem;
+    display: flex;
+    border: solid 1px rgba(241, 123, 19, 1);
+
 }
 
-/* -----------ends hamburger menu CSS only */
+.asideButton:hover {
+    background-color: #F17B13;
+
+
+}
+
+.asideButton a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.asideButton h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+
+}
+/* -----------end hamburger menu CSS only */
