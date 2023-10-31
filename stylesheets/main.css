@@ -1,12 +1,141 @@
-/* ===================================== */
-/* THIS IS OUR MAIN STYLE SHEET */
-/* ===================================== */
+/* ================================================== */
+/* READ-ME */
+/* ================================================== */
+/* In this CSS, you will find: 
+   - global variables 
+   - global css-rules (e.g. @font-face rule for embedded fonts)
+   - global media-independent classes
+   - global media-dependent classes 
+   
 
 
-/* Reset default margins and paddings to zero */
-* {
-    margin: 0;
-    padding: 0;
+/* ================================================== */
+/* GLOBAL VARIABLES */ 
+/* ================================================== */
+
+:root{
+    /* Global colors, opacities, mix-blend-modes, xxx */ 
+    --color01: #0A2A46; 
+    --color02: #19647D;
+    --color03: #0CC0C8;
+    --color04: #F17B13;
+    --color05: #FEDE4F;
+    --color01-opacity01: rgba(10, 42, 70, 0.80);
+    --mix-blend-mode01: multiply;
+
+    /* Global images, icons etc */
+    --background-image01: url("/rps/images/halloween.jpg");
+    --background-image02: url("/rps/images/halloween-scary.jpg");
+
+    /* Global typography variables (fonts-variables etc) */        
+    --font-family01: Roboto;
+    --font-color01: #FFF;
+    --font-style01: normal;
+    --font-weight01: 700;
+    --line-height01: 100%; 
+    --font-family02: 
+
 }
 
-/*  */
+/* ==================================================== */
+/* GLOBAL RULES  */
+/* ==================================================== */
+
+@font-face {
+    font-family: Crepster-Caps; 
+    src: url(/rps/fonts/creepster-caps.ttf);
+  }
+  
+
+
+
+/* ================================================== */
+/* GLOBAL MEDIA-INDEPENDENT CLASSES ('COMPONENTS') */
+/* ================================================== */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ================================================== */
+/* GLOBAL MEDIA-DEPENDENT CLASSES ('COMPONENTS') */
+/* ================================================== */
+/* There are three media-versions:
+    - mobile (<500px)
+    - ipad (500-700px)
+    - desktop (>700px)
+    */
+
+/* -------------------------------------------------- */
+/* Mobile-version  */
+/* -------------------------------------------------- */
+
+@media (max-width: 499px){
+
+    .button01{
+        background-color: var(--color04);
+        padding: 11px 18px 11px 18px;
+        font-size: 20px;
+
+
+    }
+    
+    
+    .card01{
+    
+    }
+    
+    .card02{
+    
+    }
+    
+}
+
+/* -------------------------------------------------- */
+/* Ipad-version  */
+/* -------------------------------------------------- */
+
+@media (min-width: 500px) and (max-width: 700px){
+
+    .button01{
+
+    }
+    
+    
+    .card01{
+    
+    }
+    
+    .card02{
+    
+    }
+    
+}
+
+/* -------------------------------------------------- */
+/* Desktop-version */
+/* -------------------------------------------------- */
+
+@media (min-width: 701px){
+
+    .button01{
+
+    }
+    
+    
+    .card01{
+    
+    }
+    
+    .card02{
+    
+    }    
+}
+
+
+/* ================================================== */
+/* XXX */
+/* ================================================== */
+
