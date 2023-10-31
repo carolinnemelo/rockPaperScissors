@@ -7,6 +7,7 @@
    - global media-independent classes
    - global media-dependent classes 
    
+   
 
 
 /* ================================================== */
@@ -14,43 +15,41 @@
 /* ================================================== */
 
 :root{
-    /* Global colors, opacities, mix-blend-modes, xxx */ 
+    /* Global colors */ 
     --color01: #0A2A46; 
     --color02: #19647D;
     --color03: #0CC0C8;
     --color04: #F17B13;
     --color05: #FEDE4F;
-    --color01-opacity01: rgba(10, 42, 70, 0.80);
-    --mix-blend-mode01: multiply;
+    --color06: #FFF;
+    --color07: #000000;
+    --color08: #FF5B05;
+    --box-shadow-color: rgba(0, 0, 0, 0.25);
+    --navbar-background-color: rgba(10, 42, 70, 0.80);
+    --card01-background-color: 
 
     /* Global images, icons etc */
     --background-image01: url("/rps/images/halloween.jpg");
     --background-image02: url("/rps/images/halloween-scary.jpg");
 
-    /* Global typography variables (fonts-variables etc) */        
+    /* Global fonts */        
     --font-family01: Roboto;
-    --font-color01: #FFF;
-    --font-style01: normal;
-    --font-weight01: 700;
-    --line-height01: 100%; 
-    --font-family02: 
-
+    --font-family02: creepster-caps;
 }
+
 
 /* ==================================================== */
 /* GLOBAL RULES  */
 /* ==================================================== */
 
 @font-face {
-    font-family: Crepster-Caps; 
+    font-family: creepster-caps; 
     src: url(/rps/fonts/creepster-caps.ttf);
   }
   
 
-
-
 /* ================================================== */
-/* GLOBAL MEDIA-INDEPENDENT CLASSES ('COMPONENTS') */
+/* GLOBAL MEDIA-INDEPENDENT CLASSES  */
 /* ================================================== */
 
 * {
@@ -58,49 +57,97 @@
     margin: 0;
 }
 
+h1 {
+
+}
 
 /* ================================================== */
-/* GLOBAL MEDIA-DEPENDENT CLASSES ('COMPONENTS') */
+/* GLOBAL MEDIA-DEPENDENT CLASSES  */
 /* ================================================== */
-/* There are three media-versions:
+/*  Media query breakpoints:
     - mobile (<500px)
     - ipad (500-700px)
     - desktop (>700px)
+    Coding-approach: mobile-first
     */
 
 /* -------------------------------------------------- */
-/* Mobile-version  */
+/* Mobile-version  (default) */
 /* -------------------------------------------------- */
 
-@media (max-width: 499px){
+.button01{
+    /* global button-specs */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--color04);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 999px;
+    padding: 11px 18px;
+    gap: 8px; 
+    /* global font-specs */
+    color: var(--color06);
+    font-family: var(--font-family01);
+    font-style: normal;
 
-    .button01{
-        background-color: var(--color04);
-        padding: 11px 18px 11px 18px;
-        font-size: 20px;
-
-
-    }
+    line-height: 100%; 
     
-    
-    .card01{
-    
-    }
-    
-    .card02{
-    
-    }
-    
+    /* mobile button-specs */
+    width: 122px;
+    height: 36px;
+    /* mobile font-specs */
+    font-size: 20px;
+    font-weight: 700;
+   
 }
+
+
+.card01{
+
+}
+
+.card02{
+
+}
+
+.h2-textbox{
+    /* global h2-textbox-specs */
+    width: 329px;
+
+    text-align: center;
+    text-shadow: 0px 4px 4px var(--color08);
+    font-family: var(--font-family02);
+    font-style: normal;
+    /* mobile h2-textbox-specs */
+    height: 40px;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 100%; 
+
+}
+
+.label01{
+
+
+}
+    
+
 
 /* -------------------------------------------------- */
 /* Ipad-version  */
 /* -------------------------------------------------- */
 
-@media (min-width: 500px) and (max-width: 700px){
+@media (min-width: 500px) and (max-width: 699px){
 
     .button01{
-
+        /* Ipad button-specs */
+        width: 300px;
+        height: 50px;  
+        /* Ipad font-specs */
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 40px; /* 133.333% */
     }
     
     
@@ -112,6 +159,9 @@
     
     }
     
+    .h2-textbox{
+        height: 48px;
+    }
 }
 
 /* -------------------------------------------------- */
