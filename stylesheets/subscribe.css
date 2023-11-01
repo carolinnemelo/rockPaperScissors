@@ -1,8 +1,4 @@
-* {
-    padding: 0;
-    margin: 0;
 
-}
 
 body{
     position: relative;
@@ -11,7 +7,7 @@ body{
     align-items: left;
     background-image: url(/rps/images/halloween-background-with-scary-pumpkins-candles-graveyard-night-with-castle-background.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
     clip-path: inset(0 34.6% 0 34.6%); 
     /* width: 100%;
     height: 100%; */
@@ -64,3 +60,8 @@ body{
 .subscribe-button{
     
 }
+
+
+@media (min-width: 500px){
+    
+} 
