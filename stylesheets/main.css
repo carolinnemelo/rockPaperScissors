@@ -16,18 +16,20 @@
 
 :root{
     /* Global colors */ 
-    --color01: #0A2A46; 
-    --color02: #19647D;
-    --color03: #0CC0C8;
-    --color04: #F17B13;
-    --color05: #FEDE4F;
-    --color06: #FFF;
-    --color07: #000000;
-    --color08: #FF5B05;
-    --box-shadow-color: rgba(0, 0, 0, 0.25);
-    --navbar-background-color: rgba(10, 42, 70, 0.80);
-    --card01-background-color: 
-
+    --color01: rgba(10, 42, 70, 1);   
+    --color02: rgba(25, 100, 125, 1);  
+    --color03: rgba(12, 192, 200, 1);  
+    --color04: rgba(241, 123, 19, 1); 
+    --color05: rgba(254, 222, 79, 1); 
+    --color06: rgba(255, 255, 255, 1); 
+    --color07: rgba(0, 0, 0, 1); 
+    --color08: rgba(181, 192, 200, 1); 
+    --text-shadow-color01: rgb(255, 91, 5);
+    --h2-background-linear-gradient-color01: rgb(254, 222, 79) 54.17%;
+    --h2-background-linear-gradient-color02: rgb(241, 123, 19) 100%;
+   
+    --box-shadow-color: rgba(0, 0, 0, 0.25);  /* convert to HEX */
+    
     /* Global images, icons etc */
     --background-image01: url("/rps/images/halloween.jpg");
     --background-image02: url("/rps/images/halloween-scary.jpg");
@@ -35,6 +37,7 @@
     /* Global fonts */        
     --font-family01: Roboto;
     --font-family02: creepster-caps;
+
 }
 
 
@@ -46,6 +49,7 @@
     font-family: creepster-caps; 
     src: url(/rps/fonts/creepster-caps.ttf);
   }
+
   
 
 /* ================================================== */
@@ -55,18 +59,17 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-h1 {
 
-}
 
 /* ================================================== */
 /* GLOBAL MEDIA-DEPENDENT CLASSES  */
 /* ================================================== */
 /*  Media query breakpoints:
     - mobile (<500px)
-    - ipad (500-700px)
+    - tablet (500-700px)
     - desktop (>700px)
     Coding-approach: mobile-first
     */
@@ -75,6 +78,21 @@ h1 {
 /* Mobile-version  (default) */
 /* -------------------------------------------------- */
 
+body{
+    background-image: url("/rps/images/halloween.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 812px;  /* iphone 12 mini */
+    min-width: 375x;  /* iphone 12 mini */
+    position: relative;
+}
+
+
 .button01{
     /* global button-specs */
     display: flex;
@@ -82,77 +100,202 @@ h1 {
     align-items: center;
     flex-shrink: 0;
     background-color: var(--color04);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 999px;
-    padding: 11px 18px;
-    gap: 8px; 
     /* global font-specs */
     color: var(--color06);
     font-family: var(--font-family01);
     font-style: normal;
-
-    line-height: 100%; 
-    
+    font-weight: 700;
     /* mobile button-specs */
     width: 122px;
     height: 36px;
+    padding: 11px 18px;
+    box-shadow: 0px 4px 4px 0px var(--color08);
+
+    gap: 8px; 
     /* mobile font-specs */
     font-size: 20px;
-    font-weight: 700;
-   
+    line-height: 100%;
 }
 
 
 .card01{
-
+    /* global card-specs */
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--color01);
+    opacity: 85%;
+    border-radius: 20px; 
+    stroke: var(--color07);
+    stroke-width: 1px;
+    filter: drop-shadow(0px 4px 4px var(--color07), 25%);
+    /* mobile card-specs */
+    min-width: 295px;
+    max-width: 400px;
+    width: 80vw;
+    min-height: 400px;
+    max-height: 540px;
+    margin: 20vh 5vw;
 }
 
 .card02{
 
 }
 
-.h2-textbox{
-    /* global h2-textbox-specs */
-    width: 329px;
+.form01{
 
-    text-align: center;
+}
+
+
+h1 {
+    font-family: creepster-caps;
+    font-size: 4rem;
+    font-weight: 200;
+    background: linear-gradient(164deg, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+    -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
+    filter: drop-shadow(0px 9px 6px #0A2A46);
+    letter-spacing: 2px;
+}
+
+h2{
+
+    /* global h2-textbox-specs */
+    /* text-align: center;
     text-shadow: 0px 4px 4px var(--color08);
     font-family: var(--font-family02);
-    font-style: normal;
+    font-style: normal; */
     /* mobile h2-textbox-specs */
-    height: 40px;
+    /* height: 40px;
     font-size: 40px;
     font-weight: 400;
     line-height: 100%; 
-
+    background: linear-gradient(180deg, #FEDE4F 54.17%, #F17B13 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    */
+    text-shadow: 0px 4px 4px rgb(255, 91, 5);
+    font-family: var(--font-family02);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; 
+    background: linear-gradient(0deg, #FEDE4F 100%, #F17B13 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+  
+    /* font-family: creepster-caps;
+    font-size: 4rem;
+    font-weight: 200;
+    background: linear-gradient(164deg, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+    -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
+    filter: drop-shadow(0px 9px 6px #0A2A46);
+    letter-spacing: 2px; */
 }
 
-.label01{
+header{
+    position: absolute;
+    align-items: center;
+    /* height: 7.0vh;  /* 60px / 852px */
+    /* background-color: var(--color01, 0.85); */ 
+    width: 100vw; 
+    top: 0;
+    background-position: center;
+} 
 
 
-}
+
+.input01{
+    display: block;
+    width: 100%;
+    background-color: var(--color08);
+    border-radius: 999px;
+    padding: 5px;
     
 
 
+}
+
+
+.label01{
+    /* global label specs */
+    font-family: var(--font-family01);
+    color: var(--color06);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* mobile label specs */
+    width: 302px;
+    height: 30px;
+    font-size: 20px; 
+
+}
+
+.label-input-pair01{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+
+}
+
+.topnav{
+    /* mobile navbar specs */
+    /* mobile navbar specs */
+    /* height: 60px; */
+    background: var(--color01);
+    opacity: 85%;
+    width: 100vw;
+    height: 3.5rem;
+}
+
+
 /* -------------------------------------------------- */
-/* Ipad-version  */
+/* tablet-version  */
 /* -------------------------------------------------- */
 
-@media (min-width: 500px) and (max-width: 699px){
+@media (min-width: 500px){
+    body{
 
+        width: 100%;
+    
+    }
+      
     .button01{
-        /* Ipad button-specs */
+        /* tablet button-specs */
         width: 300px;
         height: 50px;  
-        /* Ipad font-specs */
+        /* tablet font-specs */
         font-size: 30px;
-        font-weight: 500;
-        line-height: 40px; /* 133.333% */
+        line-height: 133.333%;
     }
     
     
     .card01{
-    
+        /* tablet card-specs */
+        width: auto;
+        height: 100vh;       
     }
     
     .card02{
@@ -162,6 +305,19 @@ h1 {
     .h2-textbox{
         height: 48px;
     }
+
+    .label01{
+        /* mobile label specs */
+        width: 302px;
+        height: 30px;
+        font-size: 20px; 
+    }
+
+    .navbar{
+        height: 70px;
+    
+    }
+
 }
 
 /* -------------------------------------------------- */
@@ -170,12 +326,26 @@ h1 {
 
 @media (min-width: 701px){
 
-    .button01{
+    body{
+        width: 100%;
 
+    }
+
+    .button01{
+        /* Desktop button-specs */
+        width: 360px;
+        height: 60px;  
+        /* Desktop font-specs */
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 133.333%;
     }
     
     
     .card01{
+            /* desktop card-specs */
+        width: auto;
+        height: 100vh
     
     }
     
