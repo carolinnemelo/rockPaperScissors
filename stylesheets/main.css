@@ -72,7 +72,7 @@
 body{
     min-width: 280px;  
     width: 100%;
-    min-height: 600px;  
+    min-height: 500px;  
     position: relative;
     
     background-image: url("/rps/images/halloween.jpg");
@@ -87,8 +87,8 @@ body{
 
 
 .button01{
-    width: 122px;
-    height: 36px;
+    width: clamp(122px, 30vw, 360px);
+    height: auto;
     border-radius: 999px;
     padding: 11px 18px;
     border: none;
@@ -104,7 +104,7 @@ body{
     color: var(--color06);
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 100%;
 }
 
@@ -149,18 +149,17 @@ body{
 .empty-space01{
     grid-area: empty-space01;
     height: clamp(10px, 2vh, 50px);
-    min-height: 10px;
 }
 
 
 .empty-space02{
     grid-area: empty-space02;
-    min-height: 10px;
+    height: clamp(10px, 2vh, 50px);
 }
 
 .empty-space03{
     grid-area: empty-space03;
-    min-height: 10px;
+    height: clamp(10px, 2vh, 50px);
 }
 
 
@@ -195,7 +194,7 @@ header{
 
 .heading01{
     font-family: creepster-caps;
-    font-size: 40px;
+    font-size: clamp(40px, 8vh, 64px);    
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
@@ -214,13 +213,13 @@ header{
     height: 40px;
     border: none;
     border-radius: 20px;
-    padding: 5px;
+    padding: 7px 5px 3px 5px;
 
     background-color: var(--input-background-color);
 }
 
 .input01::placeholder{
-    padding: 12px 18px 12px 18px;
+    padding: 0px 18px;
     vertical-align: center;  
     
     font-family: Roboto;
@@ -242,7 +241,7 @@ header{
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
-    line-height: 150%;    
+    line-height: 100%;    
 }
 
 
@@ -279,32 +278,35 @@ header{
 /* Tablet-version  */
 /* -------------------------------------------------- */
 
-@media (min-width: 500px){  
+@media (min-width: 500px) and (min-height: 650px){  
         
     .button01{  
-        width: 254px;
-        height: 50px;  
         bottom: 10%;
 
         display: flex;
         justify-content: center;
         align-items: center;
         
-        font-size: 30px;
-        line-height: 133.333%;
+        font-size: 28px;
+        line-height: 100%;
     }
     
     
     .card01{
-        /* we have created responsiveness via card01 clamp-functions  */
+        height: 430px;
     }
     
+    .heading01{
+        font-size: 54px;
+    }
     
+    .input01::placeholder{
+        font-size: 18px;
+    }
+
     .label01{
-        /* mobile label specs */
-        width: 302px;
-        height: 30px;
-        font-size: 20px; 
+        height: 32px;
+        font-size: 22px; 
     }
 }
 
@@ -313,20 +315,35 @@ header{
 /* Desktop-version */
 /* -------------------------------------------------- */
 
-@media (min-width: 700px){
+@media (min-width: 700px) and (min-height: 750px){
 
     .button01{
-        width: 360px;
+       /*  width: clamp(180px, 30vw, 360px); */
         height: 60px;  
 
         font-size: 36px;
         font-weight: 500;
-        line-height: 133.333%;
+        line-height: 100%;
     }
     
     
     .card01{
-          /* we have created responsiveness via card01 clamp-functions  */
-    }    
+        height: 440px;  
+    }   
+    
+    .heading01{
+        font-size: 64px;
+    }
+
+    .input01::placeholder{
+        font-size: 20px;
+    }
+
+
+    .label01{
+        height: 35px;
+        font-size: 25px; 
+    }
+
 }
 
