@@ -37,7 +37,10 @@
     --header-background-color: rgba(10, 42, 70, 85%); 
     --card01-background-color: rgba(10, 42, 70, 85%); 
     --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
-    
+    --button01-hover-color: ;                                    /* ToDo */
+    --button01-pressed-color: ;                                    /* ToDo */
+
+
     /* Global images, icons etc */
     --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
     --background-image02: url("/rps/images/halloween-scary.jpg");
@@ -45,6 +48,20 @@
     /* Global fonts */        
     --font-family01: Roboto;
     --font-family02: creepster-caps;
+
+    /* Global font-sizes */                                        /* ToDo: Define font-sizes & adjust code in classes */  
+    --font-size01: ;  /* body-text */
+    --font-size02: ;  /* xxx */
+    --font-size03: ;
+    --font-size04: ;
+    --font-size05: ;
+    --font-size11: ;  /* h1  */
+    --font-size12: ;  /* h2  */
+    --font-size13: ;  /* h3  */
+    --font-size14: ;  /* h4  */
+    --font-size15: ;  /* h5  */
+    
+    
 }
 
 
