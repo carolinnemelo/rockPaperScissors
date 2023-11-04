@@ -10,7 +10,7 @@
    - class names must be directly understandable to all developers
    - classes are inserted in alphabetical order in each section
    - classes are styled from the outside to the inside and from the back to the front
-   - related properties are grouped together leaving an empty line between  
+   - related properties within a class are grouped together   
    
    Developers & Date for Updates:
    - Abdihakim   2023-11-02
@@ -37,8 +37,8 @@
     --header-background-color: rgba(10, 42, 70, 85%); 
     --card01-background-color: rgba(10, 42, 70, 85%); 
     --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
-    --button01-hover-color: ;                                    /* ToDo */
-    --button01-pressed-color: ;                                    /* ToDo */
+    --button01-hover-color:  rgba(241, 123, 19, 0.90);                                 
+    --button01-active-color: rgba(241, 123, 19, 1);                                
 
 
     /* Global images, icons etc */
@@ -49,7 +49,7 @@
     --font-family01: Roboto;
     --font-family02: creepster-caps;
 
-    /* Global font-sizes */                                        /* ToDo: Define font-sizes & adjust code in classes */  
+    /* Global font-sizes */            /* ToDo: Define font-sizes & adjust code in classes */  
     --font-size01: ;  /* body-text */
     --font-size02: ;  /* xxx */
     --font-size03: ;
@@ -60,8 +60,6 @@
     --font-size13: ;  /* h3  */
     --font-size14: ;  /* h4  */
     --font-size15: ;  /* h5  */
-    
-    
 }
 
 
@@ -127,6 +125,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+
+.button01:hover{
+    background-color: var(--button01-hover-color);
+    border: 1px solid var(--color06);
+}
+
+
+.button01:active{
+    background-color: var(--button01-active-color);
+    border: 2px solid var(--color06);
 }
 
 
