@@ -1,12 +1,346 @@
-/* ===================================== */
-/* THIS IS OUR MAIN STYLE SHEET */
-/* ===================================== */
+/* ================================================== */
+/* READ-ME */
+/* ================================================== */
+/* CSS File Structure: 
+   - global variables 
+   - default styling (mobile first)
+   - media-queries
+
+   Coding rules:
+   - class names must be directly understandable to all developers
+   - classes are inserted in alphabetical order in each section
+   - classes are styled from the outside to the inside and from the back to the front
+   - related properties within a class are grouped together   
+   
+   Developers & Date for Updates:
+   - Abdihakim   2023-11-02
+   - Carolinne   2023-11-02
+   - Hans-Olov   2023-11-02  
+   - Noor        2023-11-02  
 
 
-/* Reset default margins and paddings to zero */
-* {
-    margin: 0;
-    padding: 0;
+/* ================================================== */
+/* GLOBAL VARIABLES */ 
+/* ================================================== */
+
+:root{
+    /* Global colors */ 
+    --color01: rgba(10, 42, 70, 1);   
+    --color02: rgba(25, 100, 125, 1);  
+    --color03: rgba(12, 192, 200, 1);  
+    --color04: rgba(241, 123, 19, 1); 
+    --color05: rgba(254, 222, 79, 1); 
+    --color06: rgba(255, 255, 255, 1); 
+    --color07: rgba(0, 0, 0, 1); 
+    --color08: rgba(181, 192, 200, 1);
+    --input-background-color: rgba(255, 255, 255, 0.70);
+    --header-background-color: rgba(10, 42, 70, 85%); 
+    --card01-background-color: rgba(10, 42, 70, 85%); 
+    --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
+    --button01-hover-color:  rgba(241, 123, 19, 0.90);                                 
+    --button01-active-color: rgba(241, 123, 19, 1);                                
+
+
+    /* Global images, icons etc */
+    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
+    --background-image02: url("/rps/images/halloween-scary.jpg");
+
+    /* Global fonts */        
+    --font-family01: Roboto;
+    --font-family02: creepster-caps;
+
 }
 
-/*  */
+
+/* ================================================== */
+/* DEFAULT STYLING - MOBILE FIRST  */
+/* ================================================== */
+
+@font-face {
+    font-family: creepster-caps; 
+    src: url(/rps/fonts/creepster-caps.ttf);
+  }
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.body-flex-container01{
+    min-width: 280px;  
+    width: 100%;
+    min-height: 500px;  
+    position: relative;
+    
+    background-image: var(--background-image01);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+
+
+.button01{
+    width: clamp(122px, 30vw, 360px);
+    height: auto;
+    border-radius: 999px;
+    padding: 11px 18px;
+    border: none;
+    
+    background-color: var(--color04);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    font-family: var(--font-family01);
+    color: var(--color06);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+
+.button01-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button01:hover{
+    background-color: var(--button01-hover-color);
+    border: 1px solid var(--color06);
+}
+
+
+.button01:active{
+    background-color: var(--button01-active-color);
+    border: 2px solid var(--color06);
+}
+
+
+.card01{
+    width: clamp(200px, 85vw, 500px); /* 200px */
+    height: clamp(400px, 47vh, 420px); /* 400px / 852px */
+    border-radius: 20px; 
+    stroke: var(--color07);
+    stroke-width: 1px;
+    filter: drop-shadow(0px 4px 4px var(--card01-drop-shadow-color));
+    padding: 5%;
+  
+    background-color: var(--card01-background-color);
+     
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+
+.form01{
+    width: 100%;
+    margin-top: 1vh;
+    
+    display: grid;
+    align-items: center;
+}
+
+
+.empty-container01{
+    grid-area: empty-space01;
+    height: clamp(10px, 2vh, 50px);
+}
+
+
+.empty-container02{
+    grid-area: empty-space02;
+    height: clamp(10px, 2vh, 50px);
+}
+
+.empty-container03{
+    grid-area: empty-space03;
+    height: clamp(10px, 2vh, 50px);
+}
+
+
+header{    
+    width: 100%; 
+    min-width: 250px;
+    height: 7vh;  /* 60px/852px */
+    top: 0;
+    position: absolute;
+    
+    background-color: var(--header-background-color);
+    background-position: center;
+} 
+
+
+h2{
+    font-family: creepster-caps;
+    font-size: clamp(40px, 8vh, 64px);    
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    background: linear-gradient(180deg, rgba(254, 222, 77) 54%, rgba(242, 123, 18, 1) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    color: transparent;
+    -webkit-filter: drop-shadow(0px 5px 5px#0A2A46);
+    filter: drop-shadow(0px 5px 5px rgb(255, 93, 5));  
+}
+
+
+.input01{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 5px 3px 5px;
+
+    background-color: var(--input-background-color);
+}
+
+.input01::placeholder{
+    padding: 0px 18px;
+    vertical-align: center;  
+    
+    font-family: Roboto;
+    color: var(--color02);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; 
+}
+
+
+.label01{
+    display: block;
+    width: 100%;
+    height: 30px;
+
+    font-family: var(--font-family01);
+    color: var(--color06);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;    
+}
+
+
+.label-input-pair01{
+    margin-bottom: 39px;
+}
+
+
+.main-grid-container01{
+    height: 93vh; 
+    width: 100vw;
+    margin-top: 7vh;
+    justify-content: center;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1.45fr 400px 1fr auto 1fr;
+    grid-template-areas:
+    "empty-space01"
+    "card01"
+    "empty-space02"
+    "button01-container"
+    "empty-space03";
+}
+
+
+
+
+
+/* -------------------------------------------------- */
+/* Tablet-version  */
+/* -------------------------------------------------- */
+
+@media (min-width: 500px) and (min-height: 650px){  
+        
+    .button01{  
+        bottom: 10%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        font-size: 28px;
+        line-height: 100%;
+    }
+    
+    
+    .card01{
+        height: 430px;
+    }
+    
+
+    h2{
+        font-size: 54px;
+    }
+    
+
+    .input01::placeholder{
+        font-size: 18px;
+    }
+
+
+    .label01{
+        height: 32px;
+        font-size: 22px; 
+    }
+}
+
+
+/* -------------------------------------------------- */
+/* Desktop-version */
+/* -------------------------------------------------- */
+
+@media (min-width: 700px) and (min-height: 750px){
+
+    .button01{
+       /*  width: clamp(180px, 30vw, 360px); */
+        height: 60px;  
+
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 100%;
+    }
+    
+    
+    .card01{
+        height: 440px;  
+    }   
+    
+
+    h2{
+        font-size: 64px;
+    }
+
+
+    .input01::placeholder{
+        font-size: 20px;
+    }
+
+
+    .label01{
+        height: 35px;
+        font-size: 25px; 
+    }
+
+}
+
