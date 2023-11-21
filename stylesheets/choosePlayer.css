@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family01);
+
+}
+
+:root{
+    /* Global colors */ 
+    --color01: rgba(10, 42, 70, 1);   
+    --color02: rgba(25, 100, 125, 1);  
+    --color03: rgba(12, 192, 200, 1);  
+    --color04: rgba(241, 123, 19, 1); 
+    --color05: rgba(254, 222, 79, 1); 
+    --color06: rgba(255, 255, 255, 1); 
+    --color07: rgba(0, 0, 0, 1); 
+    --color08: rgba(181, 192, 200, 1);
+    --input-background-color: rgba(255, 255, 255, 0.70);
+    --header-background-color: rgba(10, 42, 70, 85%); 
+    --card01-background-color: rgba(10, 42, 70, 85%); 
+    --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
+    
+    /* Global images, icons etc */
+    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
+    --background-image02: url("/rps/images/halloween-scary.jpg");
+
+    /* Global fonts */        
+    --font-family01: Roboto;
+    --font-family02: creepster-caps;
+}
+
+@font-face {
+    src: url(../fonts/creepster-caps.ttf);
+    font-family: creepster-caps;
+}
+
+
+body {
+    background-image: url(/images/halloween.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    height: calc(100vh - 3.5rem);
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 10fr 1fr;
+
+}
+
+.mainContainer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: var(--card01-background-color);
+    border: solid red;
+    text-align: center;
+   
+
+}
+
+.mainContainer h2 {
+    font-family: creepster-caps;
+    font-size: 2.5rem;
+    font-weight: 200;
+    background: linear-gradient(164deg, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+    -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
+    filter: drop-shadow(0px 9px 6px #0A2A46);
+    letter-spacing: 2px;
+    margin: 1rem 0;
+    border: solid blueviolet;
+
+}
+
+/* ---------------- CARDS */
+
+.cardPlayer {
+    background: rgba(241, 123, 19, 0.70);
+    margin: 0 10%;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 20rem;
+    margin-top:5rem;
+
+
+}
+
+.imgPlayerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+.circleBehindPlayer {
+    position: absolute;
+    background-color: var(--color05);
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+}
+
+#playerCat {
+    z-index: 10;
+    width: 12rem;
+    height: auto;
+
+}
+
+.textPlayer {
+
+    border: solid salmon;
+    text-align: left;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.textPlayer h3 {
+    font-family: var(--font-family02);
+    font-size: 2.3rem;
+    color: var(--color01);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.textPlayer h4 {
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.spookometer {
+    display: flex;
+}
+
+.spookometer p {
+    font-size: 1.1rem;
+
+}
+
+.barSpookometer {
+    background: linear-gradient(to right, var(--color01) 5%,#0a2a4666 95%);
+    margin: .1rem .5rem 0 .5rem;
+    width: 100%;
+    height: .3rem;
+    border-radius: 1rem;
+    align-self: center;
+
+
+}
+
+.barSpookometer img {
+    width: 25%;
+    margin-top: -1rem;
+    margin-left: 2rem;
+}
+
+/* ---------------- END CARDS */
+/* ---------------- BUTTON NEXT */
+
+.button01{
+    width: clamp(122px, 30vw, 360px);
+    height: auto;
+    border-radius: 999px;
+    padding: 11px 18px;
+    border: none;
+    
+    background-color: var(--color04);
+
+    font-family: var(--font-family01);
+    color: var(--color06);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+
+.button01-container{
+    grid-row-start: 3;
+    grid-column-start: 2;
+    align-self: center;
+    justify-self: center;
+}
+/* ---------------- ENDS BUTTON NEXT */
