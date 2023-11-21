@@ -41,7 +41,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     display: grid;
-    height: calc(100vh - 3.5rem);
+    height: 100vh;
     grid-template-rows: 1fr 5fr 1fr;
     grid-template-columns: 1fr 10fr 1fr;
 
@@ -201,7 +201,7 @@ header {
     font-family: creepster-caps;
     font-size: 3rem;
     font-weight: 200;
-    background: linear-gradient(164deg, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
+    background: linear-gradient(to bottom, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -209,8 +209,12 @@ header {
     -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
     filter: drop-shadow(0px 9px 6px #0A2A46);
     letter-spacing: 2px;
-    margin: 1rem .2rem 0 .2rem; 
+    margin: 1rem auto 0 auto; 
     display: flex;
+    width: 20rem;
+
+
+
 
     
 
@@ -218,13 +222,17 @@ header {
 
 /* ---------------- CARDS */
 
+#mysteryHuman, #skellington {
+    display: none;
+}
+
 .cardPlayers {
     background: rgba(241, 123, 19, 0.70);
-    margin: 0 10%;
     border-radius: 1rem;
     padding: 1.5rem;
     height: 20rem;
-    margin: 1.5rem;
+    margin: 1.5rem auto;
+    width: 15rem;
 
 
 
@@ -292,7 +300,7 @@ header {
 .barSpookometer {
     background: linear-gradient(to right, var(--color01) 5%,#0a2a4666 95%);
     margin: .1rem .5rem 0 .5rem;
-    width: 100%;
+    width: 10rem;
     height: .3rem;
     border-radius: 1rem;
     align-self: center;
@@ -301,9 +309,9 @@ header {
 }
 
 .barSpookometer img {
-    width: 25%;
-    margin-top: -1rem;
-    margin-left: 2rem;
+    width: 2.5rem;
+    margin-top: -1.2rem;
+    margin-left: 35%;
 }
 
 /* ----- BUTTON NUNBERS */
@@ -358,3 +366,94 @@ header {
     justify-self: center;
 }
 /* ---------------- ENDS BUTTON NEXT */
+
+
+
+
+/* -------------------------------------------------- */
+/* Tablet-version  */
+/* -------------------------------------------------- */
+@media screen and (min-width: 500px) {
+    .mainContainer {
+        margin: 0 auto;
+        flex-direction: column;
+        border: solid green;
+        width: 70vw;
+    }
+
+    .mainContainer h2 {
+        width: 90%;
+        justify-content: center;
+    }
+    
+    /* ----- BUTTON NUNBERS */
+
+    .buttonsNumbersContainer {
+        width: 15rem;
+        display: flex;
+        justify-content: space-between;
+        margin: .5rem auto;
+
+    }
+
+    .buttonsNumbers {
+        width: 4.3rem;
+        height: 4.3rem;
+
+
+    }
+
+}
+
+
+/* -------------------------------------------------- */
+/* Desktop-version */
+/* -------------------------------------------------- */
+
+@media screen and (min-width: 700px) {
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+        border: solid green;
+        width: 90vw;
+    }
+
+    #mysteryHuman, #skellington {
+        display: inline;
+    }
+
+    .cardPlayers{
+
+        background-color: transparent;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        align-items: center;
+
+    }
+
+    .playerIndividualCard {
+        background: rgba(241, 123, 19, 0.70);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        height: 20rem;
+        margin: 1.5rem auto;
+        width: 20vw;
+    
+    
+    }
+
+    .playerIndividualCard:hover, .playerIndividualCard:active {
+        background-color: var(--color04);
+    }
+
+    .buttonsNumbers {
+        display: none;
+    }
+
+
+}
