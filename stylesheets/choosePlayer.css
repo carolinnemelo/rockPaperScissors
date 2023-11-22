@@ -49,14 +49,32 @@ body {
 
 header {
     grid-row-start: 1;
-    grid-row-end: 2;
+    height: 2.8rem;
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 4;
 
+    background-color: var(--card01-background-color);
 
 }
 
+footer {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-self: flex-end;
+    color: var(--color08);
+    justify-self: center;
+
+}
+footer h6 {
+    font-weight: 200;
+    font-size: .8rem;
+    margin-bottom: .5rem;
+}
+/* -------------------------------------------------- */
 /* -----------start hamburger menu CSS only */
+/* -------------------------------------------------- */
+
 :root {
     --bar-width: 35px;
     --bar-height: 6px;
@@ -101,7 +119,7 @@ header {
   content: "";
   width: var(--bar-width);
   height: var(--bar-height);
-  background-color: var(--foreground);
+  background-color: white;
   border-radius: 9999px;
   transform-origin: left center;
   transition: opacity var(--animation-timing), width var(--animation-timing),
@@ -219,8 +237,9 @@ header {
     
 
 }
-
+/* -------------------------------------------------- */
 /* ---------------- CARDS */
+/* -------------------------------------------------- */
 
 #mysteryHuman, #skellington {
     display: none;
@@ -366,7 +385,6 @@ header {
     justify-self: center;
 }
 /* ---------------- ENDS BUTTON NEXT */
-
 
 
 
