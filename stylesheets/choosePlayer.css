@@ -209,9 +209,9 @@ footer h6 {
     background-color: var(--card01-background-color);
     text-align: center;
     border-radius: 1rem;
-
+    height: 35rem;
     z-index: 1;
-
+    align-self: center;
 
 }
 
@@ -395,7 +395,7 @@ footer h6 {
     .mainContainer {
         margin: 0 auto;
         flex-direction: column;
-        border: solid green;
+
         width: 70vw;
     }
 
@@ -432,7 +432,7 @@ footer h6 {
     .mainContainer {
         display: flex;
         flex-direction: column;
-        border: solid green;
+
         width: 90vw;
     }
 

@@ -1,0 +1,152 @@
+/* -------------------------------------------------- */
+/* ---------------- weapon */
+/* -------------------------------------------------- */
+
+#circleBehindWeapons {
+    background: rgba(241, 123, 19, 0.70);
+    border-radius: 50%;
+    height: 18rem;
+    margin: 1.5rem auto;
+    width: 18rem;
+
+
+}
+
+
+
+.weaponIndividualCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+
+}
+
+.imgWeaponContainer img {
+    width: 14rem;
+    height: auto;
+    z-index: 1;
+
+
+}
+
+.textWeapon {
+
+}
+
+#weaponName {
+    font-size: 2rem;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+
+/* ----- BUTTON NUNBERS */
+
+.mobileButtonContainer {
+    width: 13rem;
+    display: flex;
+    justify-content: space-between;
+
+    margin: .5rem auto;
+    align-items: center;
+
+
+}
+
+.buttonLeftRight {
+    background-color: var(--color04);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 300;
+    color: white;
+
+
+}
+
+
+.buttonLeftRight:active {
+    background-color: var(--color05);
+}
+
+
+
+/* -------------------------------------------------- */
+/* Tablet-version  */
+/* -------------------------------------------------- */
+@media screen and (min-width: 500px) {
+    .mainContainer {
+        margin: 0 auto;
+        flex-direction: column;
+        width: 70vw;
+
+    }
+
+    .mainContainer h2 {
+        width: 90%;
+        justify-content: center;
+    }
+    
+
+
+}
+
+
+/* -------------------------------------------------- */
+/* Desktop-version */
+/* -------------------------------------------------- */
+
+@media screen and (min-width: 700px) {
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+
+        width: 90vw;
+    }
+
+    #mysteryHuman, #skellington {
+        display: inline;
+    }
+
+    .cardPlayers{
+
+        background-color: transparent;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        align-items: center;
+
+    }
+
+    .playerIndividualCard {
+        background: rgba(241, 123, 19, 0.70);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        height: 20rem;
+        margin: 1.5rem auto;
+        width: 20vw;
+    
+    
+    }
+
+    .playerIndividualCard:hover, .playerIndividualCard:active {
+        background-color: var(--color04);
+    }
+
+    .buttonsNumbers {
+        display: none;
+    }
+
+
+}
