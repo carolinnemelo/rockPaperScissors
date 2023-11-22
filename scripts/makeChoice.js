@@ -1,62 +1,60 @@
-const playerData = [
-    {
-        name: "Smelly Cat",
-        powerDescription: "Scent Conjurer",
-        image: "/images/player-cat.png",
-        Spookometer: "margin-left: 35%;",
-        rock: "/images/rock-cat.png",
-        paper: "/images/paper-cat.png", 
-        scissors: "/images/scissors-cat.png" 
+var currentWeapon = 0;
+var images = [];
+const weapons = ["ROCK", "PAPER", "SCISSORS"];
+const characterData = {
+    smellyCat: [
+        "/images/rock-cat.png",
+        "/images/paper-cat.png",
+        "/images/scissors-cat.png"
+    ],
+    skellington: [
+        "/images/rock-skeleton.png",
+        "/images/paper-skeleton.png",
+        "/images/scissors-skeleton.png"
+    ],
+    mysteryHuman: [
+        "/images/rock-human.png",
+        "/images/paper-human.png",
+        "/images/scissors-human.png"
+    ]
+};
 
-    },
-    {
-        name: "Skellington",
-        powerDescription: "Bone Control",
-        image: "/images/player-skeleton.png",
-        Spookometer: "margin-left: 40%;",
-        rock: "/images/rock-skeleton.png",
-        paper: "/images/paper-skeleton.png", 
-        scissors: "/images/scissors-skeleton.png" 
+window.onload = function () {
+    let character = sessionStorage.getItem("characterChoice");
 
-    },
-    {
-        name: "Mystery Human",
-        powerDescription: "Speedy Fingers",
-        image: "/images/player-mysteryman.png",
-        Spookometer: "margin-left: 70%;",
-        rock: "/images/rock-human.png",
-        paper: "/images/paper-human.png", 
-        scissors: "/images/scissors-human.png" 
-
+    if (character == "skellington") {
+        images = characterData.skellington;
+    } else if (character == "mysteryHuman") {
+        images = characterData.mysteryHuman;
+    } else {
+        images = characterData.smellyCat;
     }
 
-]
 
-const weapons = ["rock", "paper", "scissors"];
+    let weaponImage = document.getElementById("weaponImage");
+    weaponImage.src = images[0];
+}
 
-const weaponName = document.querySelector("#weaponName");
-const weaponElement = document.querySelector("#weapon");
-let currentWeaponIndex = 0;
-const rightBtn = document.querySelector("#buttonRight");
-const leftBtn = document.querySelector("#buttonLeft");
+document.getElementById("buttonRight").addEventListener("click", function (e) {
+    currentWeapon = (((currentWeapon + 1) % 3) + 3) % 3;
 
-function changeWeapon(steps) {
-    let selectedPlayer = playerData[1];
-    
-    currentWeaponIndex = (currentWeaponIndex + steps + weapons.length) % weapons.length;
-    let currentWeapon = weapons[currentWeaponIndex]
-    weaponElement.src = selectedPlayer[currentWeapon];
-    weaponName.textContent =  currentWeapon;
+    let weaponImage = document.getElementById("weaponImage");
+    weaponImage.src = images[currentWeapon];
 
-  }
+    let weaponName = document.getElementById("weaponName");
+    weaponName.innerText = weapons[currentWeapon];
+});
 
+document.getElementById("buttonLeft").addEventListener("click", function (e) {
+    currentWeapon = (((currentWeapon - 1) % 3) + 3) % 3;
 
+    let weaponImage = document.getElementById("weaponImage");
+    weaponImage.src = images[currentWeapon];
 
+    let weaponName = document.getElementById("weaponName");
+    weaponName.innerText = weapons[currentWeapon];
+});
 
-rightBtn.addEventListener("click", function() {
-    changeWeapon(1)
-  });
-  
-leftBtn.addEventListener("click", function() {
-    changeWeapon(-1)
-  });
+document.getElementById("playBtn").addEventListener("click", function (e) {
+    sessionStorage.setItem("weapon", weapons[currentWeapon]);
+});
