@@ -32,21 +32,31 @@ const playerData = [
 
 ]
 
+const weapons = ["rock", "paper", "scissors"];
+
+const weaponName = document.querySelector("#weaponName");
 const weaponElement = document.querySelector("#weapon");
-let currentIndex = 0;
+let currentWeaponIndex = 0;
 const rightBtn = document.querySelector("#buttonRight");
 const leftBtn = document.querySelector("#buttonLeft");
 
-function changePlayer(steps) {
-    currentIndex = (currentIndex + steps + playerData.length) % playerData.length;
-    weaponElement.src = playerData[currentIndex];
+function changeWeapon(steps) {
+    let selectedPlayer = playerData[1];
+    
+    currentWeaponIndex = (currentWeaponIndex + steps + weapons.length) % weapons.length;
+    let currentWeapon = weapons[currentWeaponIndex]
+    weaponElement.src = selectedPlayer[currentWeapon];
+    weaponName.textContent =  currentWeapon;
+
   }
 
 
+
+
 rightBtn.addEventListener("click", function() {
-    changePlayer(1)
+    changeWeapon(1)
   });
   
 leftBtn.addEventListener("click", function() {
-    changePlayer(-1)
+    changeWeapon(-1)
   });

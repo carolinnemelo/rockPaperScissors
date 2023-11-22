@@ -32,12 +32,10 @@
 
 }
 
-.textWeapon {
 
-}
 
 #weaponName {
-    font-size: 2rem;
+    font-size:  2rem;
     color: white;
     font-weight: 400;
     text-transform: uppercase;
@@ -47,7 +45,7 @@
 /* ----- BUTTON NUNBERS */
 
 .mobileButtonContainer {
-    width: 13rem;
+    width: 17rem;
     display: flex;
     justify-content: space-between;
 

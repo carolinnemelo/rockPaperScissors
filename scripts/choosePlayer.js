@@ -1,23 +1,4 @@
-// // ------------------- hamburger
 
-// document.getElementById("hamburguerId").addEventListener('click', () => {
-//     showHamburguerBar()
-// });
-
-// function showHamburguerBar() {
-//     const hamburgerBar = document.getElementById('hamburgerBar');
-//     const navElement = document.createElement('nav');
-
-//     navElement.innerHTML = `
-//             <a href="#">Home</a>
-//             <a href="#">Subscribe</a>
-//             <a href="#">Choose Player</a>
-//             <a href="#">About us</a>
-//     `;
-
-//     hamburgerBar.appendChild(navElement);
-
-// }
 
 // ------------------- cards
 
