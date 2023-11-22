@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Gabarito:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script defer src="/rps/scripts/subscribe.js"></script>
+    <script defer src="/rps/scripts/main.js"></script>
     <title>Rock-Paper-Scissors | The ultimate Halloween game </title>
 </head>
 <body class="body-flex-container01">
@@ -27,17 +28,34 @@
                 <form class="form01">
                     <div class="label-input-pair01">
                         <label class="label01" for="input-email">Email:</label>
-                        <input class= "input01" type="text" id="input-email" placeholder="Your email address" >    
+                        <input  class= "input01" 
+                                type="text" 
+                                id="input-email"
+                                name="input-email" 
+                                placeholder="Your email address" >    
                     </div>
                     <div class="label-input-pair01">
-                        <label class="label01" for="input-nick-name">Nick name:</label>
-                        <input class= "input01" type="text" id="input-nick-name" placeholder="Your nick name">    
+                        <label class="label01" for="input-nickName">Nick name:</label>
+                        <input  class= "input01" 
+                                type="text" 
+                                id="input-nickName" 
+                                name="input-nickName"
+                                placeholder="Your nick name">    
                     </div>
                     <div class="label-input-pair01">
-                        <label class="label01" for="input-rounds-number">Rounds:</label>
-                        <input class= "input01" type="text" id="input-rounds-number" placeholder="Number of play-rounds" >   
+                        <label class="label01" for="select-numberOfSets">Number of sets:</label>
+                        <select  class= "input01" 
+                                type="text" 
+                                id="select-numberOfSets" 
+                                name="select-numberOfSets" 
+                                placeholder="Choose the number of sets you want to play" > 
+                                <option value=0 selected>Choose number of sets</option>
+                                <option value=1>1</option>
+                                <option value=3>3</option>
+                                <option value=5>5</option>
+                        </select>  
                     </div>
-                    </form>
+                </form>
             </section>
             
             <section class="empty-container02">   
@@ -45,7 +63,9 @@
             
             <section class="button01-container">
                 <div>
-                    <button type="button" class="button01">Next</button>
+                    <button type="button" 
+                            class="button01"
+                            id="button-savePlayerInfoAndGoToChoosePlayerPage">Next</button>
                 </div>
             </section>  
             
