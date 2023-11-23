@@ -44,8 +44,8 @@
 
 
     /* Global images, icons etc */
-    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
-    --background-image02: url("/rps/images/halloween-scary.jpg");
+    --background-image01: url("/images/halloween.jpg"); /* url("/images/halloween.jpg"); */
+    --background-image02: url("/images/halloween-scary.jpg");
 
     /* Global fonts */        
     --font-family01: Roboto;
@@ -60,7 +60,7 @@
 
 @font-face {
     font-family: creepster-caps; 
-    src: url(/rps/fonts/creepster-caps.ttf);
+    src: url(/fonts/creepster-caps.ttf);
   }
 
 
