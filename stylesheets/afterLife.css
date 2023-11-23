@@ -1,0 +1,212 @@
+:root{
+    /* Global colors */ 
+    --color01: rgba(10, 42, 70, 1);   
+    --color02: rgba(25, 100, 125, 1);  
+    --color03: rgba(12, 192, 200, 1);  
+    --color04: rgba(241, 123, 19, 1); 
+    --color05: rgba(254, 222, 79, 1); 
+    --color06: rgba(255, 255, 255, 1); 
+    --color07: rgba(0, 0, 0, 1); 
+    --color08: rgba(181, 192, 200, 1);
+    --input-background-color: rgba(255, 255, 255, 0.70);
+    --header-background-color: rgba(10, 42, 70, 85%); 
+    --card01-background-color: rgba(10, 42, 70, 85%); 
+    --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
+    
+    /* Global images, icons etc */
+    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
+    --background-image02: url("/rps/images/halloween-scary.jpg");
+
+    /* Global fonts */        
+    --font-family01: Roboto;
+    --font-family02: creepster-caps;
+}
+
+
+
+
+
+.mainContainerBattle {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    text-align: center;
+    border-radius: 1rem;
+    height: 35rem;
+    z-index: 1;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.mainContainerBattle h1 {
+    font-family: creepster-caps;
+    font-size: 5rem;
+    font-weight: 200;
+    background: linear-gradient(to bottom, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
+    filter: drop-shadow(0px 9px 6px #0A2A46);
+    letter-spacing: 2px;
+    margin: 1rem auto 0 auto; 
+    width: 20rem;
+    animation: zoomInOut 6s ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+.scoreBoard {
+
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    column-gap: 0;
+
+    background-color: var(--color04);
+    height: 7rem;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    margin-top: -4rem;
+    border-radius: 50rem;
+    grid-column-end: 3;
+    
+}
+
+.vs h2 {
+    grid-column-start: 2;
+    color: white;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    font-weight: 400;
+    line-height: 7rem;
+    text-align: center;
+
+}
+
+#gamerSide {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+}
+
+#computerSide {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.gamerContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+
+}
+
+.gamerNameContainer {
+    display: grid;
+    grid-template-columns: 5.5rem;
+    grid-template-rows: 3rem 1rem 2rem;
+}
+
+#gamerSide img {
+    width: 5rem;
+    height: 5rem;
+    margin: auto;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+}
+
+#computerSide img {
+    width: 5rem;
+    height: 5rem;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    margin: auto;
+
+
+}
+
+.gamerContainer h3 {
+    font-family: var(--font-family02);
+    font-size: 1.3rem;
+    font-weight: 100;
+    color: var(--color01);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    grid-row-start: 1;
+    align-self: flex-end;
+
+
+}
+
+.gamerContainer h4 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    grid-row-start: 2;
+
+
+}
+
+.lifeBarContainer {
+    grid-row-start: 3;
+
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+
+}
+.lifeBar {
+    width: 100%;
+    background-color: var(--color05);
+    height: .4rem;
+    display: flex;
+    margin: 1rem 0 0 0;
+
+}
+
+.lifeBar::before {
+    content: '';
+    width: 30%;
+    height: 100%;
+    background-color: var(--color01);
+}
+
+.lifeBar::after {
+    content: '';
+    width: 30%;
+    height: 100%;
+    background-color: var(--color02);
+}
+
+
+/* -------------------------------------------------- */
+/* Animations */
+/* -------------------------------------------------- */
+
+@keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
