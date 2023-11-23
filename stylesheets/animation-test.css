@@ -8,30 +8,30 @@
     grid-template-columns:  1fr auto 1fr;  
     grid-template-rows: auto;
     grid-template-areas:
-    "left-battling-hand space-between-hands right-battling-hand";
+    "left-hand-container container-between-hands right-hand-container";
 }
     
 
-.left-battling-hand, .right-battling-hand{
+.left-hand-container, .right-hand-container{
     height: clamp(40vh 50vh 60vh);
     width: clamp(20vw 30vw 40vw);
     display: flex;
     align-items: center;
 }
 
-.space-between-hands{
+.container-between-hands{
     width: clamp(5vw 15vw 25vw);
 }
 
-.battling-hand{
+#battling-hand-left, #battling-hand-right{
     height: auto;
     width: 100%;
 }
 
 
 .trigger-animation-button{
-    width: 50px;
-    height: 20px;
+    width: 10vw;
+    height: 5vh;
 }
 
 
