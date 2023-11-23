@@ -119,7 +119,7 @@ footer h6 {
   content: "";
   width: var(--bar-width);
   height: var(--bar-height);
-  background-color: white;
+  background-color: var(--color08);
   border-radius: 9999px;
   transform-origin: left center;
   transition: opacity var(--animation-timing), width var(--animation-timing),

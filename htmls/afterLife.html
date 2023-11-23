@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle</title>
+    <link rel="stylesheet" href="/stylesheets/choosePlayer.css">
+    <link rel="stylesheet" href="/stylesheets/afterLife.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- start Hamburger menu -->
+        <label class="hamburger-menu">
+            <input type="checkbox" />
+        </label>
+        <aside class="sidebar">
+            <nav>
+                <div class="asideButton">
+                    <a href="/index.html">
+                        <h4>Start</h4>
+                    </a>
+                </div>
+                <div class="asideButton">
+                    <a href="/htmls/subscribe.html">
+                        <h4>Subscription</h4>
+                    </a>
+                </div>
+                <div class="asideButton">
+                    <a href="/htmls/choosePlayer.html">
+                        <h4>Choose player</h4>
+                    </a>
+                </div>
+                <div class="asideButton">
+                    <a href="#">
+                        <h4>About us</h4>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+        <!-- ends Hamburger menu -->
+    </header>
+
+    <!-- animation and audio -->
+    <div class="mainContainerBattle">
+        <div class="textBattle">
+            <h1>Battle for your afterlife</h1>
+        </div>
+        <!-- <audio id="battleAudio" preload="auto" autoplay>
+            <source src="/audio/Battle for your afterlife.mp3" type="audio/mpeg">
+        </audio> -->
+
+
+        <div id="battleHands">
+            
+        </div>
+    </div>
+
+    <div class="scoreBoard">
+        <div id="gamerSide" class="gamerContainer">
+            <img src="/images/player-cat.png" id="characterChoice">
+            <div class="gamerNameContainer">
+                <h3>Smelly Cat</h3>
+                <h4>John Doe</h4>
+                <div class="lifeBarContainer">
+                    <div class="lifeBar"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="vs">
+            <h2>VS</h2>
+        </div>
+        <div id="computerSide" class="gamerContainer">
+            <div class="gamerNameContainer">
+                <h3>Skellington</h3>
+                <h4>Team Enkelt</h4>
+                <div class="lifeBarContainer">            
+                    <div class="lifeBar"></div>
+
+                </div>
+            </div>
+            <img src="/images/player-cat.png" id="computerChoice">
+
+        </div>
+    </div>
+    <footer>
+        <h6>Copyright © 2023 Team Enkelt. Alla rättigheter förbehålls.</h6>
+    </footer>
+
+
+
+</body>
+</html>
