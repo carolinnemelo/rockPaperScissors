@@ -1,11 +1,3 @@
-
-/* ================================================== */
-/* TO-DO*/
-/* ================================================== */
-/* 1. Check with Abdihakim and change url in the following line:  window.location.href = "/rps/htmls/hob-test2.html"; */
-
-
-
 /* ================================================== */
 /* READ-ME */
 /* ================================================== */
@@ -64,7 +56,7 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
     mySessionObject.player.nickName = nickName;
     mySessionObject.player.numberOfSets = numberOfSets;
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    window.location.href = "/rps/htmls/hob-test2.html";
+    window.location.href = "/rps/htmls/choosePlayer.html";
 });
 
 
