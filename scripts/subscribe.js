@@ -56,7 +56,7 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
     mySessionObject.player.nickName = nickName;
     mySessionObject.player.numberOfSets = numberOfSets;
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    window.location.href = "/rps/htmls/choosePlayer.html";
+    window.location.href = "/htmls/choosePlayer.html";
 });
 
 
