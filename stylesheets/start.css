@@ -1,5 +1,5 @@
 body {
-    background-image: url(/rps/images/halloween.jpg);
+    background-image: url(/images/halloween.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body {
 }
 
 @font-face {
-    src: url(/rps/fonts/creepster-caps.ttf);
+    src: url(/fonts/creepster-caps.ttf);
     font-family: creepster-caps;
 }
 
