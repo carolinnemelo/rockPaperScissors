@@ -61,9 +61,10 @@
 
 .scoreBoard {
 
-    width: 90vw;
+    width: 98vw;
+    min-width: 390px;
     display: grid;
-    grid-template-columns: 3fr 1fr 3fr;
+    grid-template-columns: 4fr 1fr 4fr;
     grid-template-rows: 1fr;
 
     background-color: var(--color04);
@@ -79,7 +80,7 @@
 .vs h2 {
     grid-column-start: 2;
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 400;
     line-height: 7rem;
     text-align: center;
@@ -96,18 +97,20 @@
 #gamerSide.gamerContainer {
     height: 7rem;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 3fr;
     grid-template-rows: 1fr;
+
 
 }
 
 #gamerSide img {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     margin: auto;
     grid-column-start: 1;
     grid-row-start: 1;
     grid-row-end: 4;
+
     
 }
 
@@ -118,6 +121,7 @@
     color: var(--color01);
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     margin-top: 1rem;
+    height: 3rem;
 
 }
 
@@ -139,7 +143,8 @@
 #computerSide.gamerContainer {
     height: 7rem;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 3fr;
+
     grid-template-rows: 1fr;
 
 }
@@ -147,12 +152,13 @@
 
 #computerSide img {
 
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: 4;
     margin: auto;
+
 
 
 }
@@ -164,6 +170,7 @@
     color: var(--color01);
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     margin-top: 1rem;
+    height: 3rem;
 
 
 }
