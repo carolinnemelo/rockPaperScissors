@@ -42,8 +42,11 @@ body {
     background-repeat: no-repeat;
     display: grid;
     height: 100vh;
+    min-height: 800px;
+    min-width: 400px;
     grid-template-rows: 1fr 5fr 1fr;
     grid-template-columns: 1fr 10fr 1fr;
+
 
 }
 
