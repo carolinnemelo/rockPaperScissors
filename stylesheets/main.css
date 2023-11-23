@@ -44,7 +44,7 @@
 
 
     /* Global images, icons etc */
-    --background-image01: url("/images/halloween.jpg"); /* url("/images/halloween.jpg"); */
+    --background-image01: url("/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
     --background-image02: url("/images/halloween-scary.jpg");
 
     /* Global fonts */        
@@ -52,6 +52,17 @@
     --font-family02: creepster-caps;
 
 }
+
+
+/* ================================================== */
+/* HAMBURGER MENU  */
+/* ================================================== */
+
+
+
+
+
+
 
 
 /* ================================================== */
@@ -150,16 +161,6 @@
 }
 
 
-
-.form01{
-    width: 100%;
-    margin-top: 1vh;
-    
-    display: grid;
-    align-items: center;
-}
-
-
 .empty-container01{
     grid-area: empty-space01;
     height: clamp(10px, 2vh, 50px);
@@ -202,48 +203,6 @@ h2{
     color: transparent;
     -webkit-filter: drop-shadow(0px 5px 5px#0A2A46);
     filter: drop-shadow(0px 5px 5px rgb(255, 93, 5));  
-}
-
-
-.input01{
-    width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 20px;
-    background-color: var(--input-background-color);
-    padding: 0px 18px;
-    vertical-align: center;
-
-    font-family: Roboto;
-    color: var(--color02);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%; 
-}
-
-
-.input01::placeholder{
-    color: var(--color02);
-}
-
-
-.label01{
-    display: block;
-    width: 100%;
-    height: 30px;
-
-    font-family: var(--font-family01);
-    color: var(--color06);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;    
-}
-
-
-.label-input-pair01{
-    margin-bottom: 39px;
 }
 
 
@@ -295,16 +254,6 @@ h2{
         font-size: 54px;
     }
     
-
-    .input01{
-        font-size: 18px;
-    }
-
-
-    .label01{
-        height: 32px;
-        font-size: 22px; 
-    }
 }
 
 
@@ -333,16 +282,6 @@ h2{
         font-size: 64px;
     }
 
-
-    .input01{
-        font-size: 20px;
-    }
-
-
-    .label01{
-        height: 35px;
-        font-size: 25px; 
-    }
 
 }
 
