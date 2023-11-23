@@ -23,9 +23,6 @@
 }
 
 
-
-
-
 .mainContainerBattle {
     grid-row-start: 2;
     grid-row-end: 3;
@@ -66,9 +63,8 @@
 
     width: 90vw;
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 3fr 1fr 3fr;
     grid-template-rows: 1fr;
-    column-gap: 0;
 
     background-color: var(--color04);
     height: 7rem;
@@ -84,10 +80,10 @@
     grid-column-start: 2;
     color: white;
     font-size: 1.6rem;
-    border-radius: 50%;
     font-weight: 400;
     line-height: 7rem;
     text-align: center;
+
 
 }
 
@@ -97,38 +93,62 @@
 
 }
 
-#computerSide {
-    grid-column-start: 3;
-    grid-column-end: 4;
-}
-
-.gamerContainer {
-    height: 100%;
+#gamerSide.gamerContainer {
+    height: 7rem;
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
 
 }
 
-.gamerNameContainer {
-    display: grid;
-    grid-template-columns: 5.5rem;
-    grid-template-rows: 3rem 1rem 2rem;
-}
-
 #gamerSide img {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     margin: auto;
     grid-column-start: 1;
     grid-row-start: 1;
     grid-row-end: 4;
+    
+}
+
+#gamerSide.gamerContainer h3 {
+    font-family: var(--font-family02);
+    font-size: 1.3rem;
+    font-weight: 100;
+    color: var(--color01);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 1rem;
 
 }
 
+#gamerSide.gamerContainer h4 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    grid-row-start: 2;
+
+
+}
+
+#computerSide {
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+
+#computerSide.gamerContainer {
+    height: 7rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+
+
 #computerSide img {
-    width: 5rem;
-    height: 5rem;
+
+    width: 4rem;
+    height: 4rem;
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: 4;
@@ -137,19 +157,18 @@
 
 }
 
-.gamerContainer h3 {
+#computerSide.gamerContainer h3 {
     font-family: var(--font-family02);
     font-size: 1.3rem;
     font-weight: 100;
     color: var(--color01);
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    grid-row-start: 1;
-    align-self: flex-end;
+    margin-top: 1rem;
 
 
 }
 
-.gamerContainer h4 {
+#computerSide.gamerContainer h4 {
     color: white;
     font-size: 1rem;
     font-weight: 400;
@@ -210,3 +229,67 @@
     }
   }
 
+
+
+/* -------------------------------------------------- */
+/* Desktop-version */
+/* -------------------------------------------------- */
+
+@media screen and (min-width: 700px) {
+
+    .scoreBoard {
+        width: 85vw;
+    }
+
+    .vs h2 {
+        font-size: 2.3rem;
+    }
+
+
+    #gamerSide {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    
+    #gamerSide.gamerContainer {
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    #gamerSide img {
+        width: 6rem;
+        height: 6rem;        
+    }
+    
+    #gamerSide.gamerContainer h3 {
+        font-size: 2rem;
+    }
+    
+    #gamerSide.gamerContainer h4 {
+        font-size: 1.2rem;
+
+    }
+    
+    #computerSide.gamerContainer {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    
+    
+    #computerSide img {
+        width: 6rem;
+        height: 6rem;    
+    }
+    
+    #computerSide.gamerContainer h3 {
+        font-family: var(--font-family02);
+        font-size: 2rem;
+    }
+    
+    #computerSide.gamerContainer h4 {
+        font-size: 1.2rem;
+
+    }
+    
+
+
+}
