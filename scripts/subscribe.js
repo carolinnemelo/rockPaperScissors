@@ -59,7 +59,7 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
         alert("You must choose 1, 3 or 5 sets. Please try again.")
         return;
     }
-
+    /* alert("kör eventlistener-funktionen"); */
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
     mySessionObject.player.numberOfSets = numberOfSets;

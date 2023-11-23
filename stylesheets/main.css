@@ -33,7 +33,9 @@
     --color06: rgba(255, 255, 255, 1); 
     --color07: rgba(0, 0, 0, 1); 
     --color08: rgba(181, 192, 200, 1);
-    --input-background-color: rgba(255, 255, 255, 0.70);
+    /* --input-background-color: rgba(255, 255, 255, 0.70); */  
+    /* ändrade input-background-color pga av input:-internal-autofill-selected {} */
+    --input-background-color: rgba(232, 240, 254, 1.0);
     --header-background-color: rgba(10, 42, 70, 85%); 
     --card01-background-color: rgba(10, 42, 70, 85%); 
     --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
@@ -208,21 +210,21 @@ h2{
     height: 40px;
     border: none;
     border-radius: 20px;
-    padding: 7px 5px 3px 5px;
-
     background-color: var(--input-background-color);
-}
-
-.input01::placeholder{
     padding: 0px 18px;
-    vertical-align: center;  
-    
+    vertical-align: center;
+
     font-family: Roboto;
     color: var(--color02);
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 100%; 
+}
+
+
+.input01::placeholder{
+    color: var(--color02);
 }
 
 
@@ -294,7 +296,7 @@ h2{
     }
     
 
-    .input01::placeholder{
+    .input01{
         font-size: 18px;
     }
 
@@ -332,7 +334,7 @@ h2{
     }
 
 
-    .input01::placeholder{
+    .input01{
         font-size: 20px;
     }
 
