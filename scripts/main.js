@@ -40,6 +40,7 @@ let commonSessionObject = {
         email: "",
         nickName: "",
         numberOfSets: 0,
+        chosenCharacter: "",  /* Smelly Cat, Skellington or Mystery Human */
     },
     score: {
         playerPointsInSet1: 0,
