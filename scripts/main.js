@@ -39,10 +39,49 @@ let commonSessionObject = {
     player: {
         email: "",
         nickName: "",
-        numberOfSets: 0,
-        chosenCharacter: "",  /* Smelly Cat, Skellington or Mystery Human */
+        playerCharacter: "",  /* Smelly Cat, Skellington or Mystery Human */
+        characterData: {
+            smellyCat: [
+                "/images/rock-cat-LtoR.png",
+                "/images/paper-cat-LtoR.png",
+                "/images/scissors-cat-LtoR.png"
+            ],
+            skellington: [
+                "/images/rock-skeleton-LtoR.png",
+                "/images/paper-skeleton-LtoR.png",
+                "/images/scissors-skeleton-LtoR.png"
+            ],
+            mysteryHuman: [
+                "/images/rock-human-LtoR.png",
+                "/images/paper-human-LtoR.png",
+                "/images/scissors-human-LtoR.png"
+            ],
+        }
+    },
+    computer: {
+        email: "",
+        nickName: "",
+        computerCharacter: "",
+        characterData: {
+            smellyCat: [
+                "/images/rock-cat-RtoL.png",
+                "/images/paper-cat-RtoL.png",
+                "/images/scissors-cat-RtoL.png"
+            ],
+            skellington: [
+                "/images/rock-skeleton-RtoL.png",
+                "/images/paper-skeleton-RtoL.png",
+                "/images/scissors-skeleton-RtoL.png"
+            ],
+            mysteryHuman: [
+                "/images/rock-human-RtoL.png",
+                "/images/paper-human-RtoL.png",
+                "/images/scissors-human-RtoL.png"
+            ],
+        }    
     },
     score: {
+        numberOfSets: 0,
         playerPointsInSet1: 0,
         computerPointsInSet1: 0,
         playerPointsInSet2: 0,
@@ -59,7 +98,11 @@ let commonSessionObject = {
     }   
 }
 
- 
+/* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
+sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
+
+
+
 /* ================================================== */
 /* Set GLOBAL VARIABLES */ 
 /* ================================================== */
@@ -72,8 +115,7 @@ let commonSessionObject = {
 /* OTHER CODE  */ 
 /* ================================================== */
 
-/* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
-sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
+
 
 
 
