@@ -1,5 +1,14 @@
 
 
+// =======================================================================
+// Playing A Point
+// =======================================================================
+
+
+const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+
+/* sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject)); */
+ 
 
 const triggerAnimationBtn = document.querySelector("#trigger-animation-button");
 
@@ -10,51 +19,47 @@ triggerAnimationBtn.addEventListener("click", () =>{
 
 
 async function playAPoint(){
+    
     console.log("started to play a point");
     const result1 = await removeCountingHandClass();
     console.log(result1);
     const result2 = await addCountingHandClass();
     console.log(result2);
 
-
+  
 }
 
 
 
 
+function removeCountingHandClass(){
 
-  /* ----------------------------------------------------------------------- */ 
-  /* async function asyncCall() {
-    console.log('calling');
-    const result2 = await resolveAfter4Seconds();
-    console.log(result2);
-    const result1 = await resolveAfter2Seconds();
-    console.log(result1);
-  }
-  
-  
-  function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('2 seconds');
-      }, 2000);
+  return new Promise(resolve => {
+      let countingHandClassHasBeenRemoved = false;
+      while(countingHandClassHasBeenRemoved === false){
+          countingHandClassHasBeenRemoved = setTimeout(hasCountingHandClassBeenRemoved(),500);
+          let battlingHandLeft = document.querySelector("#battling-hand-left");
+          battlingHandLeft.classList.remove("counting-hand");
+          let battlingHandRight = document.querySelector("#battling-hand-right");
+          battlingHandRight.classList.remove("counting-hand");
+      }
+      resolve("removal of counting-hand class has been completed");
     });
-  }
-  function resolveAfter4Seconds() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('4 seconds');
-      }, 4000);
-    });
-  }
+};
   
- 
-  asyncCall();
-  console.log('test'); */
-  /* ----------------------------------------------------------------------- */
 
 
+function hasCountingHandClassBeenRemoved (){
+  let countingHands = document.querySelectorAll(".counting-hand");
+  console.log(countingHands);
+  if(countingHands === null){
+      return true;
+  } else {
+      return false;
+  }
+};
 
+  
 
 function addCountingHandClass(){
     
@@ -70,61 +75,9 @@ function addCountingHandClass(){
 };
 
 
-function addCountingHandClass2(){
-    
-    return new Promise(resolve => {
-            let battlingHandLeft = document.querySelector("#battling-hand-left");
-            let battlingHandRight = document.querySelector("#battling-hand-right");
-            battlingHandLeft.classList.add("counting-hand");
-            battlingHandRight.classList.add("counting-hand");  
-            resolve('addition of counting-hand class has been initiated');
-    });  
-};
-
-
-function removeCountingHandClass2(){
-
-    return new Promise(resolve => {
-        setTimeout(() => {
-            let battlingHandLeft = document.querySelector("#battling-hand-left");
-            battlingHandLeft.classList.remove("counting-hand");
-            let battlingHandRight = document.querySelector("#battling-hand-right");
-            battlingHandRight.classList.remove("counting-hand");
-          resolve("removal of counting-hand class has been initiated");
-        }, 2000);
-      });
-    ;
-};
-    
-
-function removeCountingHandClass(){
-
-    return new Promise(resolve => {
-        let countingHandClassHasBeenRemoved = false;
-        while(countingHandClassHasBeenRemoved === false){
-            countingHandClassHasBeenRemoved = setTimeout(hasCountingHandClassBeenRemoved(),500);
-            let battlingHandLeft = document.querySelector("#battling-hand-left");
-            battlingHandLeft.classList.remove("counting-hand");
-            let battlingHandRight = document.querySelector("#battling-hand-right");
-            battlingHandRight.classList.remove("counting-hand");
-        }
-        resolve("removal of counting-hand class has been completed");
-      });
-};
     
 
 
-function hasCountingHandClassBeenRemoved (){
-    let countingHands = document.querySelectorAll(".counting-hand");
-    console.log(countingHands);
-    if(countingHands === null){
-        return true;
-    } else {
-        return false;
-    }
-};
-
-    
         
 
 
@@ -147,6 +100,14 @@ function decideWinnerAndUpdateScore(response){
 
     return response;
 };
+
+
+
+
+
+
+
+
 
 
 
@@ -211,3 +172,64 @@ calculateResults() */
         countingHands.forEach(element =>{
             element.classList.remove("counting-hand"); 
         }); */
+
+
+
+        
+
+  /* ----------------------------------------------------------------------- */ 
+  /* async function asyncCall() {
+    console.log('calling');
+    const result2 = await resolveAfter4Seconds();
+    console.log(result2);
+    const result1 = await resolveAfter2Seconds();
+    console.log(result1);
+  }
+  
+  
+  function resolveAfter2Seconds() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('2 seconds');
+      }, 2000);
+    });
+  }
+  function resolveAfter4Seconds() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('4 seconds');
+      }, 4000);
+    });
+  }
+  
+ 
+  asyncCall();
+  console.log('test'); */
+  /* ----------------------------------------------------------------------- */
+
+
+/* function addCountingHandClass2(){
+    
+    return new Promise(resolve => {
+            let battlingHandLeft = document.querySelector("#battling-hand-left");
+            let battlingHandRight = document.querySelector("#battling-hand-right");
+            battlingHandLeft.classList.add("counting-hand");
+            battlingHandRight.classList.add("counting-hand");  
+            resolve('addition of counting-hand class has been initiated');
+    });  
+}; */
+
+
+/* function removeCountingHandClass2(){
+
+    return new Promise(resolve => {
+        setTimeout(() => {
+            let battlingHandLeft = document.querySelector("#battling-hand-left");
+            battlingHandLeft.classList.remove("counting-hand");
+            let battlingHandRight = document.querySelector("#battling-hand-right");
+            battlingHandRight.classList.remove("counting-hand");
+          resolve("removal of counting-hand class has been initiated");
+        }, 2000);
+      });
+    ;
+}; */
