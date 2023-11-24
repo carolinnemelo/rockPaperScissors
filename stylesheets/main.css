@@ -3,6 +3,7 @@
 /* ================================================== */
 /* CSS File Structure: 
    - global variables 
+   - hamburger-menu
    - default styling (mobile first)
    - media-queries
 
@@ -293,9 +294,18 @@
     height: clamp(10px, 2vh, 50px);
 }
 
+
 .empty-container03{
     grid-area: empty-space03;
     height: clamp(10px, 2vh, 50px);
+}
+
+
+footer h6 {
+    color: var(--color08);
+    font-weight: 200;
+    font-size: .8rem;
+    margin-bottom: .5rem;
 }
 
 
