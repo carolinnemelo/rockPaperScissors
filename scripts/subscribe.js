@@ -37,7 +37,7 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
 
     const email = document.querySelector("#input-email").value;
     const nickName = document.querySelector("#input-nickName").value;
-    const numberOfSets = document.querySelector("#select-numberOfSets").value;
+    const numberOfRounds = document.querySelector("#select-numberOfRounds").value;
     
     if(!isEmailValid(email)){
         alert("The email address is not valid. Please try again.")
@@ -47,14 +47,14 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
         alert("Nick names may only contain upper- or lower-case letters. Please try again.")
         return;
     }
-    if(!isNumberOfSetsValid(numberOfSets)){
-        alert("You must choose 1, 3 or 5 sets. Please try again.")
+    if(!isNumberOfRoundsValid(numberOfRounds)){
+        alert("You must choose a number of rounds. Please try again.")
         return;
     }
     /* alert("kör eventlistener-funktionen"); */
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
-    mySessionObject.score.numberOfSets = numberOfSets;
+    mySessionObject.score.numberOfRounds = numberOfRounds;
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/choosePlayer.html";
 });
@@ -95,8 +95,8 @@ function isNickNameValid(nickName){
 }
 
 
-function isNumberOfSetsValid(numberOfSets){
-    if(numberOfSets == null || numberOfSets == 0){
+function isNumberOfRoundsValid(numberOfRounds){
+    if(numberOfRounds == null || numberOfRounds == 0){
         return false;
     } else{
         return true;
