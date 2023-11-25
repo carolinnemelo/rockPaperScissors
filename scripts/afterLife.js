@@ -31,16 +31,26 @@ function whoIsTheWinner (computerWeapon, gamerWeapon) {
     if ((computerWeapon === 'paper' && gamerWeapon === 'rock') || 
         (computerWeapon === 'scissors' && gamerWeapon === 'paper') ||
         (computerWeapon === 'rock' && gamerWeapon === 'scissors')) {
-            return "computer"
+            return "computer";
         }else if (computerWeapon === gamerWeapon) {
             return "tie";
         } else {
-            return "gamer"
+            return "gamer";
         }
 };
 
 
+function howManyRounds() {
+//let nickName = sessionStorage.getItem("nickName");
+    let rounds = sessionStorage.getItem("rounds");
+};
+
+
+
+
+
 window.onload = async function() {
+    howManyRounds(); 
 
     const WEAPONS = ["rock", "paper", "scissors"];
 
@@ -49,21 +59,21 @@ window.onload = async function() {
 
     //let gamerCharacter = sessionStorage.getItem("characterChoice");
     let gamerCharacterId = "mysteryHuman";
+    
     //let gamerWeapon = sessionStorage.getItem("weapon"); 
     let gamerWeapon = "paper"; 
-
-    let gamerCharacter = getCharacterById(gamerCharacterId, characters);
     let computerWeapon = chooseComputerWeapon(WEAPONS);
-
+    let gamerCharacter = getCharacterById(gamerCharacterId, characters);
     let winner = whoIsTheWinner(computerWeapon, gamerWeapon);
 
-    console.log(winner);
+
+
 
     
     let characterImagePlace = document.querySelector("#characterChoice");
     let characterNamePlace = document.querySelector("#characterNamePlace");
 
-    
+
     let nickNamePlace = document.querySelector("#nickNamePlace");
     let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
     let computerCharacterImagePlace = document.querySelector("#computerChoice");
@@ -75,7 +85,29 @@ window.onload = async function() {
     nickNamePlace.textContent = nickName;
     computerCharacterNamePlace.textContent = computerCharacter.name;
     computerCharacterImagePlace.src = computerCharacter.image;
+    
+    //--------------------------------------------------
+    // change to choose rigth animation *****************ATENTION***************
+    //--------------------------------------------------
 
+    let textBattle = document.querySelector(".textBattle");
+    textBattle.addEventListener("animationend", function() {
+        showRoundWinner(winner);
+    });
 
     
+    
+};
+
+
+function showRoundWinner(winner){
+    let informationPlace = document.querySelector("#informationPlace");
+    if (winner === "computer") {
+        informationText = "Computer wins the Round";
+    } else if (winner === "tie"){
+        informationText = "Tie";
+    } else {
+        informationText = "You win";
+    };
+    informationPlace.textContent =  informationText;
 };
