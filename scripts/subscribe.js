@@ -36,6 +36,7 @@ const savePlayerInfoAndGoToChoosePlayerPageButton = document.querySelector("#but
 savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(event){
 
     const email = document.querySelector("#input-email").value;
+    alert("Email from html-element: "+email);
     const nickName = document.querySelector("#input-nickName").value;
     const numberOfRounds = document.querySelector("#select-numberOfRounds").value;
     
@@ -51,6 +52,8 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
         alert("You must choose a number of rounds. Please try again.")
         return;
     }
+    
+    alert("Email from html-element 2nd time: "+email);
     /* alert("kör eventlistener-funktionen"); */
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
@@ -109,10 +112,19 @@ function isNumberOfRoundsValid(numberOfRounds){
 /* OTHER CODE */ 
 /* ================================================== */
 
-
-
-
-
+/* 
+window.onload = function() {
+    if(!(mySessionObject.player.email === "")){
+        document.querySelector("#input-email").innerHTML = mySessionObject.player.email;
+    }
+    if(!(mySessionObject.player.email === "")){
+        document.querySelector("#input-nickName").innerHTML = mySessionObject.player.nickName;
+    }
+    if(!(mySessionObject.player.email === "")){
+        document.querySelector("#select-numberOfRounds").innerHTML = mySessionObject.player.numberOfRounds;
+    }
+};
+ */
 
 
 
