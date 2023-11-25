@@ -37,9 +37,9 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject
 
 let commonSessionObject = {
     player: {
-        email: "firstName.LastName@chasacademy.se",
-        nickName: "Nicki",
-        currentCharacterName: "skellington",  /* Smelly Cat, Skellington or Mystery Human */
+        email: "",
+        nickName: "",
+        currentCharacterName: "",  /* Smelly Cat, Skellington or Mystery Human */
         chosenWeapon: "/images/paper-skeleton-LtoR.png",
         currentRockWeapon: "/images/rock-skeleton-LtoR.png",
         currentPaperWeapon: "/images/paper-skeleton-LtoR.png",
@@ -60,7 +60,7 @@ let commonSessionObject = {
                 "/images/paper-human-LtoR.png",
                 "/images/scissors-human-LtoR.png"
             ],
-        }
+        },
     },
     computer: {
         email: "",
@@ -87,15 +87,15 @@ let commonSessionObject = {
                 "/images/paper-human-RtoL.png",
                 "/images/scissors-human-RtoL.png"
             ],
-        }    
+        },    
     },
     score: {
         numberOfRounds: 0,
         pointsForWinningTheMatch: 5,
         playerPoints: 0,
         computerPoints: 0,
-    }   
-}
+    },   
+};
 
 /* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
 sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
