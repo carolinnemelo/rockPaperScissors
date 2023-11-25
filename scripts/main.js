@@ -90,20 +90,10 @@ let commonSessionObject = {
         }    
     },
     score: {
-        numberOfSets: 0,
-        playerPointsInSet1: 0,
-        computerPointsInSet1: 0,
-        playerPointsInSet2: 0,
-        computerPointsInSet2: 0,
-        playerPointsInSet3: 0,
-        computerPointsInSet3: 0,
-        playerPointsInSet4: 0,
-        computerPointsInSet4: 0,
-        playerPointsInSet5: 0,
-        computerPointsInSet5: 0, 
-        currentSetNumber: 1,
-        playerPointsInCurrentSet: 0,
-        computerPointsInCurrentSet: 0,
+        numberOfRounds: 0,
+        pointsForWinningTheMatch: 5,
+        playerPoints: 0,
+        computerPoints: 0,
     }   
 }
 
@@ -115,6 +105,7 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionOb
 /* ================================================== */
 /* Set GLOBAL VARIABLES */ 
 /* ================================================== */
+
 
 
 
