@@ -37,9 +37,13 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject
 
 let commonSessionObject = {
     player: {
-        email: "",
-        nickName: "",
-        playerCharacter: "",  /* Smelly Cat, Skellington or Mystery Human */
+        email: "firstName.LastName@chasacademy.se",
+        nickName: "Nicki",
+        currentCharacterName: "skellington",  /* Smelly Cat, Skellington or Mystery Human */
+        chosenWeapon: "/images/paper-skeleton-LtoR.png",
+        currentRockWeapon: "/images/rock-skeleton-LtoR.png",
+        currentPaperWeapon: "/images/paper-skeleton-LtoR.png",
+        currentScissorsWeapon: "/images/scissors-skeleton-LtoR.png",
         characterData: {
             smellyCat: [
                 "/images/rock-cat-LtoR.png",
@@ -61,7 +65,12 @@ let commonSessionObject = {
     computer: {
         email: "",
         nickName: "",
-        computerCharacter: "",
+        character: "",
+        currentCharacterName: "skellington",  /* Smelly Cat, Skellington or Mystery Human */
+        chosenWeapon: "/images/scissors-skeleton-RtoL.png",
+        currentRockWeapon: "/images/rock-skeleton-RtoL.png",
+        currentPaperWeapon: "/images/paper-skeleton-RtoL.png",
+        currentScissorsWeapon: "/images/scissors-skeleton-RtoL.png",
         characterData: {
             smellyCat: [
                 "/images/rock-cat-RtoL.png",

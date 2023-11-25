@@ -54,7 +54,7 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
     /* alert("kör eventlistener-funktionen"); */
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
-    mySessionObject.player.numberOfSets = numberOfSets;
+    mySessionObject.score.numberOfSets = numberOfSets;
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/choosePlayer.html";
 });

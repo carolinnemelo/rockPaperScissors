@@ -19,12 +19,23 @@ triggerAnimationBtn.addEventListener("click", () =>{
 
 
 async function playAPoint(){
-    
     console.log("started to play a point");
+    let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
+    let computerWeapon = iscomputerWeapon(mySessionObject.computer.character);
     const result1 = await removeCountingHandClass();
     console.log(result1);
     const result2 = await addCountingHandClass();
     console.log(result2);
+    const result3 = await createTimeDelay();
+    console.log(result3);
+    const result4 = await showBattlingHands();
+    console.log(result4);
+    const result5 = await decideWinnerAndUpdateScore();
+    console.log(result5); 
+    const result6 = await switchBothHandsToRock();
+    console.log(result6);
+
+
 
   
 }
@@ -33,7 +44,6 @@ async function playAPoint(){
 
 
 function removeCountingHandClass(){
-
   return new Promise(resolve => {
       let countingHandClassHasBeenRemoved = false;
       while(countingHandClassHasBeenRemoved === false){
@@ -62,7 +72,6 @@ function hasCountingHandClassBeenRemoved (){
   
 
 function addCountingHandClass(){
-    
     return new Promise(resolve => {
         setTimeout(() => {
             let battlingHandLeft = document.querySelector("#battling-hand-left");
@@ -77,31 +86,82 @@ function addCountingHandClass(){
 
     
 
-
+function createTimeDelay(){
+  return new Promise(resolve => {
+    setTimeout(() => {
+        resolve('enough time has lapsed for hands to count 1-2-3');
+    }, 3000);
+});  
+}
         
 
 
-function computerChoosesHand(response){
-
-     /* use random function to decide the chosen hand by the computer */
-
-    return response;      
-};
 
 
 function decideWinnerAndUpdateScore(response){
+    return new Promise(resolve => {
+      let playerCurrentWeapon = mySessionObject.player.currentWeapon;
+      let computerCurrentWeapon = mySessionObject.computer.currentWeapon;
 
-        /* determine who won the point */
-        /* update the score */
+      if (playerCurrentWeapon.includes("/r") && computerCurrentWeapon.inludes("/s")){
+        playerWinsThePoint();
+      }
+      if (playerCurrentWeapon.includes("/r") && computerCurrentWeapon.includes("/p")){
+        computerWinsThePoint();
+      }
+      if(playerCurrentWeapon.includes("/p") && computerCurrentWeapon.includes("/r")){
+        playerWinsThePoint()
+      }
+      if(playerCurrentWeapon.includes("/p") && computerCurrentWeapon.includes("/s")){
+        computerWinsThePoint()
+      }
+      if(playerCurrentWeapon.includes("/s") && computerCurrentWeapon.includes("/p")){
+        playerWinsThePoint()
+      }
+      if(playerCurrentWeapon.includes("/s") && computerCurrentWeapon.includes("/r")){
+        computerWinsThePoint()
+      }
+      else{
+        nobodyWinsThePoint()
+      }  
+    resolve("winner of the point has been determined and score has been updated");
+  });
+
+
+    
+
 
     /* check if someone has won the set and/or the match */
 
     /* communicate if som */
 
-    return response;
 };
 
 
+function playerWinsThePoint(){
+
+  
+
+};
+
+function computerWinsThePoint(){
+
+};
+
+function nobodyWinsThePoint(){
+
+};
+
+
+function switchBothHandsToRock(){
+  return new Promise(resolve => {
+    setTimeout(() => {
+        document.querySelector("#battling-hand-left").src = mySessionObject.player.currentRockWeapon;
+        document.querySelector("#battling-hand-right").src = mySessionObject.computer.currentRockWeapon;
+        resolve('both hands have switch back to rock-weapon');
+    }, 0);
+});  
+}
 
 
 
