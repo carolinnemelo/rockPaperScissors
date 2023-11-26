@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family01);
+
+}
+
+:root{
+    /* Global colors */ 
+    --color01: rgba(10, 42, 70, 1);   
+    --color02: rgba(25, 100, 125, 1);  
+    --color03: rgba(12, 192, 200, 1);  
+    --color04: rgba(241, 123, 19, 1); 
+    --color05: rgba(254, 222, 79, 1); 
+    --color06: rgba(255, 255, 255, 1); 
+    --color07: rgba(0, 0, 0, 1); 
+    --color08: rgba(181, 192, 200, 1);
+    --input-background-color: rgba(255, 255, 255, 0.70);
+    --header-background-color: rgba(10, 42, 70, 85%); 
+    --card01-background-color: rgba(10, 42, 70, 85%); 
+    --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
+    
+    /* Global images, icons etc */
+    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
+    --background-image02: url("/rps/images/halloween-scary.jpg");
+
+    /* Global fonts */        
+    --font-family01: Roboto;
+    --font-family02: creepster-caps;
+}
+
+@font-face {
+    src: url(../fonts/creepster-caps.ttf);
+    font-family: creepster-caps;
+}
+
+
+body {
+    background-image: url(/images/halloween.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    height: 100vh;
+    min-height: 800px;
+    min-width: 400px;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 10fr 1fr;
+
+
+}
+
+header {
+    grid-row-start: 1;
+    height: 2.8rem;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    background-color: var(--card01-background-color);
+
+}
+
+footer {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-self: flex-end;
+    color: var(--color08);
+    justify-self: center;
+
+}
+footer h6 {
+    font-weight: 200;
+    font-size: .8rem;
+    margin-bottom: .5rem;
+}
+/* -------------------------------------------------- */
+/* -----------start hamburger menu CSS only */
+/* -------------------------------------------------- */
+
+:root {
+    --bar-width: 35px;
+    --bar-height: 6px;
+    --hamburger-gap: 6px;
+    --foreground: var(--color01);
+    --background: #0A2A46;
+    --hamburger-margin: 8px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+  --x-width: calc(
+    var(--hamburger-height) * 1.41411356237); /* $c_1=c_2$ $h = \sqrt{c_1^2+c_2^2} = \sqrt{c_1^2+c_1^2} = \sqrt{2c_1^2} = \sqrt{2} \sqrt{c_1^2} = c_1 \sqrt{2}$ */
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top: var(--hamburger-margin);
+  left: var(--hamburger-margin);
+  z-index: 11;
+  cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+  --foreground: white;
+  --background: #333;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--color08);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing),
+    background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  transition: translate var(--animation-timing);
+  translate: -100%;
+  padding: 0.5rem 0rem;
+  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  background-color: var(--foreground);
+  color: var(--background);
+  width: 15rem;
+  height: 100vh;
+  border: 0;
+  position: absolute;
+  z-index: 10;
+  
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+  translate: 0;
+
+}
+
+.asideButton {
+    padding: 1.4rem 1rem;
+    display: flex;
+    border: none;
+
+}
+
+.asideButton:hover, .asideButton:active {
+    background-color: var(--color04);
+
+
+}
+
+.asideButton a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.asideButton h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+
+}
+/* -----------end hamburger menu CSS only */
+
+
+.mainContainer {
+    
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: var(--card01-background-color);
+    text-align: center;
+    border-radius: 1rem;
+    height: 35rem;
+    z-index: 1;
+    align-self: center;
+
+}
+
+.mainContainer h2 {
+    font-family: creepster-caps;
+    font-size: 3rem;
+    font-weight: 200;
+    background: linear-gradient(to bottom, rgba(254, 222, 79, 1) 22%, rgba(241, 123, 19, 1) 81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+    -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
+    filter: drop-shadow(0px 9px 6px #0A2A46);
+    letter-spacing: 2px;
+    margin: 1rem auto 0 auto; 
+    display: flex;
+    width: 20rem;
+
+
+
+
+    
+
+}
+/* -------------------------------------------------- */
+/* ---------------- CARDS */
+/* -------------------------------------------------- */
+
+#mysteryHuman, #skellington {
+    display: none;
+}
+
+.cardPlayers {
+    background: rgba(241, 123, 19, 0.70);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 20rem;
+    margin: 1.5rem auto;
+    width: 15rem;
+
+
+
+
+}
+
+
+
+.imgPlayerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+.circleBehindPlayer {
+    position: absolute;
+    background-color: var(--color05);
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+
+
+    
+}
+
+#playerCat {
+    width: 12rem;
+    height: auto;
+    z-index: 1;
+
+}
+
+.textPlayer {
+    text-align: left;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.textPlayer h3 {
+    font-family: var(--font-family02);
+    font-size: 2.3rem;
+    color: var(--color01);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.textPlayer h4 {
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.spookometer {
+    display: flex;
+}
+
+.spookometer p {
+    font-size: 1.1rem;
+
+}
+
+.barSpookometer {
+    background: linear-gradient(to right, var(--color01) 5%,#0a2a4666 95%);
+    margin: .1rem .5rem 0 .5rem;
+    width: 10rem;
+    height: .3rem;
+    border-radius: 1rem;
+    align-self: center;
+
+
+}
+
+.barSpookometer img {
+    width: 2.5rem;
+    margin-top: -1.2rem;
+    margin-left: 35%;
+}
+
+/* ----- BUTTON NUNBERS */
+
+.buttonsNumbersContainer {
+    width: 13rem;
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem auto;
+
+}
+
+.buttonsNumbers {
+    background-color: var(--color05);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+}
+
+
+.buttonsNumbers:active {
+    background-color: var(--color04);
+}
+
+/* ---------------- END CARDS */
+/* ---------------- BUTTON NEXT */
+
+.button01{
+    width: clamp(122px, 30vw, 360px);
+    height: auto;
+    border-radius: 999px;
+    padding: 11px 18px;
+    border: none;
+    
+    background-color: var(--color04);
+
+    font-family: var(--font-family01);
+    color: var(--color06);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+
+.button01-container{
+    grid-row-start: 3;
+    grid-column-start: 2;
+    align-self: center;
+    justify-self: center;
+}
+/* ---------------- ENDS BUTTON NEXT */
+
+
+
+/* -------------------------------------------------- */
+/* Tablet-version  */
+/* -------------------------------------------------- */
+@media screen and (min-width: 500px) {
+    .mainContainer {
+        margin: 0 auto;
+        flex-direction: column;
+
+        width: 70vw;
+    }
+
+    .mainContainer h2 {
+        width: 90%;
+        justify-content: center;
+    }
+    
+    /* ----- BUTTON NUNBERS */
+
+    .buttonsNumbersContainer {
+        width: 15rem;
+        display: flex;
+        justify-content: space-between;
+        margin: .5rem auto;
+
+    }
+
+    .buttonsNumbers {
+        width: 4.3rem;
+        height: 4.3rem;
+
+
+    }
+
+}
+
+
+/* -------------------------------------------------- */
+/* Desktop-version */
+/* -------------------------------------------------- */
+
+@media screen and (min-width: 700px) {
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+
+        width: 90vw;
+    }
+
+    #mysteryHuman, #skellington {
+        display: inline;
+    }
+
+    .cardPlayers{
+
+        background-color: transparent;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        align-items: center;
+
+    }
+
+    .playerIndividualCard {
+        background: rgba(241, 123, 19, 0.70);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        height: 20rem;
+        margin: 1.5rem auto;
+        width: 20vw;
+    
+    
+    }
+
+    .playerIndividualCard:hover, .playerIndividualCard:active {
+        background-color: var(--color04);
+    }
+
+    .buttonsNumbers {
+        display: none;
+    }
+
+
+}
