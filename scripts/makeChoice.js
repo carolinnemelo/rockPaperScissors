@@ -62,3 +62,10 @@ document.getElementById("playBtn").addEventListener("click", function (e) {
     document.getElementById("scoreBoardContainer").style.display = "grid";
     document.getElementById("animationContainer").style.display = "flex";
 });
+
+document.querySelector(".textBattle").addEventListener("animationend", function () {
+    document.getElementById("weaponContainer").style.display = "unset";
+    document.getElementById("playBtnContainer").style.display = "unset";
+    document.getElementById("scoreBoardContainer").style.display = "none";
+    document.getElementById("animationContainer").style.display = "none";
+});
