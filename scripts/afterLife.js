@@ -1,11 +1,4 @@
-// na hora que a pagina carrega 
 
-const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-if(testSessionObject === null){
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
-}
-/* Get the commonSessionObject and parse it to a javascript-object */
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 
 
 async function loadData() {
@@ -27,7 +20,7 @@ function assignComputerCharacter(characters) {
     
     //pega a quantidade de rounds que vai ter na partida do objeto que foi pego do session 
     function howManyRounds() {
-    rounds = mySessionObject.score.numberOfRounds;
+        return mySessionObject.score.numberOfRounds;
     };
     
  
@@ -50,7 +43,7 @@ function assignComputerCharacter(characters) {
 // no play o computador escolhe sua arma
 function getCharacterByName(name, characters) {
     for (let character of characters) {
-        if (character.name === name) {
+        if (character.name.toLowerCase() === name.toLowerCase()) {
             return character;
         }
     }
@@ -91,8 +84,8 @@ function writesWhoIsRoundWinner(roundWinner) {
 
 function changeScore(roundWinner) {
 
-    gamerScore = mySessionObject.score.playerPoints;
-    computerScore = mySessionObject.score.computerPoints;
+    let gamerScore = mySessionObject.score.playerPoints;
+    let computerScore = mySessionObject.score.computerPoints;
 
     if (roundWinner === "computer") {
         computerScore = computerScore + 1;
@@ -114,23 +107,26 @@ function changeScore(roundWinner) {
 //checks if the match is done
 function whatIsMatchStatus(rounds, computerScore, gamerScore) {
     if(computerScore > (rounds / 2)) {
-        matchStatus = "computer wins the match";
+        alert("computer wins the match");
     } else if (gamerScore > (rounds / 2)) {
-        matchStatus = "You win the match";
-    } else {
-        matchStatus = "Match is not finished";
+        alert("You win the match");
     }
 };
 
 
-window.onload = async function() {
+async function afterLifeOnLoad() {
+    
+    // let textBattle = document.querySelector("#textBattle");
+    // textBattle.addEventListener("animationend", function() {
+    //     let weaponContainer = document.querySelector(".weaponContainer");
+    //     weaponContainer.style.visibility = visible;
+    // });
     
     
-    
-    const WEAPONS = ["rock", "paper", "scissors"];
     let characters = await loadData();
-    let rounds = howManyRounds(); 
 
+    mySessionObject.score.playerPoints = 0;
+    mySessionObject.score.computerPoints = 0;
     
     //gamer scoreboard
     
@@ -158,41 +154,27 @@ window.onload = async function() {
     let computerCharacterImagePlace = document.querySelector("#computerChoice");
     computerCharacterImagePlace.src = computerCharacter.image;
     
-    let gamerWeapon = mySessionObject.player.currentWeapon; 
-    
-    
-    
-    let playBtn = document.querySelector("#playBtn");
-    
-    let computerWeapon = "";
-    playBtn.addEventListener("click", function() {
-        whatIsMatchStatus(rounds, computerScore, gamerScore);
-        computerWeapon = chooseComputerWeapon(WEAPONS);
-    });
 
 // after hands animation should display who is the round winner and change the score.
 
     let handsAnimationContainer = document.querySelector("#battling-hand-right");
 
-    handsAnimationContainer.addEventListener("animationend", function (params) {
-        let roundWinner = whoIsTheRoundWinner(computerWeapon, currentWeaponName.toLowerCase());
-        writesWhoIsRoundWinner(roundWinner);
+    handsAnimationContainer.addEventListener("animationend", function () {
         changeScore(roundWinner);
-        console.log('hej');
+        whatIsMatchStatus(howManyRounds(), mySessionObject.score.computerPoints, mySessionObject.score.playerPoints);
     });
 
 };
 
+
+document.querySelector(".textBattle").addEventListener("animationend", function () {
+    document.querySelector(".textBattle").style.display = "none";
+});
+
+
 /* ==================================== */
 /* Counting Hands Animation */
 /* ==================================== */
-
-
-const triggerAnimationBtn = document.querySelector("#playBtn");
-
-triggerAnimationBtn.addEventListener("click", () => {
-    playARound();
-});
 
 
 

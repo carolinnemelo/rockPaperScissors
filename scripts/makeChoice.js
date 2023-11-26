@@ -8,8 +8,11 @@ const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectIn
 
 
 var currentWeapon = 0;
+var currentWeaponName = "";
+var computerWeapon = "";
+var roundWinner = '';
 var images = [];
-const weapons = ["ROCK", "PAPER", "SCISSORS"];
+const WEAPONS = ["rock", "paper", "scissors"];
 const characterData = {
     smellyCat: [
         "/images/rock-cat.png",
@@ -28,7 +31,7 @@ const characterData = {
     ]
 };
 
-window.onload = function () {
+function setWeaponImage() {
     let character = mySessionObject.player.currentCharacterName;
 
     if (character == "skellington") {
@@ -41,14 +44,7 @@ window.onload = function () {
 
     let weaponImage = document.getElementById("weaponImage");
     weaponImage.src = images[0];
-
-    let textBattle = document.querySelector(".textBattle");
-    textBattle.addEventListener("animationend", function(e){
-        let weaponContainer = document.querySelector(".weaponContainer");
-        weaponContainer.style.visibility = visible;
-    });
-
-}
+};
 
 document.getElementById("buttonRight").addEventListener("click", function (e) {
     currentWeapon = (((currentWeapon + 1) % 3) + 3) % 3;
@@ -57,7 +53,7 @@ document.getElementById("buttonRight").addEventListener("click", function (e) {
     weaponImage.src = images[currentWeapon];
 
     let weaponName = document.getElementById("weaponName");
-    weaponName.innerText = weapons[currentWeapon];
+    weaponName.innerText = WEAPONS[currentWeapon];
 });
 
 document.getElementById("buttonLeft").addEventListener("click", function (e) {
@@ -67,24 +63,49 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
     weaponImage.src = images[currentWeapon];
 
     let weaponName = document.getElementById("weaponName");
-    weaponName.innerText = weapons[currentWeapon];
+    weaponName.innerText = WEAPONS[currentWeapon];
 });
 
-let currentWeaponName = "";
-document.getElementById("playBtn").addEventListener("click", function (e) {
-    currentWeaponName = weapons[currentWeapon];
+document.getElementById("playBtn").addEventListener("click", async function (e) {
+    currentWeaponName = WEAPONS[currentWeapon];
+    computerWeapon = chooseComputerWeapon(WEAPONS);
+
+    mySessionObject.player.currentWeapon = currentWeaponName;
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    hideWeaponContainer();
+    
+    roundWinner = whoIsTheRoundWinner(computerWeapon, currentWeaponName.toLowerCase());
+    writesWhoIsRoundWinner(roundWinner);
+
+    await playARound();
+});
+
+
+function hideWeaponContainer() {
     document.getElementById("weaponContainer").style.display = "none";
     document.getElementById("playBtnContainer").style.display = "none";
     document.getElementById("scoreBoardContainer").style.display = "grid";
     document.getElementById("animationContainer").style.display = "flex";
-    mySessionObject.player.currentWeapon = currentWeaponName;
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-});
+}
 
-document.querySelector(".textBattle").addEventListener("animationend", function () {
+function showWeaponContainer() {
     document.getElementById("weaponContainer").style.display = "unset";
     document.getElementById("playBtnContainer").style.display = "unset";
     if (screen.width < 601)
         document.getElementById("scoreBoardContainer").style.display = "none";
     document.getElementById("animationContainer").style.display = "none";
+}
+
+document.querySelector(".textBattle").addEventListener("animationend", function () {
+    showWeaponContainer();
 });
+
+document.querySelector("#battling-hand-right").addEventListener("animationend", function () {
+    showWeaponContainer();
+});
+
+window.onload = async function () {
+    hideWeaponContainer();
+    await afterLifeOnLoad();
+    setWeaponImage();
+};
