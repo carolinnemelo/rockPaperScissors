@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Gabarito:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script defer src="/scripts/subscribe.js"></script>
     <script defer src="/scripts/main.js"></script>
+    <script defer src="/scripts/subscribe.js"></script>
     <title>Rock-Paper-Scissors | The ultimate Halloween game </title>
 </head>
 <body class="body-flex-container01">
     
-        <header>
-           <!-- start Hamburger menu -->
+    <!-- start Hamburger menu -->
+    <header>
         <label class="hamburger-menu">
             <input type="checkbox" />
         </label>
@@ -33,18 +33,24 @@
                 </div>
                 <div class="asideButton">
                     <a href="/htmls/choosePlayer.html">
-                        <h4>Choose player</h4>
+                        <h4>Choose your avatar</h4>
                     </a>
                 </div>
                 <div class="asideButton">
-                    <a href="#">
+                    <a href="/htmls/afterLife.html">
+                        <h4>Battle</h4>
+                    </a>
+                </div>
+
+                <div class="asideButton">
+                    <a href="/htmls/aboutUs.html">
                         <h4>About us</h4>
                     </a>
                 </div>
             </nav>
         </aside>
-        <!-- ends Hamburger menu -->
-        </header>
+    </header>
+    <!-- ends Hamburger menu -->
     
         <main class="main-grid-container01">
             <section class="empty-container01">
@@ -70,16 +76,18 @@
                                 placeholder="Your nick name">    
                     </div>
                     <div class="label-input-pair01">
-                        <label class="label01" for="select-numberOfSets">Number of sets:</label>
+                        <label class="label01" for="select-numberOfRounds">Number of rounds:</label>
                         <select  class= "input01" 
                                 type="text" 
-                                id="select-numberOfSets" 
-                                name="select-numberOfSets" 
-                                placeholder="Choose number of sets" > 
-                                <option value=0 selected>Choose number of sets</option>
+                                id="select-numberOfRounds" 
+                                name="select-numberOfRounds" 
+                                placeholder="Choose number of rounds" > 
+                                <option value=0 selected>Choose number of rounds</option>
                                 <option value=1>1</option>
-                                <option value=3>3</option>
                                 <option value=5>5</option>
+                                <option value=7>7</option>
+                                <option value=11>11</option>
+                                <option value=9999>9999</option>
                         </select>  
                     </div>
                 </form>
@@ -98,11 +106,12 @@
             
             <section class="empty-container03">   
             </section>
+            <footer class="copyright-container">
+                <h6>Copyright © 2023 Team Enkelt. Alla rättigheter förbehålls.</h6>
+            </footer>
         </main>
    
-        <footer>
-            <h6>Copyright © 2023 Team Enkelt. Alla rättigheter förbehålls.</h6>
-        </footer>
+       
     
 </body>
 </html>

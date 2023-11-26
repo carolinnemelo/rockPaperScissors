@@ -37,9 +37,10 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject
 
 let commonSessionObject = {
     player: {
-        email: "firstName.LastName@chasacademy.se",
-        nickName: "Nicki",
-        currentCharacterName: "skellington",  /* Smelly Cat, Skellington or Mystery Human */
+        email: "",
+        nickName: "",
+        characterChoiceId: "",  /* smellyCat, skellington or mysteryHuman */ //called it ID
+        currentWeapon: "",
         chosenWeapon: "/images/paper-skeleton-LtoR.png",
         currentRockWeapon: "/images/rock-skeleton-LtoR.png",
         currentPaperWeapon: "/images/paper-skeleton-LtoR.png",
@@ -60,7 +61,7 @@ let commonSessionObject = {
                 "/images/paper-human-LtoR.png",
                 "/images/scissors-human-LtoR.png"
             ],
-        }
+        },
     },
     computer: {
         email: "",
@@ -87,25 +88,15 @@ let commonSessionObject = {
                 "/images/paper-human-RtoL.png",
                 "/images/scissors-human-RtoL.png"
             ],
-        }    
+        },    
     },
     score: {
-        numberOfSets: 0,
-        playerPointsInSet1: 0,
-        computerPointsInSet1: 0,
-        playerPointsInSet2: 0,
-        computerPointsInSet2: 0,
-        playerPointsInSet3: 0,
-        computerPointsInSet3: 0,
-        playerPointsInSet4: 0,
-        computerPointsInSet4: 0,
-        playerPointsInSet5: 0,
-        computerPointsInSet5: 0, 
-        currentSetNumber: 1,
-        playerPointsInCurrentSet: 0,
-        computerPointsInCurrentSet: 0,
-    }   
-}
+        numberOfRounds: 0,
+        pointsForWinningTheMatch: 5,
+        playerPoints: 0,
+        computerPoints: 0,
+    },   
+};
 
 /* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
 sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
@@ -115,6 +106,7 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionOb
 /* ================================================== */
 /* Set GLOBAL VARIABLES */ 
 /* ================================================== */
+
 
 
 

@@ -15,15 +15,22 @@
 /* OBJECTS from sessionStorage */ 
 /* ================================================== */
 
-/* Get the data from commonSessionObjectInSS that exists in sessionStorage */
+/* IMPORTANT - for this to work, the page needs to  have following as the first script-connection in your html-file*/
+/* <script src="/scripts/main.js" defer></script> */
+/* Check if the commonSessionObject has been created. If not, create it*/
+const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+if(testSessionObject === null){
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
+}
+/* Get the commonSessionObject and parse it to a javascript-object */
 const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+
 
 
 /* ================================================== */
 /* OBJECTS from HTML file */ 
 /* ================================================== */
 
-/* Get the button from exists in the html file */
 const savePlayerInfoAndGoToChoosePlayerPageButton = document.querySelector("#button-savePlayerInfoAndGoToChoosePlayerPage");
 
 
@@ -37,8 +44,8 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
 
     const email = document.querySelector("#input-email").value;
     const nickName = document.querySelector("#input-nickName").value;
-    const numberOfSets = document.querySelector("#select-numberOfSets").value;
-    
+    const numberOfRounds = document.querySelector("#select-numberOfRounds").value;
+
     if(!isEmailValid(email)){
         alert("The email address is not valid. Please try again.")
         return;
@@ -47,15 +54,16 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
         alert("Nick names may only contain upper- or lower-case letters. Please try again.")
         return;
     }
-    if(!isNumberOfSetsValid(numberOfSets)){
-        alert("You must choose 1, 3 or 5 sets. Please try again.")
+    if(!isNumberOfRoundsValid(numberOfRounds)){
+        alert("You must choose a number of rounds. Please try again.")
         return;
     }
-    /* alert("kör eventlistener-funktionen"); */
+    
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
-    mySessionObject.score.numberOfSets = numberOfSets;
+    mySessionObject.score.numberOfRounds = parseInt(numberOfRounds);
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    /* checkSessionStorage(); */
     window.location.href = "/htmls/choosePlayer.html";
 });
 
@@ -95,8 +103,8 @@ function isNickNameValid(nickName){
 }
 
 
-function isNumberOfSetsValid(numberOfSets){
-    if(numberOfSets == null || numberOfSets == 0){
+function isNumberOfRoundsValid(numberOfRounds){
+    if(numberOfRounds == null || numberOfRounds == 0){
         return false;
     } else{
         return true;
@@ -110,9 +118,13 @@ function isNumberOfSetsValid(numberOfSets){
 /* ================================================== */
 
 
-
-
-
-
-
+function checkSessionStorage(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const mySessionObject2 = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+            alert("retrieved object from sessionStorage: "+mySessionObject2.player.email+" "+mySessionObject2.player.nickName+" "+mySessionObject2.score.numberOfRounds);
+            resolve('sessionStorage contents');
+        }, 2000);
+    });  
+};
 

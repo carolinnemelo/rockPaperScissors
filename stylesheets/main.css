@@ -282,6 +282,13 @@
     flex-shrink: 0;
 }
 
+.copyright-container{
+    width: clamp(200px, 85vw, 500px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 .empty-container01{
     grid-area: empty-space01;
@@ -345,13 +352,14 @@ h2{
 
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1.45fr 400px 1fr auto 1fr;
+    grid-template-rows: 1.45fr 400px 1fr auto 1fr 20px;
     grid-template-areas:
     "empty-space01"
     "card01"
     "empty-space02"
     "button01-container"
-    "empty-space03";
+    "empty-space03"
+    "copyright-container";
 }
 
 

@@ -5,42 +5,38 @@
 // =======================================================================
 
 
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+const commonSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 
-/* sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject)); */
+
+/* sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject)); */
  
 
 const triggerAnimationBtn = document.querySelector("#trigger-animation-button");
 
 triggerAnimationBtn.addEventListener("click", () =>{   
-    playAPoint();
+    playARound();
 });
     
 
 
-async function playAPoint(){
+async function playARound(){
     console.log("started to play a point");
-    let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
-    let computerWeapon = iscomputerWeapon(mySessionObject.computer.character);
+    /* let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
+    let computerWeapon = iscomputerWeapon(commonSessionObject.computer.character);
+ */    
     const result1 = await removeCountingHandClass();
     console.log(result1);
     const result2 = await addCountingHandClass();
     console.log(result2);
-    const result3 = await createTimeDelay();
+    /* const result3 = await createTimeDelay();
     console.log(result3);
     const result4 = await showBattlingHands();
     console.log(result4);
     const result5 = await decideWinnerAndUpdateScore();
     console.log(result5); 
     const result6 = await switchBothHandsToRock();
-    console.log(result6);
-
-
-
-  
+    console.log(result6); */
 }
-
-
 
 
 function removeCountingHandClass(){
@@ -84,24 +80,30 @@ function addCountingHandClass(){
 };
 
 
-    
-
 function createTimeDelay(){
   return new Promise(resolve => {
     setTimeout(() => {
         resolve('enough time has lapsed for hands to count 1-2-3');
-    }, 3000);
+    }, 2000);
 });  
 }
         
 
+function switchBothHandsToRock(){
+  return new Promise(resolve => {
+    setTimeout(() => {
+        document.querySelector("#battling-hand-left").src = commonSessionObject.player.currentRockWeapon;
+        document.querySelector("#battling-hand-right").src = commonSessionObject.computer.currentRockWeapon;
+        resolve('both hands have switch back to rock-weapon');
+    }, 0);
+  });
+}  
 
 
-
-function decideWinnerAndUpdateScore(response){
+/* function decideWinnerAndUpdateScore(response){
     return new Promise(resolve => {
-      let playerCurrentWeapon = mySessionObject.player.currentWeapon;
-      let computerCurrentWeapon = mySessionObject.computer.currentWeapon;
+      let playerCurrentWeapon = commonSessionObject.player.currentWeapon;
+      let computerCurrentWeapon = commonSessionObject.computer.currentWeapon;
 
       if (playerCurrentWeapon.includes("/r") && computerCurrentWeapon.inludes("/s")){
         playerWinsThePoint();
@@ -127,23 +129,45 @@ function decideWinnerAndUpdateScore(response){
     resolve("winner of the point has been determined and score has been updated");
   });
 
-
-    
-
-
     /* check if someone has won the set and/or the match */
 
     /* communicate if som */
 
-};
+/* };
+ */
 
 
-function playerWinsThePoint(){
+
+
+/* function playerWinsThePoint(){
+
+  let playerPointsInCurrentSet = commonSessionObject.score.playerPointsInCurrentSet;
+  playerPointsInCurrentSet++;
+  commonSessionObject.score.playerPointsInCurrentSet = playerPointsInCurrentSet;
+  document.querySelector("#playerPointsInCurrentSet").innerHTML = playerPointsInCurrentSet;
+      
+
+
+  if (playerScore == commonSessionObject.score.pointsForWinningASet){
+  
+    let playerSetsWonInCurrentMatch = commonSessionObject.score.playerSetsWonInCurrentMatch;
+    playerSetsWonInCurrentMatch++;
+    commonSessionObject.score.playerSetsWonInCurrentMatch = playerSetsWonInCurrentMatch;
+    
+    if(commonSessionObject.score.numberOfSets > commonSessionObject.score.numberOfSets / 2){
+      
+      congratulatePlayerForWinningTheMatch();
+    }  
+    
+    commonSessionObject.score.currentSetNumber++;
+    
+    commonSessionObject.score.playerPointsInCurrentSet = 0
 
   
+  sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
+}; */
 
-};
-
+/* 
 function computerWinsThePoint(){
 
 };
@@ -152,16 +176,18 @@ function nobodyWinsThePoint(){
 
 };
 
+function congratulatePlayerForWinningTheMatch(){
 
-function switchBothHandsToRock(){
-  return new Promise(resolve => {
-    setTimeout(() => {
-        document.querySelector("#battling-hand-left").src = mySessionObject.player.currentRockWeapon;
-        document.querySelector("#battling-hand-right").src = mySessionObject.computer.currentRockWeapon;
-        resolve('both hands have switch back to rock-weapon');
-    }, 0);
-});  
-}
+
+};
+
+
+function congratulatePlayerForWinningASet(){
+
+}; */
+
+
+
 
 
 

@@ -18,8 +18,8 @@
 </head>
 
 <body>
+    <!-- start Hamburger menu -->
     <header>
-        <!-- start Hamburger menu -->
         <label class="hamburger-menu">
             <input type="checkbox" />
         </label>
@@ -37,18 +37,24 @@
                 </div>
                 <div class="asideButton">
                     <a href="/htmls/choosePlayer.html">
-                        <h4>Choose player</h4>
+                        <h4>Choose your avatar</h4>
                     </a>
                 </div>
                 <div class="asideButton">
-                    <a href="#">
+                    <a href="/htmls/afterLife.html">
+                        <h4>Battle</h4>
+                    </a>
+                </div>
+
+                <div class="asideButton">
+                    <a href="/htmls/aboutUs.html">
                         <h4>About us</h4>
                     </a>
                 </div>
             </nav>
         </aside>
-        <!-- ends Hamburger menu -->
     </header>
+    <!-- ends Hamburger menu -->
 
     <!-- animation and audio -->
     <div class="mainContainerBattle">
@@ -59,17 +65,30 @@
             <source src="/audio/Battle for your afterlife.mp3" type="audio/mpeg">
         </audio> -->
 
-
         <div id="battleHands">
+            <button id="trigger-animation-button">Trigger Animation</button>
 
+            <div class="grid-container-for-battling-hands">
+                <div class="left-hand-container">
+                    <img id="battling-hand-left" src="/images/rock-skeleton-LtoR.png" alt="left hand">  
+                </div>
+                <div class="container-between-hands"></div>
+                <div class="right-hand-container">
+                    <img id="battling-hand-right" src="/images/rock-human-RtoL.png" alt="right hand">
+                </div>
+            </div> 
         </div>
 
+        <div class="informationContainer">
+            <h2 id="informationPlace"></h2>
+        </div>
 
+        
     </div>
 
     <div class="scoreBoard" id="scoreBoardContainer">
         <div id="gamerSide" class="gamerContainer">
-            <img src="/images/player-cat.png" id="characterChoice">
+            <img src="" id="characterChoice">
             <div class="gamerNameContainer">
                 <h3 id="characterNamePlace">Smelly Cat</h3>
                 <h4 id="nickNamePlace">John Doe</h4>
@@ -77,20 +96,22 @@
                     <div class="lifeBar"></div>
                 </div>
             </div>
-
+            <p id="gamerScore">0</p>
         </div>
         <div class="vs">
             <h2>VS</h2>
         </div>
         <div id="computerSide" class="gamerContainer">
+            <p id="computerScore">0</p>
             <div class="gamerNameContainer">
-                <h3 id="computerCharacterNamePlace">Skellington</h3>
+                <h3 id="computerCharacterNamePlace"></h3>
                 <h4>Enkelt</h4>
                 <div class="lifeBarContainer">
                     <div class="lifeBar"></div>
 
                 </div>
             </div>
+
             <img src="" id="computerChoice">
 
         </div>
