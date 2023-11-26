@@ -31,7 +31,6 @@ const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectIn
 /* OBJECTS from HTML file */ 
 /* ================================================== */
 
-/* Get the button from exists in the html file */
 const savePlayerInfoAndGoToChoosePlayerPageButton = document.querySelector("#button-savePlayerInfoAndGoToChoosePlayerPage");
 
 
@@ -44,10 +43,9 @@ const savePlayerInfoAndGoToChoosePlayerPageButton = document.querySelector("#but
 savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(event){
 
     const email = document.querySelector("#input-email").value;
-    alert("Email from html-element: "+email);
     const nickName = document.querySelector("#input-nickName").value;
     const numberOfRounds = document.querySelector("#select-numberOfRounds").value;
-    
+
     if(!isEmailValid(email)){
         alert("The email address is not valid. Please try again.")
         return;
@@ -61,12 +59,11 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
         return;
     }
     
-    alert("Email from html-element 2nd time: "+email);
-    /* alert("kör eventlistener-funktionen"); */
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
-    mySessionObject.score.numberOfRounds = numberOfRounds;
+    mySessionObject.score.numberOfRounds = parseInt(numberOfRounds);
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    /* checkSessionStorage(); */
     window.location.href = "/htmls/choosePlayer.html";
 });
 
@@ -120,19 +117,14 @@ function isNumberOfRoundsValid(numberOfRounds){
 /* OTHER CODE */ 
 /* ================================================== */
 
-/* 
-window.onload = function() {
-    if(!(mySessionObject.player.email === "")){
-        document.querySelector("#input-email").innerHTML = mySessionObject.player.email;
-    }
-    if(!(mySessionObject.player.email === "")){
-        document.querySelector("#input-nickName").innerHTML = mySessionObject.player.nickName;
-    }
-    if(!(mySessionObject.player.email === "")){
-        document.querySelector("#select-numberOfRounds").innerHTML = mySessionObject.player.numberOfRounds;
-    }
+
+function checkSessionStorage(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const mySessionObject2 = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+            alert("retrieved object from sessionStorage: "+mySessionObject2.player.email+" "+mySessionObject2.player.nickName+" "+mySessionObject2.score.numberOfRounds);
+            resolve('sessionStorage contents');
+        }, 2000);
+    });  
 };
- */
-
-
 
