@@ -39,7 +39,7 @@ let commonSessionObject = {
     player: {
         email: "",
         nickName: "",
-        currentCharacterName: "",  /* Smelly Cat, Skellington or Mystery Human */
+        currentCharacterName: "Smelly Cat",  /* Smelly Cat, Skellington or Mystery Human */
         currentWeapon: "",
         chosenWeapon: "/images/paper-skeleton-LtoR.png",
         currentRockWeapon: "/images/rock-skeleton-LtoR.png",

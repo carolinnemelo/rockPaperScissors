@@ -43,27 +43,11 @@
     //open container with weapons
 
 
-
-//AGORA O EVENTO É QUANDO acaba a 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function getCharacterById(id, characters) {
+// o gamer escolhe a arma e aperta play
+// no play o computador escolhe sua arma
+function getCharacterByName(name, characters) {
     for (let character of characters) {
-        if (character.id === id) {
+        if (character.name === name) {
             return character;
         }
     }
@@ -75,75 +59,7 @@ function chooseComputerWeapon(weapons) {
     return weapons[computerWeaponIndex];
 };
 
-
-
-
-
-window.onload = async function() {
-    
-    
-    
-   // const WEAPONS = ["rock", "paper", "scissors"];
-    let characters = await loadData();
-    let rounds = howManyRounds(); 
-
-    
-    //gamer scoreboard
-    
-    let nickNamePlace = document.querySelector("#nickNamePlace");
-    nickNamePlace.textContent = mySessionObject.player.nickName;
-
-    let gamerCharacter = mySessionObject.player.currentCharacterName;
-    
-    let gamerCharacterImagePlace = document.querySelector("#characterChoice");
-    gamerCharacterImagePlace.src = gamerCharacter.image;
-
-    let gamerCharacterNamePlace = document.querySelector("#characterNamePlace");
-    gamerCharacterNamePlace.textContent = gamerCharacter.name;
-
-    
-    
-    //computer scoreboard 
-    
-    let computerCharacter = assignComputerCharacter(characters);
-    
-    let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
-    computerCharacterNamePlace.textContent = computerCharacter.name;
-    
-
-    let computerCharacterImagePlace = document.querySelector("#computerChoice");
-    computerCharacterImagePlace.src = computerCharacter.image;
-
-
-
-
-let playBtn = document.querySelector("#battleHands");
-playBtn.addEventListener("animationend", function() {
-   showRoundWinner(roundWinner);
-   changeScore(roundWinner);
-
-});
-
-};
-
-//let gamerWeapon = sessionStorage.getItem("weapon"); 
-//   let gamerWeapon = "paper"; 
-// let computerWeapon = chooseComputerWeapon(WEAPONS);
-//  let roundWinner = whoIsTheRoundWinner(computerWeapon, gamerWeapon);
-
-let textBattle = document.querySelector(".textBattle");
-textBattle.addEventListener("animationend", function() {
-   showRoundWinner(roundWinner);
-   changeScore(roundWinner);
-
-});
-//fazer um event listenenr do botao play 
-    
-    
-
-
-// after the animation comes the container with the weapons 
-
+// quem vai ganhar o round
 
 function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
     if ((computerWeapon === 'paper' && gamerWeapon === 'rock') ||
@@ -157,7 +73,8 @@ function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
     }
 };
 
-function showRoundWinner(roundWinner) {
+// writes in the screen who is the round winner 
+function writesWhoIsRoundWinner(roundWinner) {
     let informationPlace = document.querySelector("#informationPlace");
     if (roundWinner === "computer") {
         informationText = "Computer wins the Round";
@@ -191,35 +108,78 @@ function changeScore(roundWinner) {
 
 };
 
-function whatIsCurrentRound(rounds, matchStatus) {
-    if (rounds === 1) {
-        whatIsMatchStatus();
-    } else if (rounds === 5) {
 
-    }
-}
-
+//checks if the match is done
 function whatIsMatchStatus(rounds, computerScore, gamerScore) {
     if(computerScore > (rounds / 2)) {
-        matchStatus = "computer wins";
+        matchStatus = "computer wins the match";
     } else if (gamerScore > (rounds / 2)) {
-        matchStatus = "gamer wins";
+        matchStatus = "You win the match";
     } else {
         matchStatus = "Match is not finished";
     }
 };
 
 
+window.onload = async function() {
+    
+    
+    
+    const WEAPONS = ["rock", "paper", "scissors"];
+    let characters = await loadData();
+    let rounds = howManyRounds(); 
 
-function backToWeaponsPage(rounds) {
-    if (rounds > 1) {
+    
+    //gamer scoreboard
+    
+    let nickNamePlace = document.querySelector("#nickNamePlace");
+    nickNamePlace.textContent = mySessionObject.player.nickName;
 
-    } else {
-        // matchWinner();
-    }
+    let gamerCharacter = getCharacterByName(mySessionObject.player.currentCharacterName, characters);
+    
+    let gamerCharacterImagePlace = document.querySelector("#characterChoice");
+    gamerCharacterImagePlace.src = gamerCharacter.image;
+
+    let gamerCharacterNamePlace = document.querySelector("#characterNamePlace");
+    gamerCharacterNamePlace.textContent = gamerCharacter.name;
+
+    
+    
+    //computer scoreboard 
+    
+    let computerCharacter = assignComputerCharacter(characters);
+    
+    let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
+    computerCharacterNamePlace.textContent = computerCharacter.name;
+    
+
+    let computerCharacterImagePlace = document.querySelector("#computerChoice");
+    computerCharacterImagePlace.src = computerCharacter.image;
+    
+    let gamerWeapon = mySessionObject.player.currentWeapon; 
+    
+    
+    
+    let playBtn = document.querySelector("#playBtn");
+    
+    let computerWeapon = "";
+    playBtn.addEventListener("click", function() {
+        whatIsMatchStatus(rounds, computerScore, gamerScore);
+        computerWeapon = chooseComputerWeapon(WEAPONS);
+    });
+
+// after hands animation should display who is the round winner and change the score.
+
+    let handsAnimationContainer = document.querySelector("#battleHands");
+
+    handsAnimationContainer.addEventListener("animationend", function (params) {
+        let roundWinner = whoIsTheRoundWinner(computerWeapon, currentWeaponName.toLowerCase());
+        writesWhoIsRoundWinner(roundWinner);
+        changeScore(roundWinner);
+        console.log('chamado iiii');
+    });
+
 };
-
-
 
 /* ==================================== */
 /* Counting Hands Animation */
