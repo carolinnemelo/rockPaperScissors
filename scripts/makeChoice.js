@@ -55,8 +55,9 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
     weaponName.innerText = weapons[currentWeapon];
 });
 
+let currentWeaponName = "";
 document.getElementById("playBtn").addEventListener("click", function (e) {
-    sessionStorage.setItem("weapon", weapons[currentWeapon]);
+    currentWeaponName = weapons[currentWeapon];
     document.getElementById("weaponContainer").style.display = "none";
     document.getElementById("playBtnContainer").style.display = "none";
     document.getElementById("scoreBoardContainer").style.display = "grid";
