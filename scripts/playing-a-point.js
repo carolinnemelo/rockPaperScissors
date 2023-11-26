@@ -36,13 +36,7 @@ async function playARound(){
     console.log(result5); 
     const result6 = await switchBothHandsToRock();
     console.log(result6); */
-
-
-
-  
 }
-
-
 
 
 function removeCountingHandClass(){
@@ -86,8 +80,6 @@ function addCountingHandClass(){
 };
 
 
-    
-
 function createTimeDelay(){
   return new Promise(resolve => {
     setTimeout(() => {
@@ -97,7 +89,15 @@ function createTimeDelay(){
 }
         
 
-
+function switchBothHandsToRock(){
+  return new Promise(resolve => {
+    setTimeout(() => {
+        document.querySelector("#battling-hand-left").src = commonSessionObject.player.currentRockWeapon;
+        document.querySelector("#battling-hand-right").src = commonSessionObject.computer.currentRockWeapon;
+        resolve('both hands have switch back to rock-weapon');
+    }, 0);
+  });
+}  
 
 
 /* function decideWinnerAndUpdateScore(response){
@@ -136,16 +136,6 @@ function createTimeDelay(){
 /* };
  */
 
-
-function switchBothHandsToRock(){
-  return new Promise(resolve => {
-    setTimeout(() => {
-        document.querySelector("#battling-hand-left").src = commonSessionObject.player.currentRockWeapon;
-        document.querySelector("#battling-hand-right").src = commonSessionObject.computer.currentRockWeapon;
-        resolve('both hands have switch back to rock-weapon');
-    }, 0);
-  });
-}  
 
 
 

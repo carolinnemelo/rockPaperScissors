@@ -111,3 +111,98 @@ function showRoundWinner(winner){
     };
     informationPlace.textContent =  informationText;
 };
+
+/* ==================================== */
+/* Counting Hands Animation */
+/* ==================================== */
+
+
+const triggerAnimationBtn = document.querySelector("#trigger-animation-button");
+
+triggerAnimationBtn.addEventListener("click", () =>{   
+    playARound();
+});
+    
+
+
+async function playARound(){
+    console.log("started to play a point");
+    /* let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
+    let computerWeapon = iscomputerWeapon(commonSessionObject.computer.character);
+ */    
+    const result1 = await removeCountingHandClass();
+    console.log(result1);
+    const result2 = await addCountingHandClass();
+    console.log(result2);
+    /* const result3 = await createTimeDelay();
+    console.log(result3);
+    const result4 = await showBattlingHands();
+    console.log(result4);
+    const result5 = await decideWinnerAndUpdateScore();
+    console.log(result5); 
+    const result6 = await switchBothHandsToRock();
+    console.log(result6); */
+}
+
+
+function removeCountingHandClass(){
+  return new Promise(resolve => {
+      let countingHandClassHasBeenRemoved = false;
+      while(countingHandClassHasBeenRemoved === false){
+          countingHandClassHasBeenRemoved = setTimeout(hasCountingHandClassBeenRemoved(),500);
+          let battlingHandLeft = document.querySelector("#battling-hand-left");
+          battlingHandLeft.classList.remove("counting-hand");
+          let battlingHandRight = document.querySelector("#battling-hand-right");
+          battlingHandRight.classList.remove("counting-hand");
+      }
+      resolve("removal of counting-hand class has been completed");
+    });
+};
+
+
+function hasCountingHandClassBeenRemoved (){
+  let countingHands = document.querySelectorAll(".counting-hand");
+  console.log(countingHands);
+  if(countingHands === null){
+      return true;
+  } else {
+      return false;
+  }
+};
+
+
+function addCountingHandClass(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            let battlingHandLeft = document.querySelector("#battling-hand-left");
+            let battlingHandRight = document.querySelector("#battling-hand-right");
+            battlingHandLeft.classList.add("counting-hand");
+            battlingHandRight.classList.add("counting-hand");  
+            resolve('addition of counting-hand class has been initiated');
+        }, 0);
+    });  
+};
+
+
+function createTimeDelay(){
+  return new Promise(resolve => {
+    setTimeout(() => {
+        resolve('enough time has lapsed for hands to count 1-2-3');
+    }, 2000);
+});  
+}
+        
+
+function switchBothHandsToRock(){
+  return new Promise(resolve => {
+    setTimeout(() => {
+        document.querySelector("#battling-hand-left").src = commonSessionObject.player.currentRockWeapon;
+        document.querySelector("#battling-hand-right").src = commonSessionObject.computer.currentRockWeapon;
+        resolve('both hands have switch back to rock-weapon');
+    }, 0);
+  });
+}  
+
+/* ==================================== */
+
+
