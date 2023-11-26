@@ -8,27 +8,18 @@ if(testSessionObject === null){
 const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 
 
-    //pega o nickname do objeto que foi pego do sesssion
+async function loadData() {
+    const response = await fetch("/data/charactersData.json");
+    return await response.json();
 
-    // pega o arquivo json com os avatares
-    async function loadData() {
-        const response = await fetch("/data/charactersData.json");
-        return await response.json();
-    
-    }
+}
 
-    // COLOCAR VARIAVEL QUE PEGA O AVATAR DO GAMER NO OBJTO
-    //coloca a foto do avatar 
-    //coloca o nome do avatar
-    //PEGA O NOME DO GAMer
-    // coloca o nome do gamer
 
-    // o computador escolhe o avatar dele
-    function assignComputerCharacter(characters) {
-        let computerCharacterIndex = Math.floor(Math.random() * characters.length);
-        return characters[computerCharacterIndex];
-    
-    };
+function assignComputerCharacter(characters) {
+    let computerCharacterIndex = Math.floor(Math.random() * characters.length);
+    return characters[computerCharacterIndex];
+
+};
 
     //coloca a foto do avatar do computer
     //coloca o nome do avatar do computer
@@ -71,7 +62,6 @@ function chooseComputerWeapon(weapons) {
     return weapons[computerWeaponIndex];
 };
 
-// quem vai ganhar o round
 
 function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
     if ((computerWeapon === 'paper' && gamerWeapon === 'rock') ||
@@ -85,7 +75,7 @@ function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
     }
 };
 
-// writes in the screen who is the round winner 
+
 function writesWhoIsRoundWinner(roundWinner) {
     let informationPlace = document.querySelector("#informationPlace");
     if (roundWinner === "computer") {
@@ -188,7 +178,7 @@ window.onload = async function() {
         let roundWinner = whoIsTheRoundWinner(computerWeapon, currentWeaponName.toLowerCase());
         writesWhoIsRoundWinner(roundWinner);
         changeScore(roundWinner);
-        console.log('chamado iiii');
+        console.log('hej');
     });
 
 };
