@@ -39,7 +39,14 @@ const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectIn
     rounds = mySessionObject.score.numberOfRounds;
     };
     
+ 
+
     
+
+
+
+
+
     
     //animacao battle for your life
 
