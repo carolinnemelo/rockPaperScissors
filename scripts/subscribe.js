@@ -18,7 +18,7 @@
 /* IMPORTANT - for this to work, the page needs to  have following as the first script-connection in your html-file*/
 /* <script src="/scripts/main.js" defer></script> */
 /* Check if the commonSessionObject has been created. If not, create it*/
-const testSessionObject = commonSessionObject;
+const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 if(testSessionObject === null){
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
 }
