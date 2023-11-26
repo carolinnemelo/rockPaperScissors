@@ -9,7 +9,6 @@
     z-index: 1;
     align-self: center;
     margin-bottom: 1rem;
-
 }
 
 .weaponContainer h2 {
@@ -95,6 +94,37 @@
     color: white;
     font-weight: 400;
     text-transform: uppercase;
+}
+
+
+.mobileButtonContainer {
+    width: 17rem;
+    display: flex;
+    justify-content: space-between;
+
+    margin: .5rem auto;
+    align-items: center;
+
+
+}
+
+.buttonLeftRight {
+    background-color: var(--color04);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 300;
+    color: white;
+
+
+}
+
+
+.buttonLeftRight:active {
+    background-color: var(--color05);
 }
 
 
