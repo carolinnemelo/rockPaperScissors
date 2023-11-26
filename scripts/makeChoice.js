@@ -104,6 +104,12 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
     showWeaponContainer();
 });
 
+
+//---------------------------------
+//-----------WINDOW.ONLOAD---------
+//---------------------------------
+
+
 window.onload = async function () {
     hideWeaponContainer();
     await afterLifeOnLoad();

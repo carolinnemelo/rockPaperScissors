@@ -1,12 +1,8 @@
-
-
-
 async function loadData() {
     const response = await fetch("/data/charactersData.json");
     return await response.json();
 
 }
-
 
 function assignComputerCharacter(characters) {
     let computerCharacterIndex = Math.floor(Math.random() * characters.length);
@@ -14,33 +10,10 @@ function assignComputerCharacter(characters) {
 
 };
 
-    //coloca a foto do avatar do computer
-    //coloca o nome do avatar do computer
+function howManyRounds() {
+    return mySessionObject.score.numberOfRounds;
+};
 
-    
-    //pega a quantidade de rounds que vai ter na partida do objeto que foi pego do session 
-    function howManyRounds() {
-        return mySessionObject.score.numberOfRounds;
-    };
-    
- 
-
-    
-
-
-
-
-
-    
-    //animacao battle for your life
-
-// AGORANO EVENT LISTENER QUE VEM DEPOIS DA ANIMACAO DO BATTLE
-    // Match Start
-    //open container with weapons
-
-
-// o gamer escolhe a arma e aperta play
-// no play o computador escolhe sua arma
 function getCharacterByName(name, characters) {
     for (let character of characters) {
         if (character.name.toLowerCase() === name.toLowerCase()) {
