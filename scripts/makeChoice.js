@@ -57,4 +57,8 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
 
 document.getElementById("playBtn").addEventListener("click", function (e) {
     sessionStorage.setItem("weapon", weapons[currentWeapon]);
+    document.getElementById("weaponContainer").style.display = "none";
+    document.getElementById("playBtnContainer").style.display = "none";
+    document.getElementById("scoreBoardContainer").style.display = "grid";
+    document.getElementById("animationContainer").style.display = "flex";
 });

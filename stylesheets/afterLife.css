@@ -1,23 +1,24 @@
-:root{
-    /* Global colors */ 
-    --color01: rgba(10, 42, 70, 1);   
-    --color02: rgba(25, 100, 125, 1);  
-    --color03: rgba(12, 192, 200, 1);  
-    --color04: rgba(241, 123, 19, 1); 
-    --color05: rgba(254, 222, 79, 1); 
-    --color06: rgba(255, 255, 255, 1); 
-    --color07: rgba(0, 0, 0, 1); 
+:root {
+    /* Global colors */
+    --color01: rgba(10, 42, 70, 1);
+    --color02: rgba(25, 100, 125, 1);
+    --color03: rgba(12, 192, 200, 1);
+    --color04: rgba(241, 123, 19, 1);
+    --color05: rgba(254, 222, 79, 1);
+    --color06: rgba(255, 255, 255, 1);
+    --color07: rgba(0, 0, 0, 1);
     --color08: rgba(181, 192, 200, 1);
     --input-background-color: rgba(255, 255, 255, 0.70);
-    --header-background-color: rgba(10, 42, 70, 85%); 
-    --card01-background-color: rgba(10, 42, 70, 85%); 
-    --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
-    
+    --header-background-color: rgba(10, 42, 70, 85%);
+    --card01-background-color: rgba(10, 42, 70, 85%);
+    --card01-drop-shadow-color: rgba(0, 0, 0, 0.25);
+
     /* Global images, icons etc */
-    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
+    --background-image01: url("/rps/images/halloween.jpg");
+    /* url("/rps/images/halloween.jpg"); */
     --background-image02: url("/rps/images/halloween-scary.jpg");
 
-    /* Global fonts */        
+    /* Global fonts */
     --font-family01: Roboto;
     --font-family02: creepster-caps;
 }
@@ -34,7 +35,7 @@
     height: 35rem;
     z-index: 1;
     align-self: center;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
 
@@ -52,17 +53,19 @@
     -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
     filter: drop-shadow(0px 9px 6px #0A2A46);
     letter-spacing: 2px;
-    margin: 1rem auto 0 auto; 
+    margin: 1rem auto 0 auto;
     width: 20rem;
     animation: zoomInOut 6s ease-in-out;
     animation-fill-mode: forwards;
 
 }
-.mainContainerBattle .informationContainer{
+
+.mainContainerBattle .informationContainer {
     position: absolute;
     margin-left: ;
 
 }
+
 .mainContainerBattle h2 {
     font-family: creepster-caps;
     font-size: 3rem;
@@ -71,7 +74,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    margin:  auto;
+    margin: auto;
     -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
     filter: drop-shadow(0px 9px 6px #0A2A46);
 
@@ -81,7 +84,7 @@
 
     width: 98vw;
     min-width: 390px;
-    display: grid;
+    display: none;
     grid-template-columns: 4fr 1fr 4fr;
     grid-template-rows: 1fr;
 
@@ -92,7 +95,7 @@
     margin-top: -4rem;
     border-radius: 50rem;
     grid-column-end: 3;
-    
+
 }
 
 .vs h2 {
@@ -131,7 +134,7 @@
     margin-left: 1rem;
     margin-right: .5rem;
 
-    
+
 }
 
 #gamerSide.gamerContainer h3 {
@@ -162,7 +165,8 @@
 
 }
 
-p#gamerScore, p#computerScore  {
+p#gamerScore,
+p#computerScore {
     font-size: 2rem;
     text-align: center;
     color: white;
@@ -228,6 +232,30 @@ p#gamerScore, p#computerScore  {
     align-items: center;
     justify-content: center;
 
+
+}
+
+.lifeBar {
+    width: 100%;
+    background-color: var(--color05);
+    height: .4rem;
+    display: flex;
+    margin: 1rem 0 0 0;
+
+}
+
+.lifeBar::before {
+    content: '';
+    width: 30%;
+    height: 100%;
+    background-color: var(--color01);
+}
+
+.lifeBar::after {
+    content: '';
+    width: 30%;
+    height: 100%;
+    background-color: var(--color02);
 }
 
 
@@ -237,82 +265,119 @@ p#gamerScore, p#computerScore  {
 
 @keyframes zoomInOut {
     0% {
-      transform: scale(1);
-      opacity: 0;
+        transform: scale(1);
+        opacity: 0;
     }
+
     50% {
-      transform: scale(1.2);
-      opacity: 1;
+        transform: scale(1.2);
+        opacity: 1;
     }
+
     100% {
-      transform: scale(1);
-      opacity: 0;
+        transform: scale(1);
+        opacity: 0;
     }
-  }
+}
 
 
 /* ==================================================== */
 /* Battling Hands */
 /* ==================================================== */
 
-.grid-container-for-battling-hands{
-    height: 50vh; 
+.grid-container-for-battling-hands {
+    height: 50vh;
     width: 100vw;
     /* margin-top: 7vh; */
     justify-content: center;
 
     display: grid;
-    grid-template-columns:  1fr auto 1fr;  
+    grid-template-columns: 1fr auto 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "left-hand-container container-between-hands right-hand-container";
+        "left-hand-container container-between-hands right-hand-container";
 }
-    
 
-.left-hand-container, .right-hand-container{
+
+.left-hand-container,
+.right-hand-container {
     height: clamp(20vh 30vh 40vh);
     width: clamp(20vw 30vw 40vw);
     display: flex;
     align-items: center;
 }
 
-.container-between-hands{
+.container-between-hands {
     width: clamp(5vw 15vw 25vw);
 }
 
-#battling-hand-left, #battling-hand-right{
+#battling-hand-left,
+#battling-hand-right {
     height: auto;
     width: 100%;
 }
 
 
-.trigger-animation-button{
+.trigger-animation-button {
     width: 10vw;
     height: 5vh;
 }
 
 
-.counting-hand{        /*denna klass läggs till hos och tas bort från de html-element (händerna) som ska röra sig upp och ner tre gånger*/
+.counting-hand {
+    /*denna klass läggs till hos och tas bort från de html-element (händerna) som ska röra sig upp och ner tre gånger*/
     animation: hand-123-count 0.5s;
     animation-iteration-count: 3;
-  }
-  
-  
-  @keyframes hand-123-count {
-    0% { transform: translate(0vh, -5vh) rotate(0deg); }
-    10% { transform: translate(0vh, -6vh) rotate(-1deg); }
-    20% { transform: translate(0vh, -7vh) rotate(1deg); }
-    30% { transform: translate(0vh, -8vh) rotate(0deg); }
-    40% { transform: translate(0vh, -9vh) rotate(1deg); }
-    50% { transform: translate(0vh, -10vh) rotate(-1deg); }
-    60% { transform: translate(-1px, 1px) rotate(0deg); }
-    70% { transform: translate(1px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 1px) rotate(0deg); }
-    100% { transform: translate(1px, -1px) rotate(-1deg); }
-  }
-  
-  /* ============================================================ */
+}
+
+
+@keyframes hand-123-count {
+    0% {
+        transform: translate(0vh, -5vh) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(0vh, -6vh) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(0vh, -7vh) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(0vh, -8vh) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(0vh, -9vh) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(0vh, -10vh) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-1px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(1px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -1px) rotate(-1deg);
+    }
+}
+
+/* ============================================================ */
 
 
 
@@ -332,39 +397,52 @@ p#gamerScore, p#computerScore  {
         font-size: 2.3rem;
     }
 
-  
+
+    #gamerSide {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    #gamerSide.gamerContainer {
+        grid-template-columns: 1fr 2fr;
+    }
+
     #gamerSide img {
         margin-left: 2rem;
         width: 6rem;
-        height: 6rem;        
+        height: 6rem;
     }
-    
+
     #gamerSide.gamerContainer h3 {
         font-size: 2rem;
     }
-    
+
     #gamerSide.gamerContainer h4 {
         font-size: 1.2rem;
 
     }
-  
-    
-    
+
+    #computerSide.gamerContainer {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+
     #computerSide img {
         margin-right: 2rem;
         width: 6rem;
-        height: 6rem;    
+        height: 6rem;
     }
-    
+
     #computerSide.gamerContainer h3 {
         font-size: 2rem;
     }
-    
+
     #computerSide.gamerContainer h4 {
         font-size: 1.2rem;
 
     }
-    
+
 
 
 }
