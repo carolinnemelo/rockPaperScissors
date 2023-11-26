@@ -1,23 +1,24 @@
-:root{
-    /* Global colors */ 
-    --color01: rgba(10, 42, 70, 1);   
-    --color02: rgba(25, 100, 125, 1);  
-    --color03: rgba(12, 192, 200, 1);  
-    --color04: rgba(241, 123, 19, 1); 
-    --color05: rgba(254, 222, 79, 1); 
-    --color06: rgba(255, 255, 255, 1); 
-    --color07: rgba(0, 0, 0, 1); 
+:root {
+    /* Global colors */
+    --color01: rgba(10, 42, 70, 1);
+    --color02: rgba(25, 100, 125, 1);
+    --color03: rgba(12, 192, 200, 1);
+    --color04: rgba(241, 123, 19, 1);
+    --color05: rgba(254, 222, 79, 1);
+    --color06: rgba(255, 255, 255, 1);
+    --color07: rgba(0, 0, 0, 1);
     --color08: rgba(181, 192, 200, 1);
     --input-background-color: rgba(255, 255, 255, 0.70);
-    --header-background-color: rgba(10, 42, 70, 85%); 
-    --card01-background-color: rgba(10, 42, 70, 85%); 
-    --card01-drop-shadow-color:  rgba(0, 0, 0, 0.25); 
-    
+    --header-background-color: rgba(10, 42, 70, 85%);
+    --card01-background-color: rgba(10, 42, 70, 85%);
+    --card01-drop-shadow-color: rgba(0, 0, 0, 0.25);
+
     /* Global images, icons etc */
-    --background-image01: url("/rps/images/halloween.jpg"); /* url("/rps/images/halloween.jpg"); */
+    --background-image01: url("/rps/images/halloween.jpg");
+    /* url("/rps/images/halloween.jpg"); */
     --background-image02: url("/rps/images/halloween-scary.jpg");
 
-    /* Global fonts */        
+    /* Global fonts */
     --font-family01: Roboto;
     --font-family02: creepster-caps;
 }
@@ -52,7 +53,7 @@
     -webkit-filter: drop-shadow(0px 9px 6px#0A2A46);
     filter: drop-shadow(0px 9px 6px #0A2A46);
     letter-spacing: 2px;
-    margin: 1rem auto 0 auto; 
+    margin: 1rem auto 0 auto;
     width: 20rem;
     animation: zoomInOut 6s ease-in-out;
     animation-fill-mode: forwards;
@@ -63,7 +64,7 @@
 
     width: 98vw;
     min-width: 390px;
-    display: grid;
+    display: none;
     grid-template-columns: 4fr 1fr 4fr;
     grid-template-rows: 1fr;
 
@@ -74,7 +75,7 @@
     margin-top: -4rem;
     border-radius: 50rem;
     grid-column-end: 3;
-    
+
 }
 
 .vs h2 {
@@ -111,7 +112,7 @@
     grid-row-start: 1;
     grid-row-end: 4;
 
-    
+
 }
 
 #gamerSide.gamerContainer h3 {
@@ -193,6 +194,7 @@
 
 
 }
+
 .lifeBar {
     width: 100%;
     background-color: var(--color05);
@@ -223,18 +225,20 @@
 
 @keyframes zoomInOut {
     0% {
-      transform: scale(1);
-      opacity: 0;
+        transform: scale(1);
+        opacity: 0;
     }
+
     50% {
-      transform: scale(1.2);
-      opacity: 1;
+        transform: scale(1.2);
+        opacity: 1;
     }
+
     100% {
-      transform: scale(1);
-      opacity: 0;
+        transform: scale(1);
+        opacity: 0;
     }
-  }
+}
 
 
 
@@ -257,46 +261,46 @@
         grid-column-start: 1;
         grid-column-end: 2;
     }
-    
+
     #gamerSide.gamerContainer {
         grid-template-columns: 1fr 2fr;
     }
-    
+
     #gamerSide img {
         width: 6rem;
-        height: 6rem;        
+        height: 6rem;
     }
-    
+
     #gamerSide.gamerContainer h3 {
         font-size: 2rem;
     }
-    
+
     #gamerSide.gamerContainer h4 {
         font-size: 1.2rem;
 
     }
-    
+
     #computerSide.gamerContainer {
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 1fr;
     }
-    
-    
+
+
     #computerSide img {
         width: 6rem;
-        height: 6rem;    
+        height: 6rem;
     }
-    
+
     #computerSide.gamerContainer h3 {
         font-family: var(--font-family02);
         font-size: 2rem;
     }
-    
+
     #computerSide.gamerContainer h4 {
         font-size: 1.2rem;
 
     }
-    
+
 
 
 }

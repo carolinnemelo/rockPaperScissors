@@ -35,7 +35,7 @@
 
 
 #weaponName {
-    font-size:  2rem;
+    font-size: 2rem;
     color: white;
     font-weight: 400;
     text-transform: uppercase;
@@ -91,7 +91,7 @@
         width: 90%;
         justify-content: center;
     }
-    
+
 
 
 }
@@ -109,11 +109,12 @@
         width: 90vw;
     }
 
-    #mysteryHuman, #skellington {
+    #mysteryHuman,
+    #skellington {
         display: inline;
     }
 
-    .cardPlayers{
+    .cardPlayers {
 
         background-color: transparent;
         flex-direction: row;
@@ -134,17 +135,16 @@
         height: 20rem;
         margin: 1.5rem auto;
         width: 20vw;
-    
-    
+
+
     }
 
-    .playerIndividualCard:hover, .playerIndividualCard:active {
+    .playerIndividualCard:hover,
+    .playerIndividualCard:active {
         background-color: var(--color04);
     }
 
     .buttonsNumbers {
         display: none;
     }
-
-
 }
