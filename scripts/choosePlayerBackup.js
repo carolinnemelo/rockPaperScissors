@@ -79,19 +79,19 @@ function showPlayerCard(player) {
 document.querySelector("#smellyCat").addEventListener("click", () => {
     mySessionObject.player.currentCharacterName = "smellyCat"
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    window.location.href = "/htmls/makeChoice.html";
+    window.location.href = "/htmls/afterLife.html";
 });
 
 document.querySelector("#skellington").addEventListener("click", () => {
     mySessionObject.player.currentCharacterName = "skellington"
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    window.location.href = "/htmls/makeChoice.html";
+    window.location.href = "/htmls/afterLife.html";
 });
 
 document.querySelector("#mysteryHuman").addEventListener("click", () => {
     mySessionObject.player.currentCharacterName = "mysteryHuman"
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    window.location.href = "/htmls/makeChoice.html";
+    window.location.href = "/htmls/afterLife.html";
 });
 
 
