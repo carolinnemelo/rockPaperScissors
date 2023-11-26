@@ -1,3 +1,12 @@
+const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+if(testSessionObject === null){
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
+}
+/* Get the commonSessionObject and parse it to a javascript-object */
+const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+
+
+
 var currentWeapon = 0;
 var images = [];
 const weapons = ["ROCK", "PAPER", "SCISSORS"];
@@ -20,7 +29,7 @@ const characterData = {
 };
 
 window.onload = function () {
-    let character = sessionStorage.getItem("characterChoice");
+    let character = mySessionObject.player.currentCharacterName;
 
     if (character == "skellington") {
         images = characterData.skellington;
@@ -62,6 +71,8 @@ document.getElementById("playBtn").addEventListener("click", function (e) {
     document.getElementById("playBtnContainer").style.display = "none";
     document.getElementById("scoreBoardContainer").style.display = "grid";
     document.getElementById("animationContainer").style.display = "flex";
+    mySessionObject.player.currentWeapon = currentWeaponName;
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
 });
 
 document.querySelector(".textBattle").addEventListener("animationend", function () {

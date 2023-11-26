@@ -1,7 +1,12 @@
 // na hora que a pagina carrega 
 
-    // pega o objeto que ta no storage e disponibiliza ele com o nome de mySessionObject
-    const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+if(testSessionObject === null){
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
+}
+/* Get the commonSessionObject and parse it to a javascript-object */
+const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+
 
     //pega o nickname do objeto que foi pego do sesssion
 
@@ -170,7 +175,7 @@ window.onload = async function() {
 
 // after hands animation should display who is the round winner and change the score.
 
-    let handsAnimationContainer = document.querySelector("#battleHands");
+    let handsAnimationContainer = document.querySelector("#battling-hand-right");
 
     handsAnimationContainer.addEventListener("animationend", function (params) {
         let roundWinner = whoIsTheRoundWinner(computerWeapon, currentWeaponName.toLowerCase());
