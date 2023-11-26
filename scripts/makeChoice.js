@@ -66,6 +66,7 @@ document.getElementById("playBtn").addEventListener("click", function (e) {
 document.querySelector(".textBattle").addEventListener("animationend", function () {
     document.getElementById("weaponContainer").style.display = "unset";
     document.getElementById("playBtnContainer").style.display = "unset";
-    document.getElementById("scoreBoardContainer").style.display = "none";
+    if (screen.width < 601)
+        document.getElementById("scoreBoardContainer").style.display = "none";
     document.getElementById("animationContainer").style.display = "none";
 });
