@@ -39,7 +39,7 @@ let commonSessionObject = {
     player: {
         email: "",
         nickName: "",
-        currentCharacterName: "Smelly Cat",  /* Smelly Cat, Skellington or Mystery Human */
+        currentCharacterName: "",  /* Smelly Cat, Skellington or Mystery Human */
         currentWeapon: "",
         chosenWeapon: "/images/paper-skeleton-LtoR.png",
         currentRockWeapon: "/images/rock-skeleton-LtoR.png",
@@ -67,7 +67,7 @@ let commonSessionObject = {
         email: "",
         nickName: "",
         character: "",
-        currentCharacterName: "skellington",  /* Smelly Cat, Skellington or Mystery Human */
+        currentCharacterName: "",  /* Smelly Cat, Skellington or Mystery Human */
         chosenWeapon: "/images/scissors-skeleton-RtoL.png",
         currentRockWeapon: "/images/rock-skeleton-RtoL.png",
         currentPaperWeapon: "/images/paper-skeleton-RtoL.png",
