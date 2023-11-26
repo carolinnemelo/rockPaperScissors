@@ -1,10 +1,15 @@
-//let nickName = sessionStorage.getItem("nickName");
-let nickName = "Edda";
+
+
+//let nickName = "Edda";
+const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+let nickName = mySessionObject.player.nickName;
+
 
 
 async function loadData() {
     const response = await fetch("/data/charactersData.json");
     return await response.json();
+    
 }
 
 function assignComputerCharacter (characters) {
@@ -27,45 +32,34 @@ function chooseComputerWeapon(weapons) {
     return weapons[computerWeaponIndex];
 };
 
-function whoIsTheWinner (computerWeapon, gamerWeapon) {
-    if ((computerWeapon === 'paper' && gamerWeapon === 'rock') || 
-        (computerWeapon === 'scissors' && gamerWeapon === 'paper') ||
-        (computerWeapon === 'rock' && gamerWeapon === 'scissors')) {
-            return "computer";
-        }else if (computerWeapon === gamerWeapon) {
-            return "tie";
-        } else {
-            return "gamer";
-        }
-};
-
 
 function howManyRounds() {
-//let nickName = sessionStorage.getItem("nickName");
-    let rounds = sessionStorage.getItem("rounds");
+    rounds = mySessionObject.score.numberOfRounds;
+    //console.log(rounds);
 };
-
 
 
 
 
 window.onload = async function() {
-    howManyRounds(); 
-
+    
+    
+    
     const WEAPONS = ["rock", "paper", "scissors"];
-
+    
+    let rounds = howManyRounds(); 
     let characters = await loadData();
     let computerCharacter = assignComputerCharacter(characters);
 
-    //let gamerCharacter = sessionStorage.getItem("characterChoice");
-    let gamerCharacterId = "mysteryHuman";
-    
+    //let gamerCharacterId = mySessionObject.player.characterChoiceId;
+    let gamerCharacterId = "skellington";
+
+
     //let gamerWeapon = sessionStorage.getItem("weapon"); 
     let gamerWeapon = "paper"; 
     let computerWeapon = chooseComputerWeapon(WEAPONS);
     let gamerCharacter = getCharacterById(gamerCharacterId, characters);
-    let winner = whoIsTheWinner(computerWeapon, gamerWeapon);
-
+    let roundWinner = whoIsTheRoundWinner(computerWeapon, gamerWeapon);
 
 
 
@@ -87,30 +81,77 @@ window.onload = async function() {
     computerCharacterImagePlace.src = computerCharacter.image;
     
     //--------------------------------------------------
-    // change to choose rigth animation *****************ATENTION***************
+    // change to choose right animation *****************ATENTION***************
     //--------------------------------------------------
 
-    let textBattle = document.querySelector(".textBattle");
-    textBattle.addEventListener("animationend", function() {
-        showRoundWinner(winner);
-    });
+     let textBattle = document.querySelector(".textBattle");
+     textBattle.addEventListener("animationend", function() {
+        showRoundWinner(roundWinner);
+        changeScore(roundWinner);
+     });
 
     
     
 };
 
+// after the animation comes the container with the weapons 
 
-function showRoundWinner(winner){
+
+function whoIsTheRoundWinner (computerWeapon, gamerWeapon) {
+    if ((computerWeapon === 'paper' && gamerWeapon === 'rock') || 
+        (computerWeapon === 'scissors' && gamerWeapon === 'paper') ||
+        (computerWeapon === 'rock' && gamerWeapon === 'scissors')) {
+            return "computer";
+        }else if (computerWeapon === gamerWeapon) {
+            return "tie";
+        } else {
+            return "gamer";
+        }
+};
+
+function showRoundWinner(roundWinner){
     let informationPlace = document.querySelector("#informationPlace");
-    if (winner === "computer") {
+    if (roundWinner === "computer") {
         informationText = "Computer wins the Round";
-    } else if (winner === "tie"){
-        informationText = "Tie";
+    } else if (roundWinner === "tie"){
+        informationText = "Tie, try again.";
     } else {
-        informationText = "You win";
+        informationText = "You win the round";
     };
     informationPlace.textContent =  informationText;
 };
+
+
+function changeScore(roundWinner) {
+
+    gamerScore = mySessionObject.score.playerPoints;
+    computerScore = mySessionObject.score.computerPoints;
+
+    if (roundWinner === "computer") {
+        computerScore = computerScore +1;
+    } else if (roundWinner === "gamer"){
+        gamerScore = gamerScore +1;
+        
+    }
+
+    let computerScorePlace = document.querySelector("#computerScore");
+    computerScorePlace.textContent = computerScore;
+    let gamerScorePlace = document.querySelector("#gamerScore");
+    gamerScorePlace.textContent = gamerScore;
+    mySessionObject.score.computerPoints = computerScore;
+    mySessionObject.score.playerPoints = gamerScore;
+    
+};
+
+function backToWeaponsPage(rounds) {
+    if (rounds > 1) {
+        
+    } else {
+       // matchWinner();
+    }
+}
+
+
 
 /* ==================================== */
 /* Counting Hands Animation */
