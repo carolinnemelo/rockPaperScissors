@@ -62,7 +62,7 @@
 
 .mainContainerBattle .informationContainer {
     position: absolute;
-    margin-left: ;
+
 
 }
 
@@ -233,29 +233,6 @@ p#computerScore {
     justify-content: center;
 
 
-}
-
-.lifeBar {
-    width: 100%;
-    background-color: var(--color05);
-    height: .4rem;
-    display: flex;
-    margin: 1rem 0 0 0;
-
-}
-
-.lifeBar::before {
-    content: '';
-    width: 30%;
-    height: 100%;
-    background-color: var(--color01);
-}
-
-.lifeBar::after {
-    content: '';
-    width: 30%;
-    height: 100%;
-    background-color: var(--color02);
 }
 
 

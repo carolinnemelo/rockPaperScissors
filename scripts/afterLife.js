@@ -1,22 +1,65 @@
+// na hora que a pagina carrega 
+
+    // pega o objeto que ta no storage e disponibiliza ele com o nome de mySessionObject
+    const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+
+    //pega o nickname do objeto que foi pego do sesssion
+
+    // pega o arquivo json com os avatares
+    async function loadData() {
+        const response = await fetch("/data/charactersData.json");
+        return await response.json();
+    
+    }
+
+    // COLOCAR VARIAVEL QUE PEGA O AVATAR DO GAMER NO OBJTO
+    //coloca a foto do avatar 
+    //coloca o nome do avatar
+    //PEGA O NOME DO GAMer
+    // coloca o nome do gamer
+
+    // o computador escolhe o avatar dele
+    function assignComputerCharacter(characters) {
+        let computerCharacterIndex = Math.floor(Math.random() * characters.length);
+        return characters[computerCharacterIndex];
+    
+    };
+
+    //coloca a foto do avatar do computer
+    //coloca o nome do avatar do computer
+
+    
+    //pega a quantidade de rounds que vai ter na partida do objeto que foi pego do session 
+    function howManyRounds() {
+    rounds = mySessionObject.score.numberOfRounds;
+    };
+    
+    
+    
+    //animacao battle for your life
+
+// AGORANO EVENT LISTENER QUE VEM DEPOIS DA ANIMACAO DO BATTLE
+    // Match Start
+    //open container with weapons
 
 
-//let nickName = "Edda";
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-let nickName = mySessionObject.player.nickName;
+
+//AGORA O EVENTO É QUANDO acaba a 
 
 
 
-async function loadData() {
-    const response = await fetch("/data/charactersData.json");
-    return await response.json();
 
-}
 
-function assignComputerCharacter(characters) {
-    let computerCharacterIndex = Math.floor(Math.random() * characters.length);
-    return characters[computerCharacterIndex];
 
-};
+
+
+
+
+
+
+
+
+
 
 function getCharacterById(id, characters) {
     for (let character of characters) {
@@ -33,66 +76,71 @@ function chooseComputerWeapon(weapons) {
 };
 
 
-function howManyRounds() {
-    rounds = mySessionObject.score.numberOfRounds;
-    //console.log(rounds);
-};
 
 
 
-
-window.onload = async function () {
-
-
-
-    const WEAPONS = ["rock", "paper", "scissors"];
-
-    let rounds = howManyRounds();
+window.onload = async function() {
+    
+    
+    
+   // const WEAPONS = ["rock", "paper", "scissors"];
     let characters = await loadData();
-    let computerCharacter = assignComputerCharacter(characters);
+    let rounds = howManyRounds(); 
 
-    //let gamerCharacterId = mySessionObject.player.characterChoiceId;
-    let gamerCharacterId = "skellington";
-
-
-    //let gamerWeapon = sessionStorage.getItem("weapon"); 
-    let gamerWeapon = "paper";
-    let computerWeapon = chooseComputerWeapon(WEAPONS);
-    let gamerCharacter = getCharacterById(gamerCharacterId, characters);
-    let roundWinner = whoIsTheRoundWinner(computerWeapon, gamerWeapon);
-
-
-
-
-    let characterImagePlace = document.querySelector("#characterChoice");
-    let characterNamePlace = document.querySelector("#characterNamePlace");
-
-
+    
+    //gamer scoreboard
+    
     let nickNamePlace = document.querySelector("#nickNamePlace");
+    nickNamePlace.textContent = mySessionObject.player.nickName;
+
+    let gamerCharacter = mySessionObject.player.currentCharacterName;
+    
+    let gamerCharacterImagePlace = document.querySelector("#characterChoice");
+    gamerCharacterImagePlace.src = gamerCharacter.image;
+
+    let gamerCharacterNamePlace = document.querySelector("#characterNamePlace");
+    gamerCharacterNamePlace.textContent = gamerCharacter.name;
+
+    
+    
+    //computer scoreboard 
+    
+    let computerCharacter = assignComputerCharacter(characters);
+    
     let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
-    let computerCharacterImagePlace = document.querySelector("#computerChoice");
-
-
-
-    characterImagePlace.src = gamerCharacter.image;
-    characterNamePlace.textContent = gamerCharacter.name;
-    nickNamePlace.textContent = nickName;
     computerCharacterNamePlace.textContent = computerCharacter.name;
+    
+
+    let computerCharacterImagePlace = document.querySelector("#computerChoice");
     computerCharacterImagePlace.src = computerCharacter.image;
 
-    //--------------------------------------------------
-    // change to choose right animation *****************ATENTION***************
-    //--------------------------------------------------
-
-    let textBattle = document.querySelector(".textBattle");
-    textBattle.addEventListener("animationend", function () {
-        showRoundWinner(roundWinner);
-        changeScore(roundWinner);
-    });
 
 
+
+let playBtn = document.querySelector("#battleHands");
+playBtn.addEventListener("animationend", function() {
+   showRoundWinner(roundWinner);
+   changeScore(roundWinner);
+
+});
 
 };
+
+//let gamerWeapon = sessionStorage.getItem("weapon"); 
+//   let gamerWeapon = "paper"; 
+// let computerWeapon = chooseComputerWeapon(WEAPONS);
+//  let roundWinner = whoIsTheRoundWinner(computerWeapon, gamerWeapon);
+
+let textBattle = document.querySelector(".textBattle");
+textBattle.addEventListener("animationend", function() {
+   showRoundWinner(roundWinner);
+   changeScore(roundWinner);
+
+});
+//fazer um event listenenr do botao play 
+    
+    
+
 
 // after the animation comes the container with the weapons 
 
@@ -143,13 +191,33 @@ function changeScore(roundWinner) {
 
 };
 
+function whatIsCurrentRound(rounds, matchStatus) {
+    if (rounds === 1) {
+        whatIsMatchStatus();
+    } else if (rounds === 5) {
+
+    }
+}
+
+function whatIsMatchStatus(rounds, computerScore, gamerScore) {
+    if(computerScore > (rounds / 2)) {
+        matchStatus = "computer wins";
+    } else if (gamerScore > (rounds / 2)) {
+        matchStatus = "gamer wins";
+    } else {
+        matchStatus = "Match is not finished";
+    }
+};
+
+
+
 function backToWeaponsPage(rounds) {
     if (rounds > 1) {
 
     } else {
         // matchWinner();
     }
-}
+};
 
 
 
