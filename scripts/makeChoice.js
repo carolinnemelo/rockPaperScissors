@@ -39,9 +39,15 @@ window.onload = function () {
         images = characterData.smellyCat;
     }
 
-
     let weaponImage = document.getElementById("weaponImage");
     weaponImage.src = images[0];
+
+    let textBattle = document.querySelector(".textBattle");
+    textBattle.addEventListener("animationend", function(e){
+        let weaponContainer = document.querySelector(".weaponContainer");
+        weaponContainer.style.visibility = visible;
+    });
+
 }
 
 document.getElementById("buttonRight").addEventListener("click", function (e) {
