@@ -60,4 +60,5 @@ document.getElementById("playBtn").addEventListener("click", function (e) {
     document.getElementById("weaponContainer").style.display = "none";
     document.getElementById("playBtnContainer").style.display = "none";
     document.getElementById("scoreBoardContainer").style.display = "grid";
+    document.getElementById("animationContainer").style.display = "flex";
 });
