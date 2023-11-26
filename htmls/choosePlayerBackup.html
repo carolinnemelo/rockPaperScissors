@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/choosePlayer.css">
+    <link rel="stylesheet" href="/stylesheets/choosePlayerBackup.css">
     <script src="/scripts/main.js" defer></script>
-    <script src="/scripts/choosePlayer.js" defer></script>    
+    <script src="/scripts/choosePlayerBackup.js" defer></script>    
 </head>
 <body>
     <header>
@@ -26,11 +26,11 @@
                 </div>
                 <div class="asideButton">
                     <a href="/htmls/subscribe.html">
-                        <h4>Subscription</h4>
+                        <h4>Subscribe</h4>
                     </a>
                 </div>
                 <div class="asideButton">
-                    <a href="/htmls/choosePlayer.html">
+                    <a href="/htmls/choosePlayerBackup.html">
                         <h4>Choose player</h4>
                     </a>
                 </div>
@@ -50,7 +50,7 @@
             <!-- smelly cat -->
             <button class="playerIndividualCard" id="smellyCat">
                 <div class="imgPlayerContainer">
-                    <img id="playerCat" src="/images/player-cat.png" alt="black cat with a witch's hat">
+                    <img class="imgPlayer" id="imgSmellyCat" src="/images/player-cat.png" alt="black cat with a witch's hat">
                     <div class="circleBehindPlayer"></div>
                 </div>
                 <div class="textPlayer">
@@ -68,7 +68,7 @@
             <!-- skellinton -->
             <button class="playerIndividualCard" id="skellington">
                 <div class="imgPlayerContainer">
-                    <img id="playerCat" src="/images/player-skeleton.png" alt="skeleton with a witch's hat">
+                    <img class="imgPlayer" id="imgSkellington" src="/images/player-skeleton.png" alt="skeleton with a witch's hat">
                     <div class="circleBehindPlayer"></div>
                 </div>
                 <div class="textPlayer">
@@ -84,9 +84,9 @@
             </button>
 
             <!-- mystery human -->
-            <butto class="playerIndividualCard" id="mysteryHuman">
+            <button class="playerIndividualCard" id="mysteryHuman">
                 <div class="imgPlayerContainer">
-                    <img id="mysteryHuman" src="/images/player-mysteryman.png" alt="human without face typing on computer">
+                    <img class="imgPlayer" id="imgMysteryHuman" src="/images/player-mysteryman.png" alt="human without face typing on computer">
                     <div class="circleBehindPlayer"></div>
                 </div>
                 <div class="textPlayer">
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-            </butto>
+            </button>
 
         </div>
         <div class="buttonsNumbersContainer">

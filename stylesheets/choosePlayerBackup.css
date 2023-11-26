@@ -212,7 +212,7 @@ footer h6 {
     background-color: var(--card01-background-color);
     text-align: center;
     border-radius: 1rem;
-    height: 35rem;
+    height: clamp(80% 70vh);
     z-index: 1;
     align-self: center;
 
@@ -256,9 +256,6 @@ footer h6 {
     margin: 1.5rem auto;
     width: 15rem;
 
-
-
-
 }
 
 
@@ -267,10 +264,18 @@ footer h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
+    height: 18vh;
 }
+
+.imgPlayer{
+    height: 100%;
+    z-index: 10;
+}
+
+#imgMysteryHuman{
+    height: 85%;
+}
+
 
 .circleBehindPlayer {
     position: absolute;
@@ -303,6 +308,8 @@ footer h6 {
     font-size: 2.3rem;
     color: var(--color01);
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+    margin-top: 0.8rem;
 }
 
 .textPlayer h4 {
@@ -461,9 +468,10 @@ footer h6 {
         background: rgba(241, 123, 19, 0.70);
         border-radius: 1rem;
         padding: 1.5rem;
-        height: 20rem;
-        margin: 1.5rem auto;
-        width: 20vw;
+        height: clamp(5rem 90% 20rem);
+        margin: 1rem auto;
+        width: clamp(5rem 20% 20vw);
+        
     
     
     }

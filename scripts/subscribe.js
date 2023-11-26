@@ -64,7 +64,7 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
     mySessionObject.score.numberOfRounds = parseInt(numberOfRounds);
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
     /* checkSessionStorage(); */
-    window.location.href = "/htmls/choosePlayer.html";
+    window.location.href = "/htmls/choosePlayerBackup.html";
 });
 
 
