@@ -57,7 +57,7 @@ function writesWhoIsRoundWinner(roundWinner) {
             };
             informationPlace.textContent = informationText;
             resolve('writes who is the round winner');
-        }, 6000);
+        }, 3000);
     });
 
 

@@ -3,6 +3,7 @@
 /* Check if the commonSessionObject has been created. If not, create it*/
 const testSessionObject = commonSessionObject;
 if(testSessionObject === null){
+    alert("sessionObject is null! on ChoosePlayerBackup");
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
 }
 /* Get the commonSessionObject and parse it to a javascript-object */

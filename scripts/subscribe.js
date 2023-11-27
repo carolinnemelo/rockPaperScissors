@@ -18,10 +18,10 @@
 /* IMPORTANT - for this to work, the page needs to  have following as the first script-connection in your html-file*/
 /* <script src="/scripts/main.js" defer></script> */
 /* Check if the commonSessionObject has been created. If not, create it*/
-const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+/* const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 if(testSessionObject === null){
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
-}
+} */
 /* Get the commonSessionObject and parse it to a javascript-object */
 const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 

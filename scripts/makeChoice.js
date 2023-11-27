@@ -1,8 +1,4 @@
-const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-if(testSessionObject === null){
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
-}
-/* Get the commonSessionObject and parse it to a javascript-object */
+
 const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 
 
@@ -67,7 +63,7 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
 });
 
 document.getElementById("playBtn").addEventListener("click", async function (e) {
-    playerWeapon = WEAPONS[currentWeapon];
+    playerWeapon = weaponName.innerHTML.toLowerCase(); // WEAPONS[currentWeapon];
     computerWeapon = chooseComputerWeapon(WEAPONS);
     mySessionObject.player.currentWeapon = playerWeapon;
     mySessionObject.computer.currentWeapon = computerWeapon;
@@ -135,10 +131,17 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
 
 window.onload = async function () {
     hideWeaponContainer();
+    const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+    if(testSessionObject === null){
+        sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
+    }
+    const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
     mySessionObject.score.numberOfRounds = 0;
     mySessionObject.score.playerPoints = 0;
     mySessionObject.score.computerPoints = 0;
-    await getComputerPlayerInfo();
+    document.querySelector("#characterNamePlace").innerHTML = mySessionObject.player.currentCharacterName;
+    document.querySelector("#nickNamePlace").innerHTML = mySessionObject.player.nickName;
+    document.querySelector("#computerCharacterNamePlace").innerHTML = mySessionObject.computer.currentCharacterName;
     await setBattlingHands(); 
     /* await changeToRockHandsDirectly(); */
     await afterLifeOnLoad();
