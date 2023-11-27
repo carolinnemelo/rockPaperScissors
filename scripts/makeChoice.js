@@ -105,7 +105,7 @@ function showWeaponContainerDelayed() {
                 document.getElementById("scoreBoardContainer").style.display = "none";
             document.getElementById("animationContainer").style.display = "none";
             resolve('showing weapon container delayed');
-        }, 2000);
+        }, 10);
     });    
 }
 
