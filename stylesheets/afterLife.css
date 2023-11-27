@@ -299,6 +299,7 @@ header {
     font-size: 1rem;
     font-weight: 400;
     grid-row-start: 2;
+    margin-left: 2rem;
 
 
 }
@@ -550,7 +551,7 @@ p#computerScore {
 
     #gamerSide.gamerContainer h4 {
         font-size: 1.2rem;
-
+        
     }
 
     #computerSide.gamerContainer {
