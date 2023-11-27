@@ -99,11 +99,20 @@ function changeScore(roundWinner) {
 
 //checks if the match is done
 function whatIsMatchStatus(rounds, computerScore, gamerScore) {
-    if(computerScore > (rounds / 2)) {
-        alert("computer wins the match");
-    } else if (gamerScore > (rounds / 2)) {
-        alert("You win the match");
-    }
+
+    return new Promise(resolve => {
+        setTimeout(() => {
+            if(computerScore > (rounds / 2)) {
+                alert("Computer wins the match");
+            } else if (gamerScore > (rounds / 2)) {
+                alert("You win the match");
+            }
+            resolve('writes who is the round winner');
+        }, 50);
+    }); 
+
+
+    
 };
 
 
@@ -140,8 +149,8 @@ async function afterLifeOnLoad() {
     
     //computer scoreboard 
     
-    let computerCharacter = assignComputerCharacter();
-    
+    let computerCharacterId = assignComputerCharacter();
+    let computerCharacter = getCharacterById(computerCharacterId, characters);
     let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
     computerCharacterNamePlace.textContent = computerCharacter.name;
     
@@ -156,8 +165,8 @@ async function afterLifeOnLoad() {
     let handsAnimationContainer = document.querySelector("#battling-hand-right");
 
     handsAnimationContainer.addEventListener("animationend", function () {
-        changeScore(roundWinner);
-        whatIsMatchStatus(howManyRounds(), mySessionObject.score.computerPoints, mySessionObject.score.playerPoints);
+        /* changeScore(roundWinner);
+        whatIsMatchStatus(howManyRounds(), mySessionObject.score.computerPoints, mySessionObject.score.playerPoints); */
     });
 
 };
