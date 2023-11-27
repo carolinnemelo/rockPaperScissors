@@ -1,12 +1,18 @@
+
+let mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
+
 async function loadData() {
     const response = await fetch("/data/charactersData.json");
     return await response.json();
 
 }
 
-function assignComputerCharacter(characters) {
-    let computerCharacterIndex = Math.floor(Math.random() * characters.length);
-    return characters[computerCharacterIndex];
+function assignComputerCharacter() {
+    /* let computerCharacterIndex = Math.floor(Math.random() * characters.length);
+    mySessionObject.computer.currentCharacterName = characters[computerCharacterIndex];
+    alert("currentComputerCharacterName: "+characters[computerCharacterIndex]);
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject)); */
+    return mySessionObject.computer.currentCharacterName;                          // characters[computerCharacterIndex];
 
 };
 
@@ -23,9 +29,8 @@ function getCharacterByName(name, characters) {
 }
 
 function chooseComputerWeapon(weapons) {
-    let randomWeapon = Math.floor(Math.random() * weapons.length);
-    let computerWeaponIndex = randomWeapon;
-    return weapons[computerWeaponIndex];
+    let computerWeaponIndex = Math.floor(Math.random() * weapons.length);
+    return WEAPONS[computerWeaponIndex];
 };
 
 
@@ -43,15 +48,22 @@ function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
 
 
 function writesWhoIsRoundWinner(roundWinner) {
-    let informationPlace = document.querySelector("#informationPlace");
-    if (roundWinner === "computer") {
-        informationText = "Computer wins the Round";
-    } else if (roundWinner === "tie") {
-        informationText = "Tie, try again.";
-    } else {
-        informationText = "You win the round";
-    };
-    informationPlace.textContent = informationText;
+    return new Promise(resolve => {
+        setTimeout(() => {
+            let informationPlace = document.querySelector("#informationPlace");
+            if (roundWinner === "computer") {
+                informationText = "Computer wins the Round";
+            } else if (roundWinner === "tie") {
+                informationText = "Tie, try again.";
+            } else {
+                informationText = "You win the round";
+            };
+            informationPlace.textContent = informationText;
+            resolve('writes who is the round winner');
+        }, 3000);
+    });
+
+
 };
 
 
@@ -100,11 +112,12 @@ async function afterLifeOnLoad() {
 
     mySessionObject.score.playerPoints = 0;
     mySessionObject.score.computerPoints = 0;
+    /* mySessionObject.player.currentCharacterName; */
     
     //gamer scoreboard
     
     let nickNamePlace = document.querySelector("#nickNamePlace");
-    nickNamePlace.textContent = mySessionObject.player.nickName;
+    nickNamePlace.innerHTML = mySessionObject.player.nickName;
 
     let gamerCharacter = getCharacterByName(mySessionObject.player.currentCharacterName, characters);
     
@@ -118,7 +131,7 @@ async function afterLifeOnLoad() {
     
     //computer scoreboard 
     
-    let computerCharacter = assignComputerCharacter(characters);
+    let computerCharacter = assignComputerCharacter();
     
     let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
     computerCharacterNamePlace.textContent = computerCharacter.name;
@@ -154,8 +167,8 @@ document.querySelector(".textBattle").addEventListener("animationend", function 
 async function playARound() {
     console.log("started to play a point");
     /* let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
-    let computerWeapon = iscomputerWeapon(commonSessionObject.computer.character);
- */
+    let computerWeapon = iscomputerWeapon(sessionObject.computer.character);
+ */ changeToRockHandsDirectly();
     const result1 = await removeCountingHandClass();
     console.log(result1);
     const result2 = await addCountingHandClass();
@@ -222,8 +235,8 @@ function createTimeDelay() {
 function switchBothHandsToRock() {
     return new Promise(resolve => {
         setTimeout(() => {
-            document.querySelector("#battling-hand-left").src = commonSessionObject.player.currentRockWeapon;
-            document.querySelector("#battling-hand-right").src = commonSessionObject.computer.currentRockWeapon;
+            document.querySelector("#battling-hand-left").src = sessionObject.player.currentRockWeapon;
+            document.querySelector("#battling-hand-right").src = sessionObject.computer.currentRockWeapon;
             resolve('both hands have switch back to rock-weapon');
         }, 0);
     });

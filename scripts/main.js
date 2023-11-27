@@ -20,12 +20,12 @@
 /* ================================================== */   
 /* To do (1) and (3), write the two lines of code below in the js-file that belongs to the respective page:
 
-1. Get the data of the commonSessionObject and store it in mySessionObject
+1. Get the data of the sessionObject and store it in mySessionObject
 2. Update mySessionObject with new/current data
-3. Upload the data in mySessionObject into the commonSessionObject in sessionStorage
+3. Upload the data in mySessionObject into the sessionObject in sessionStorage
 
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+const mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
+sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
 */
 
 
@@ -35,10 +35,10 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject
 /* ================================================== */
 
 
-let commonSessionObject = {
+let mySessionObject = {
     player: {
         email: "",
-        nickName: "",
+        nickName: "default",
         currentCharacterName: "",  /* Smelly Cat, Skellington or Mystery Human */
         currentWeapon: "",
         chosenWeapon: "/images/paper-skeleton-LtoR.png",
@@ -98,8 +98,8 @@ let commonSessionObject = {
     },   
 };
 
-/* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
-sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
+/* sets/updates the values of the above defined SessionObject into commmonSessionObjectInSS in sessionStorage */
+window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
 
 
 
@@ -116,7 +116,7 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionOb
 /* OTHER CODE  */ 
 /* ================================================== */
 
-
+alert("player nickname: "+mySessionObject.player.nickName);
 
 
 
