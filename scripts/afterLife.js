@@ -60,7 +60,7 @@ function writesWhoIsRoundWinner(roundWinner) {
             };
             informationPlace.textContent = informationText;
             resolve('writes who is the round winner');
-        }, 3000);
+        }, 1500);
     });
 
 
