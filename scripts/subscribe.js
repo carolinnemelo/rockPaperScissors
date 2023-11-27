@@ -17,13 +17,9 @@
 
 /* IMPORTANT - for this to work, the page needs to  have following as the first script-connection in your html-file*/
 /* <script src="/scripts/main.js" defer></script> */
-/* Check if the commonSessionObject has been created. If not, create it*/
-/* const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-if(testSessionObject === null){
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
-} */
-/* Get the commonSessionObject and parse it to a javascript-object */
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+
+/* Get the sessionObject and parse it to a javascript-object */
+let mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
 
 
 
@@ -40,11 +36,14 @@ const savePlayerInfoAndGoToChoosePlayerPageButton = document.querySelector("#but
 /* EVENT LISTENERS  */ 
 /* ================================================== */
 
-savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(event){
+savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", async function(event){
 
     const email = document.querySelector("#input-email").value;
+    alert("email: "+email);
     const nickName = document.querySelector("#input-nickName").value;
+    alert("nickname "+nickName);
     const numberOfRounds = document.querySelector("#select-numberOfRounds").value;
+    alert("number of rounds: "+numberOfRounds);
 
     if(!isEmailValid(email)){
         alert("The email address is not valid. Please try again.")
@@ -62,8 +61,9 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", function(e
     mySessionObject.player.email = email;
     mySessionObject.player.nickName = nickName;
     mySessionObject.score.numberOfRounds = parseInt(numberOfRounds);
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    /* checkSessionStorage(); */
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
+    let mySessionObject2 = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
+    alert("nickname in sessionObj at end of Subscribe: "+ mySessionObject2.player.nickName);
     window.location.href = "/htmls/choosePlayerBackup.html";
 });
 
@@ -121,7 +121,7 @@ function isNumberOfRoundsValid(numberOfRounds){
 function checkSessionStorage(){
     return new Promise(resolve => {
         setTimeout(() => {
-            const mySessionObject2 = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+            const mySessionObject2 = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
             alert("retrieved object from sessionStorage: "+mySessionObject2.player.email+" "+mySessionObject2.player.nickName+" "+mySessionObject2.score.numberOfRounds);
             resolve('sessionStorage contents');
         }, 2000);

@@ -1,5 +1,5 @@
 
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+let mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
 
 
 
@@ -52,6 +52,7 @@ document.getElementById("buttonRight").addEventListener("click", function (e) {
     weaponName.innerText = WEAPONS[currentWeapon];
 });
 
+let weaponName="";
 document.getElementById("buttonLeft").addEventListener("click", function (e) {
     currentWeapon = (((currentWeapon - 1) % 3) + 3) % 3;
 
@@ -63,11 +64,11 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
 });
 
 document.getElementById("playBtn").addEventListener("click", async function (e) {
-    playerWeapon = weaponName.innerHTML.toLowerCase(); // WEAPONS[currentWeapon];
+    playerWeapon = WEAPONS[currentWeapon];
     computerWeapon = chooseComputerWeapon(WEAPONS);
     mySessionObject.player.currentWeapon = playerWeapon;
     mySessionObject.computer.currentWeapon = computerWeapon;
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
     
     hideWeaponContainer();
     roundWinner = whoIsTheRoundWinner(computerWeapon, playerWeapon);
@@ -131,15 +132,12 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
 
 window.onload = async function () {
     hideWeaponContainer();
-    const testSessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-    if(testSessionObject === null){
-        sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
-    }
-    const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+    const mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
     mySessionObject.score.numberOfRounds = 0;
     mySessionObject.score.playerPoints = 0;
     mySessionObject.score.computerPoints = 0;
     document.querySelector("#characterNamePlace").innerHTML = mySessionObject.player.currentCharacterName;
+    alert("player nickname: "+mySessionObject.player.nickName);
     document.querySelector("#nickNamePlace").innerHTML = mySessionObject.player.nickName;
     document.querySelector("#computerCharacterNamePlace").innerHTML = mySessionObject.computer.currentCharacterName;
     await setBattlingHands(); 
@@ -238,7 +236,7 @@ function showBattlingHands(){
     return new Promise(resolve => {
         setTimeout(() => {
            
-            const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+            const mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
             let playerCurrentWeapon =  currentWeaponName;   // mySessionObject.player.currentWeapon.toLowerCase();
             // alert("playercurrentweapon: "+playerCurrentWeapon);
         

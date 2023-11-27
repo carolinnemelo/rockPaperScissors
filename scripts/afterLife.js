@@ -1,3 +1,6 @@
+
+let mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
+
 async function loadData() {
     const response = await fetch("/data/charactersData.json");
     return await response.json();
@@ -8,7 +11,7 @@ function assignComputerCharacter() {
     /* let computerCharacterIndex = Math.floor(Math.random() * characters.length);
     mySessionObject.computer.currentCharacterName = characters[computerCharacterIndex];
     alert("currentComputerCharacterName: "+characters[computerCharacterIndex]);
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject)); */
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject)); */
     return mySessionObject.computer.currentCharacterName;                          // characters[computerCharacterIndex];
 
 };
@@ -164,7 +167,7 @@ document.querySelector(".textBattle").addEventListener("animationend", function 
 async function playARound() {
     console.log("started to play a point");
     /* let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
-    let computerWeapon = iscomputerWeapon(commonSessionObject.computer.character);
+    let computerWeapon = iscomputerWeapon(sessionObject.computer.character);
  */ changeToRockHandsDirectly();
     const result1 = await removeCountingHandClass();
     console.log(result1);
@@ -232,8 +235,8 @@ function createTimeDelay() {
 function switchBothHandsToRock() {
     return new Promise(resolve => {
         setTimeout(() => {
-            document.querySelector("#battling-hand-left").src = commonSessionObject.player.currentRockWeapon;
-            document.querySelector("#battling-hand-right").src = commonSessionObject.computer.currentRockWeapon;
+            document.querySelector("#battling-hand-left").src = sessionObject.player.currentRockWeapon;
+            document.querySelector("#battling-hand-right").src = sessionObject.computer.currentRockWeapon;
             resolve('both hands have switch back to rock-weapon');
         }, 0);
     });

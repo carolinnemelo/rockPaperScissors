@@ -35,10 +35,10 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject
 /* ================================================== */
 
 
-let commonSessionObject = {
+let mySessionObject = {
     player: {
         email: "",
-        nickName: "",
+        nickName: "default",
         currentCharacterName: "",  /* Smelly Cat, Skellington or Mystery Human */
         currentWeapon: "",
         chosenWeapon: "/images/paper-skeleton-LtoR.png",
@@ -99,7 +99,7 @@ let commonSessionObject = {
 };
 
 /* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
-sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionObject));
+window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
 
 
 
@@ -116,7 +116,7 @@ sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(commonSessionOb
 /* OTHER CODE  */ 
 /* ================================================== */
 
-
+alert("player nickname: "+myCommonSessionObject.player.nickName);
 
 
 

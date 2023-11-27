@@ -1,14 +1,12 @@
 /* IMPORTANT - for this to work, the page needs to  have following as the first script-connection in your html-file*/
 /* <script src="/scripts/main.js" defer></script> */
-/* Check if the commonSessionObject has been created. If not, create it*/
-const testSessionObject = commonSessionObject;
-if(testSessionObject === null){
-    alert("sessionObject is null! on ChoosePlayerBackup");
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(testSessionObject));
-}
-/* Get the commonSessionObject and parse it to a javascript-object */
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
 
+/* Get the sessionObject and parse it to a javascript-object */
+/* let mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
+ */
+
+let mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
+alert("nickname i början av chooseplayerbackup: "+mySessionObject.player.nickName);
 
 // ------------------- cards
 
@@ -80,21 +78,21 @@ function showPlayerCard(player) {
 document.querySelector("#smellyCat").addEventListener("click", () => {
     mySessionObject.player.currentCharacterName = "smellyCat";
     assignComputerCharacter();
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/afterLife.html";
 });
 
 document.querySelector("#skellington").addEventListener("click", () => {
     mySessionObject.player.currentCharacterName = "skellington";
     assignComputerCharacter();
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/afterLife.html";
 });
 
 document.querySelector("#mysteryHuman").addEventListener("click", () => {
     mySessionObject.player.currentCharacterName = "mysteryHuman";
     assignComputerCharacter();
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/afterLife.html";
 });
 
@@ -103,7 +101,7 @@ function assignComputerCharacter() {
     characters = ["smellyCat", "skellington", "mysteryHuman"];
     let computerCharacterIndex = Math.floor(Math.random() * 3);
     mySessionObject.computer.currentCharacterName = characters[computerCharacterIndex];
-    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+    window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
 };
 
 
