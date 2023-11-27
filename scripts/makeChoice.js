@@ -92,7 +92,7 @@ function showWeaponContainer() {
     document.getElementById("weaponContainer").style.display = "unset";
     document.getElementById("playBtnContainer").style.display = "unset";
     if (screen.width < 601)
-        document.getElementById("scoreBoardContainer").style.display = "none";
+        document.getElementById("scoreBoardContainer").style.display = "grid";
     document.getElementById("animationContainer").style.display = "none";
 }
 
@@ -103,6 +103,12 @@ document.querySelector(".textBattle").addEventListener("animationend", function 
 document.querySelector("#battling-hand-right").addEventListener("animationend", function () {
     showWeaponContainer();
 });
+
+
+//---------------------------------
+//-----------WINDOW.ONLOAD---------
+//---------------------------------
+
 
 window.onload = async function () {
     hideWeaponContainer();
