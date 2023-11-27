@@ -45,15 +45,22 @@ function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
 
 
 function writesWhoIsRoundWinner(roundWinner) {
-    let informationPlace = document.querySelector("#informationPlace");
-    if (roundWinner === "computer") {
-        informationText = "Computer wins the Round";
-    } else if (roundWinner === "tie") {
-        informationText = "Tie, try again.";
-    } else {
-        informationText = "You win the round";
-    };
-    informationPlace.textContent = informationText;
+    return new Promise(resolve => {
+        setTimeout(() => {
+            let informationPlace = document.querySelector("#informationPlace");
+            if (roundWinner === "computer") {
+                informationText = "Computer wins the Round";
+            } else if (roundWinner === "tie") {
+                informationText = "Tie, try again.";
+            } else {
+                informationText = "You win the round";
+            };
+            informationPlace.textContent = informationText;
+            resolve('writes who is the round winner');
+        }, 6000);
+    });
+
+
 };
 
 
