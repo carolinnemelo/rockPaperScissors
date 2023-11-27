@@ -28,6 +28,14 @@ function getCharacterByName(name, characters) {
     }
 }
 
+function getCharacterById(id, characters) {
+    for (let character of characters) {
+        if (character.id.toLowerCase() === id.toLowerCase()) {
+            return character;
+        }
+    }
+}
+
 
 
 function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
@@ -84,7 +92,7 @@ function changeScore(roundWinner) {
             mySessionObject.score.computerPoints = computerScore;
             mySessionObject.score.playerPoints = gamerScore;
             resolve('writes who is the round winner');
-        }, 100);
+        }, 50);
     }); 
 };
 
@@ -119,7 +127,8 @@ async function afterLifeOnLoad() {
     let nickNamePlace = document.querySelector("#nickNamePlace");
     nickNamePlace.innerHTML = mySessionObject.player.nickName;
 
-    let gamerCharacter = getCharacterByName(mySessionObject.player.currentCharacterName, characters);
+    /* let gamerCharacter = getCharacterByName(mySessionObject.player.currentCharacterName, characters); */
+    let gamerCharacter = getCharacterById(mySessionObject.player.currentCharacterName, characters);
     
     let gamerCharacterImagePlace = document.querySelector("#characterChoice");
     gamerCharacterImagePlace.src = gamerCharacter.image;
@@ -135,6 +144,7 @@ async function afterLifeOnLoad() {
     
     let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
     computerCharacterNamePlace.textContent = computerCharacter.name;
+    
     
 
     let computerCharacterImagePlace = document.querySelector("#computerChoice");
