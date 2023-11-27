@@ -236,7 +236,7 @@ function showBattlingHands(){
         setTimeout(() => {
            
             const mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
-            let playerCurrentWeapon =  currentWeaponName;   // mySessionObject.player.currentWeapon.toLowerCase();
+            let playerCurrentWeapon =  WEAPONS[currentWeapon];   
             // alert("playercurrentweapon: "+playerCurrentWeapon);
         
             let computerCurrentWeapon = mySessionObject.computer.currentWeapon;
