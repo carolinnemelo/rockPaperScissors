@@ -28,10 +28,6 @@ function getCharacterByName(name, characters) {
     }
 }
 
-function chooseComputerWeapon(weapons) {
-    let computerWeaponIndex = Math.floor(Math.random() * weapons.length);
-    return WEAPONS[computerWeaponIndex];
-};
 
 
 function whoIsTheRoundWinner(computerWeapon, gamerWeapon) {
@@ -69,23 +65,27 @@ function writesWhoIsRoundWinner(roundWinner) {
 
 function changeScore(roundWinner) {
 
-    let gamerScore = mySessionObject.score.playerPoints;
-    let computerScore = mySessionObject.score.computerPoints;
-
-    if (roundWinner === "computer") {
-        computerScore = computerScore + 1;
-    } else if (roundWinner === "gamer") {
-        gamerScore = gamerScore + 1;
-
-    }
-
-    let computerScorePlace = document.querySelector("#computerScore");
-    computerScorePlace.textContent = computerScore;
-    let gamerScorePlace = document.querySelector("#gamerScore");
-    gamerScorePlace.textContent = gamerScore;
-    mySessionObject.score.computerPoints = computerScore;
-    mySessionObject.score.playerPoints = gamerScore;
-
+    return new Promise(resolve => {
+        setTimeout(() => {
+            let gamerScore = mySessionObject.score.playerPoints;
+            let computerScore = mySessionObject.score.computerPoints;
+        
+            if (roundWinner === "computer") {
+                computerScore = computerScore + 1;
+            } else if (roundWinner === "gamer") {
+                gamerScore = gamerScore + 1;
+        
+            }
+        
+            let computerScorePlace = document.querySelector("#computerScore");
+            computerScorePlace.textContent = computerScore;
+            let gamerScorePlace = document.querySelector("#gamerScore");
+            gamerScorePlace.textContent = gamerScore;
+            mySessionObject.score.computerPoints = computerScore;
+            mySessionObject.score.playerPoints = gamerScore;
+            resolve('writes who is the round winner');
+        }, 100);
+    }); 
 };
 
 

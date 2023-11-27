@@ -72,13 +72,17 @@ document.getElementById("playBtn").addEventListener("click", async function (e) 
     
     hideWeaponContainer();
     roundWinner = whoIsTheRoundWinner(computerWeapon, playerWeapon);
-   
+    
     await playARound();
 
     
 });
 
 
+function chooseComputerWeapon(weapons) {
+    let computerWeaponIndex = Math.floor(Math.random() * weapons.length);
+    return WEAPONS[computerWeaponIndex];
+};
 
 function hideWeaponContainer() {
     document.getElementById("weaponContainer").style.display = "none";
@@ -120,6 +124,7 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
     let result1 = await showBattlingHands();
     console.log(result1);
     await writesWhoIsRoundWinner(roundWinner);
+    await changeScore(roundWinner);
     await showRockHandsDelayed();
     await showWeaponContainerDelayed();
 });
