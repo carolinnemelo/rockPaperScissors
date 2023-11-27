@@ -215,12 +215,18 @@ header {
 
 }
 
-.mainContainerBattle .informationContainer {
+.mainContainerBattle {
     position: absolute;
     margin: auto;
-
-
 }
+
+.informationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+}
+
 
 .mainContainerBattle h2 {
     font-family: creepster-caps;

@@ -64,6 +64,7 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
 });
 
 document.getElementById("playBtn").addEventListener("click", async function (e) {
+    
     playerWeapon = WEAPONS[currentWeapon];
     computerWeapon = chooseComputerWeapon(WEAPONS);
     mySessionObject.player.currentWeapon = playerWeapon;
@@ -72,9 +73,10 @@ document.getElementById("playBtn").addEventListener("click", async function (e) 
     
     hideWeaponContainer();
     roundWinner = whoIsTheRoundWinner(computerWeapon, playerWeapon);
-    
+    let informationPlace = document.querySelector("#informationPlace");
+    informationPlace.textContent = "";
     await playARound();
-
+    
     
 });
 
@@ -124,7 +126,7 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
     let result1 = await showBattlingHands();
     console.log(result1);
     await writesWhoIsRoundWinner(roundWinner);
-    await changeScore(roundWinner);
+    /* await changeScore(roundWinner); */
     await showRockHandsDelayed();
     await showWeaponContainerDelayed();
 });

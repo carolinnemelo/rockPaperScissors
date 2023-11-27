@@ -62,6 +62,11 @@ let mySessionObject = {
                 "/images/scissors-human-LtoR.png"
             ],
         },
+        characterNames: {
+            smellyCat: "Smelly Cat",
+            skellington: "Skellingtong",
+            mysteryHuman: "Mystery Human",
+        }
     },
     computer: {
         email: "",
@@ -88,7 +93,12 @@ let mySessionObject = {
                 "/images/paper-human-RtoL.png",
                 "/images/scissors-human-RtoL.png"
             ],
-        },    
+        },
+        characterNames: {
+            smellyCat: "Smelly Cat",
+            skellington: "Skellingtong",
+            mysteryHuman: "Mystery Human",
+        }    
     },
     score: {
         numberOfRounds: 0,
