@@ -1,6 +1,6 @@
-
+/* 
 let mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
-
+ */
 
 
 var currentWeapon = 0;
