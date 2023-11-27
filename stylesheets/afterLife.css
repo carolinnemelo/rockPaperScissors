@@ -23,8 +23,163 @@
     --font-family02: creepster-caps;
 }
 
+body {
+    background-image: url(/images/halloween.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    min-height: 667px;
+    min-width: 375px;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 10fr 1fr;
 
+}
+
+header {
+    grid-row-start: 1;
+    height: 2.8rem;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    background-color: var(--card01-background-color);
+
+}
+
+
+/* -------------------------------------------------- */
+/* -----------start hamburger menu CSS only */
+/* -------------------------------------------------- */
+
+:root {
+    --bar-width: 35px;
+    --bar-height: 6px;
+    --hamburger-gap: 6px;
+    --foreground: var(--color01);
+    --background: #0A2A46;
+    --hamburger-margin: 8px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41411356237);
+    /* $c_1=c_2$ $h = \sqrt{c_1^2+c_2^2} = \sqrt{c_1^2+c_1^2} = \sqrt{2c_1^2} = \sqrt{2} \sqrt{c_1^2} = c_1 \sqrt{2}$ */
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 11;
+    cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+    --foreground: white;
+    --background: #333;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--color08);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+        rotate var(--animation-timing), translate var(--animation-timing),
+        background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.sidebar {
+    transition: translate var(--animation-timing);
+    translate: -100%;
+    padding: 0.5rem 0rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    width: 15rem;
+    height: 100vh;
+    border: 0;
+    position: absolute;
+    z-index: 10;
+
+}
+
+.hamburger-menu:has(input:checked)+.sidebar {
+    translate: 0;
+
+}
+
+.asideButton {
+    padding: 1.4rem 1rem;
+    display: flex;
+    border: none;
+
+}
+
+.asideButton:hover,
+.asideButton:active {
+    background-color: var(--color04);
+
+
+}
+
+.asideButton a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.asideButton h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+
+}
+
+/* -----------end hamburger menu CSS only */
 .mainContainerBattle {
+
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
@@ -62,6 +217,7 @@
 
 .mainContainerBattle .informationContainer {
     position: absolute;
+    margin: auto;
 
 
 }
@@ -81,13 +237,11 @@
 }
 
 .scoreBoard {
-
     width: 98vw;
-    min-width: 390px;
     display: grid;
     grid-template-columns: 4fr 1fr 4fr;
     grid-template-rows: 1fr;
-    margin: 1rem 0;
+    margin: -2.8rem 0 0  0;
     background-color: var(--color04);
     height: 7rem;
     grid-column-start: 2;
@@ -117,21 +271,14 @@
 #gamerSide.gamerContainer {
     height: 7rem;
     display: grid;
-    grid-template-columns: 2fr 3fr 1fr;
+    grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr;
 
 
 }
 
 #gamerSide img {
-    width: 3.5rem;
-    height: 3.5rem;
-    margin: auto;
-    grid-column-start: 1;
-    grid-row-start: 1;
-    grid-row-end: 4;
-    margin-left: 1rem;
-    margin-right: .5rem;
+    display: none;
 
 
 }
@@ -142,7 +289,7 @@
     font-weight: 100;
     color: var(--color01);
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 1rem;
+    margin: 1rem auto auto 2rem;
     height: 3rem;
 
 }
@@ -181,8 +328,7 @@ p#computerScore {
 #computerSide.gamerContainer {
     height: 7rem;
     display: grid;
-    grid-template-columns: 1f 3fr 2fr;
-
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
 
 
@@ -190,14 +336,7 @@ p#computerScore {
 
 
 #computerSide img {
-
-    width: 3.5rem;
-    height: 3.5rem;
-    grid-column-start: 3;
-    grid-row-start: 1;
-    margin: auto;
-    margin-right: 1rem;
-
+    display: none;
 
 }
 
@@ -210,6 +349,7 @@ p#computerScore {
     margin-top: 1rem;
     height: 3rem;
     grid-column-start: 2;
+    margin: 1rem 2rem auto 0;
 
 
 
@@ -223,6 +363,7 @@ p#computerScore {
     grid-column-start: 2;
 
 
+
 }
 
 #computerScore {
@@ -230,7 +371,6 @@ p#computerScore {
     display: flex;
     align-items: center;
     justify-content: center;
-
 
 }
 
@@ -383,10 +523,25 @@ p#computerScore {
         grid-template-columns: 1fr 2fr;
     }
 
+    #gamerSide.gamerContainer {
+        height: 7rem;
+        display: grid;
+        grid-template-columns: 2fr 3fr 1fr;
+        grid-template-rows: 1fr;
+    
+    
+    }
+
     #gamerSide img {
         margin-left: 2rem;
         width: 6rem;
         height: 6rem;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        margin-left: 1rem;
+        margin-right: .5rem;
+    
     }
 
     #gamerSide.gamerContainer h3 {
@@ -403,11 +558,23 @@ p#computerScore {
         grid-template-rows: 1fr;
     }
 
-
+    #computerSide.gamerContainer {
+        height: 7rem;
+        display: grid;
+        grid-template-columns: 1f 3fr 2fr;
+        grid-template-rows: 1fr;
+    
+    
+    }
     #computerSide img {
         margin-right: 2rem;
         width: 6rem;
         height: 6rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        grid-column-start: 3;
+        grid-row-start: 1;
+        margin: auto;
     }
 
     #computerSide.gamerContainer h3 {
@@ -423,8 +590,3 @@ p#computerScore {
 
 }
 
-@media screen and (max-width: 600px) {
-    .scoreBoard {
-        display: none;
-    }
-}
