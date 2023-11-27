@@ -126,7 +126,8 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
     let result1 = await showBattlingHands();
     console.log(result1);
     await writesWhoIsRoundWinner(roundWinner);
-    /* await changeScore(roundWinner); */
+    await changeScore(roundWinner);
+    await whatIsMatchStatus(howManyRounds(), mySessionObject.score.computerPoints, mySessionObject.score.playerPoints);
     await showRockHandsDelayed();
     await showWeaponContainerDelayed();
 });
