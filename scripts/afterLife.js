@@ -4,9 +4,12 @@ async function loadData() {
 
 }
 
-function assignComputerCharacter(characters) {
-    let computerCharacterIndex = Math.floor(Math.random() * characters.length);
-    return characters[computerCharacterIndex];
+function assignComputerCharacter() {
+    /* let computerCharacterIndex = Math.floor(Math.random() * characters.length);
+    mySessionObject.computer.currentCharacterName = characters[computerCharacterIndex];
+    alert("currentComputerCharacterName: "+characters[computerCharacterIndex]);
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject)); */
+    return mySessionObject.computer.currentCharacterName;                          // characters[computerCharacterIndex];
 
 };
 
@@ -23,9 +26,8 @@ function getCharacterByName(name, characters) {
 }
 
 function chooseComputerWeapon(weapons) {
-    let randomWeapon = Math.floor(Math.random() * weapons.length);
-    let computerWeaponIndex = randomWeapon;
-    return weapons[computerWeaponIndex];
+    let computerWeaponIndex = Math.floor(Math.random() * weapons.length);
+    return WEAPONS[computerWeaponIndex];
 };
 
 
@@ -100,11 +102,12 @@ async function afterLifeOnLoad() {
 
     mySessionObject.score.playerPoints = 0;
     mySessionObject.score.computerPoints = 0;
+    /* mySessionObject.player.currentCharacterName; */
     
     //gamer scoreboard
     
     let nickNamePlace = document.querySelector("#nickNamePlace");
-    nickNamePlace.textContent = mySessionObject.player.nickName;
+    nickNamePlace.innerHTML = mySessionObject.player.nickName;
 
     let gamerCharacter = getCharacterByName(mySessionObject.player.currentCharacterName, characters);
     
@@ -118,7 +121,7 @@ async function afterLifeOnLoad() {
     
     //computer scoreboard 
     
-    let computerCharacter = assignComputerCharacter(characters);
+    let computerCharacter = assignComputerCharacter();
     
     let computerCharacterNamePlace = document.querySelector("#computerCharacterNamePlace");
     computerCharacterNamePlace.textContent = computerCharacter.name;
@@ -155,7 +158,7 @@ async function playARound() {
     console.log("started to play a point");
     /* let playerWeapon = isGamerWeapon();  // >>>>>>>>>>   ToDo    <<<<<<<<<<<
     let computerWeapon = iscomputerWeapon(commonSessionObject.computer.character);
- */
+ */ changeToRockHandsDirectly();
     const result1 = await removeCountingHandClass();
     console.log(result1);
     const result2 = await addCountingHandClass();

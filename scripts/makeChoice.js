@@ -67,18 +67,19 @@ document.getElementById("buttonLeft").addEventListener("click", function (e) {
 });
 
 document.getElementById("playBtn").addEventListener("click", async function (e) {
-    currentWeaponName = WEAPONS[currentWeapon];
+    playerWeapon = WEAPONS[currentWeapon];
     computerWeapon = chooseComputerWeapon(WEAPONS);
-
     mySessionObject.player.currentWeapon = currentWeaponName;
+    mySessionObject.computer.currentWeapon = computerWeapon;
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
-    hideWeaponContainer();
     
-    roundWinner = whoIsTheRoundWinner(computerWeapon, currentWeaponName.toLowerCase());
+    hideWeaponContainer();
+    roundWinner = whoIsTheRoundWinner(computerWeapon, playerWeapon);
     writesWhoIsRoundWinner(roundWinner);
 
     await playARound();
 });
+
 
 
 function hideWeaponContainer() {
@@ -96,12 +97,30 @@ function showWeaponContainer() {
     document.getElementById("animationContainer").style.display = "none";
 }
 
+
+function showWeaponContainerDelayed() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            document.getElementById("weaponContainer").style.display = "unset";
+            document.getElementById("playBtnContainer").style.display = "unset";
+            if (screen.width < 601)
+                document.getElementById("scoreBoardContainer").style.display = "none";
+            document.getElementById("animationContainer").style.display = "none";
+            resolve('showing weapon container delayed');
+        }, 2000);
+    });    
+}
+
+
 document.querySelector(".textBattle").addEventListener("animationend", function () {
+    
     showWeaponContainer();
 });
 
-document.querySelector("#battling-hand-right").addEventListener("animationend", function () {
-    showWeaponContainer();
+document.querySelector("#battling-hand-right").addEventListener("animationend", async function (e) {
+    showBattlingHands();
+    await showRockHandsDelayed();
+    await showWeaponContainerDelayed();
 });
 
 
@@ -112,6 +131,190 @@ document.querySelector("#battling-hand-right").addEventListener("animationend", 
 
 window.onload = async function () {
     hideWeaponContainer();
+    mySessionObject.score.numberOfRounds = 0;
+    mySessionObject.score.playerPoints = 0;
+    mySessionObject.score.computerPoints = 0;
+    await getComputerPlayerInfo();
+    await changeToRockHandsDirectly();
+/*     await setBattlingHands(); */
     await afterLifeOnLoad();
     setWeaponImage();
+};
+
+
+
+function getComputerPlayerInfo(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+           
+
+
+
+            resolve('showing rock hands first time');
+        }, 0);
+    });
+}
+
+
+function setBattlingHands(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+           
+           
+            if(mySessionObject.player.currentCharacterName === "smellyCat"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-cat-LtoR.png";
+            }
+            if(mySessionObject.player.currentCharacterName === "skellington"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-skeleton-LtoR.png";
+            }
+            if(mySessionObject.player.currentCharacterName === "mysteryHuman"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-human-LtoR.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "smellyCat"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-cat-RtoL.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "skellington"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-skeleton-RtoL.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "mysteryHuman"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-human-RtoL.png";
+            } 
+
+
+            resolve('showing rock hands first time');
+        }, 0);
+    });
+}
+
+
+function changeToRockHandsDirectly() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            if(mySessionObject.player.currentCharacterName === "smellyCat"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-cat-LtoR.png";
+            }
+            if(mySessionObject.player.currentCharacterName === "skellington"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-skeleton-LtoR.png";
+            }
+            if(mySessionObject.player.currentCharacterName === "mysteryHuman"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-human-LtoR.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "smellyCat"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-cat-RtoL.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "skellington"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-skeleton-RtoL.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "mysteryHuman"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-human-RtoL.png";
+            }
+            resolve('showing rock hands first time');
+        }, 0);
+    });    
+}
+
+
+function showRockHandsDelayed() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            if(mySessionObject.player.currentCharacterName === "smellyCat"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-cat-LtoR.png";
+            }
+            if(mySessionObject.player.currentCharacterName === "skellington"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-skeleton-LtoR.png";
+            }
+            if(mySessionObject.player.currentCharacterName === "mysteryHuman"){
+                document.querySelector("#battling-hand-left").src = "/images/rock-human-LtoR.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "smellyCat"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-cat-RtoL.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "skellington"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-skeleton-RtoL.png";
+            }
+            if(mySessionObject.computer.currentCharacterName === "mysteryHuman"){
+                document.querySelector("#battling-hand-right").src = "/images/rock-human-RtoL.png";
+            }
+            resolve('showing rock hands again');
+        }, 3000);
+    });    
+}
+
+function showBattlingHands(){
+
+    const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
+    let playerCurrentWeapon =  currentWeaponName;   // mySessionObject.player.currentWeapon.toLowerCase();
+    // alert("playercurrentweapon: "+playerCurrentWeapon);
+
+    let computerCurrentWeapon = mySessionObject.computer.currentWeapon;
+    // alert("computerCurrentWeapon: "+computerCurrentWeapon);
+
+
+    if(mySessionObject.player.currentCharacterName === "smellyCat"){
+        if(playerCurrentWeapon === "rock"){
+            document.querySelector("#battling-hand-left").src = "/images/rock-cat-LtoR.png";
+        }
+        if(playerCurrentWeapon === "paper"){
+            document.querySelector("#battling-hand-left").src = "/images/paper-cat-LtoR.png";
+        }
+        if(playerCurrentWeapon === "scissors"){
+            document.querySelector("#battling-hand-left").src = "/images/scissors-cat-LtoR.png";
+        } 
+    }
+    if(mySessionObject.player.currentCharacterName === "skellington"){
+        if(playerCurrentWeapon === "rock"){
+            document.querySelector("#battling-hand-left").src = "/images/rock-skeleton-LtoR.png";
+        }
+        if(playerCurrentWeapon === "paper"){
+            document.querySelector("#battling-hand-left").src = "/images/paper-skeleton-LtoR.png";
+        }
+        if(playerCurrentWeapon === "scissors"){
+            document.querySelector("#battling-hand-left").src = "/images/scissors-skeleton-LtoR.png";
+        } 
+    }
+    if(mySessionObject.player.currentCharacterName === "mysteryHuman"){
+        if(playerCurrentWeapon === "rock"){
+            document.querySelector("#battling-hand-left").src = "/images/rock-human-LtoR.png";
+        }
+        if(playerCurrentWeapon === "paper"){
+            document.querySelector("#battling-hand-left").src = "/images/paper-human-LtoR.png";
+        }
+        if(playerCurrentWeapon === "scissors"){
+            document.querySelector("#battling-hand-left").src = "/images/scissors-human-LtoR.png";
+        } 
+    }
+
+    if(mySessionObject.computer.currentCharacterName === "smellyCat"){
+        if(computerCurrentWeapon === "rock"){
+            document.querySelector("#battling-hand-right").src = "/images/rock-cat-RtoL.png";
+        }
+        if(computerCurrentWeapon === "paper"){
+            document.querySelector("#battling-hand-right").src = "/images/paper-cat-RtoL.png";
+        }
+        if(computerCurrentWeapon === "scissors"){
+            document.querySelector("#battling-hand-right").src =  "/images/scissors-cat-RtoL.png";
+        } 
+    }
+    if(mySessionObject.computer.currentCharacterName === "skellington"){
+        if(computerCurrentWeapon === "rock"){
+            document.querySelector("#battling-hand-right").src =  "/images/rock-skeleton-RtoL.png";
+        }
+        if(computerCurrentWeapon === "paper"){
+            document.querySelector("#battling-hand-right").src = "/images/paper-skeleton-RtoL.png";
+        }
+        if(computerCurrentWeapon === "scissors"){
+            document.querySelector("#battling-hand-right").src = "/images/scissors-skeleton-RtoL.png";
+        } 
+    }
+    if(mySessionObject.computer.currentCharacterName === "mysteryHuman"){
+        if(computerCurrentWeapon === "rock"){
+            document.querySelector("#battling-hand-right").src = "/images/rock-human-RtoL.png";
+        }
+        if(computerCurrentWeapon === "paper"){
+            document.querySelector("#battling-hand-right").src = "/images/paper-human-RtoL.png";
+        }
+        if(computerCurrentWeapon === "scissors"){
+            document.querySelector("#battling-hand-right").src = "/images/scissors-human-RtoL.png";
+        } 
+    }
 };

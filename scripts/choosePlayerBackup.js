@@ -77,22 +77,32 @@ function showPlayerCard(player) {
 
 
 document.querySelector("#smellyCat").addEventListener("click", () => {
-    mySessionObject.player.currentCharacterName = "smellyCat"
+    mySessionObject.player.currentCharacterName = "smellyCat";
+    assignComputerCharacter();
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/afterLife.html";
 });
 
 document.querySelector("#skellington").addEventListener("click", () => {
-    mySessionObject.player.currentCharacterName = "skellington"
+    mySessionObject.player.currentCharacterName = "skellington";
+    assignComputerCharacter();
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/afterLife.html";
 });
 
 document.querySelector("#mysteryHuman").addEventListener("click", () => {
-    mySessionObject.player.currentCharacterName = "mysteryHuman"
+    mySessionObject.player.currentCharacterName = "mysteryHuman";
+    assignComputerCharacter();
     sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
     window.location.href = "/htmls/afterLife.html";
 });
 
+
+function assignComputerCharacter() {
+    characters = ["smellyCat", "skellington", "mysteryHuman"];
+    let computerCharacterIndex = Math.floor(Math.random() * 3);
+    mySessionObject.computer.currentCharacterName = characters[computerCharacterIndex];
+    sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+};
 
 
