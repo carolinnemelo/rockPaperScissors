@@ -29,7 +29,7 @@ const characterData = {
 
 function setWeaponImage() {
     let character = mySessionObject.player.currentCharacterName;
-    alert("In setWeaponImage - currentCharacterName: "+character);
+    /* alert("In setWeaponImage - currentCharacterName: "+character); */
     if (character === "skellington") {
         images = characterData.skellington;
     } else if (character === "mysteryHuman") {
@@ -139,10 +139,11 @@ window.onload = async function () {
     document.querySelector("#characterNamePlace").innerHTML = mySessionObject.player.currentCharacterName;
     document.querySelector("#nickNamePlace").innerHTML = mySessionObject.player.nickName;
     document.querySelector("#computerCharacterNamePlace").innerHTML = mySessionObject.computer.currentCharacterName;
+    setWeaponImage();
     await setBattlingHands(); 
     /* await changeToRockHandsDirectly(); */
     await afterLifeOnLoad();
-    setWeaponImage();
+    
 };
 
 
