@@ -20,12 +20,12 @@
 /* ================================================== */   
 /* To do (1) and (3), write the two lines of code below in the js-file that belongs to the respective page:
 
-1. Get the data of the commonSessionObject and store it in mySessionObject
+1. Get the data of the sessionObject and store it in mySessionObject
 2. Update mySessionObject with new/current data
-3. Upload the data in mySessionObject into the commonSessionObject in sessionStorage
+3. Upload the data in mySessionObject into the sessionObject in sessionStorage
 
-const mySessionObject = JSON.parse(sessionStorage.getItem("commonSessionObjectInSS"));
-sessionStorage.setItem("commonSessionObjectInSS", JSON.stringify(mySessionObject));
+const mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
+sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
 */
 
 
@@ -98,7 +98,7 @@ let mySessionObject = {
     },   
 };
 
-/* sets/updates the values of the above defined commonSessionObject into commmonSessionObjectInSS in sessionStorage */
+/* sets/updates the values of the above defined SessionObject into commmonSessionObjectInSS in sessionStorage */
 window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
 
 
@@ -116,7 +116,7 @@ window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObjec
 /* OTHER CODE  */ 
 /* ================================================== */
 
-alert("player nickname: "+myCommonSessionObject.player.nickName);
+alert("player nickname: "+mySessionObject.player.nickName);
 
 
 

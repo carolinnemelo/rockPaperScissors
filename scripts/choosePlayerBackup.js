@@ -6,6 +6,7 @@
  */
 
 let mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
+
 alert("nickname i början av chooseplayerbackup: "+mySessionObject.player.nickName);
 
 // ------------------- cards

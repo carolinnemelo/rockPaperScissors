@@ -19,7 +19,7 @@
 /* <script src="/scripts/main.js" defer></script> */
 
 /* Get the sessionObject and parse it to a javascript-object */
-let mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
+let mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS")); 
 
 
 
@@ -117,14 +117,4 @@ function isNumberOfRoundsValid(numberOfRounds){
 /* OTHER CODE */ 
 /* ================================================== */
 
-
-function checkSessionStorage(){
-    return new Promise(resolve => {
-        setTimeout(() => {
-            const mySessionObject2 = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
-            alert("retrieved object from sessionStorage: "+mySessionObject2.player.email+" "+mySessionObject2.player.nickName+" "+mySessionObject2.score.numberOfRounds);
-            resolve('sessionStorage contents');
-        }, 2000);
-    });  
-};
 
