@@ -39,12 +39,9 @@ const savePlayerInfoAndGoToChoosePlayerPageButton = document.querySelector("#but
 savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", async function(event){
 
     const email = document.querySelector("#input-email").value;
-    alert("email: "+email);
     const nickName = document.querySelector("#input-nickName").value;
-    alert("nickname "+nickName);
     const numberOfRounds = document.querySelector("#select-numberOfRounds").value;
-    alert("number of rounds: "+numberOfRounds);
-
+    
     if(!isEmailValid(email)){
         alert("The email address is not valid. Please try again.")
         return;
@@ -63,7 +60,6 @@ savePlayerInfoAndGoToChoosePlayerPageButton.addEventListener("click", async func
     mySessionObject.score.numberOfRounds = parseInt(numberOfRounds);
     window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObject));
     let mySessionObject2 = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
-    alert("nickname in sessionObj at end of Subscribe: "+ mySessionObject2.player.nickName);
     window.location.href = "/htmls/choosePlayerBackup.html";
 });
 

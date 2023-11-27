@@ -116,7 +116,7 @@ window.sessionStorage.setItem("sessionObjectInSS", JSON.stringify(mySessionObjec
 /* OTHER CODE  */ 
 /* ================================================== */
 
-alert("player nickname: "+mySessionObject.player.nickName);
+
 
 
 
