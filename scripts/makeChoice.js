@@ -137,7 +137,6 @@ window.onload = async function () {
     mySessionObject.score.playerPoints = 0;
     mySessionObject.score.computerPoints = 0;
     document.querySelector("#characterNamePlace").innerHTML = mySessionObject.player.currentCharacterName;
-    alert("player nickname: "+mySessionObject.player.nickName);
     document.querySelector("#nickNamePlace").innerHTML = mySessionObject.player.nickName;
     document.querySelector("#computerCharacterNamePlace").innerHTML = mySessionObject.computer.currentCharacterName;
     await setBattlingHands(); 

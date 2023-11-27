@@ -1,13 +1,4 @@
-/* IMPORTANT - for this to work, the page needs to  have following as the first script-connection in your html-file*/
-/* <script src="/scripts/main.js" defer></script> */
-
-/* Get the sessionObject and parse it to a javascript-object */
-/* let mySessionObject = JSON.parse(window.sessionStorage.getItem("sessionObjectInSS"));
- */
-
 let mySessionObject = JSON.parse(sessionStorage.getItem("sessionObjectInSS"));
-
-alert("nickname i början av chooseplayerbackup: "+mySessionObject.player.nickName);
 
 // ------------------- cards
 
