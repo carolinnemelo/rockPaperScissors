@@ -64,7 +64,7 @@ footer h6 {
     grid-row-end: 3;
     background-color: var(--card01-background-color);
     border-radius: 1rem;
-    height: 24rem;
+    height: clamp(10rem 60vh 30rem); 
     z-index: 1;
     align-self: flex-end;
     margin: 2rem auto 1rem auto;

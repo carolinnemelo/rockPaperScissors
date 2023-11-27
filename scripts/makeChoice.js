@@ -29,10 +29,10 @@ const characterData = {
 
 function setWeaponImage() {
     let character = mySessionObject.player.currentCharacterName;
-
-    if (character == "skellington") {
+    alert("In setWeaponImage - currentCharacterName: "+character);
+    if (character === "skellington") {
         images = characterData.skellington;
-    } else if (character == "mysteryHuman") {
+    } else if (character === "mysteryHuman") {
         images = characterData.mysteryHuman;
     } else {
         images = characterData.smellyCat;
