@@ -419,7 +419,8 @@ p#computerScore {
     grid-template-rows: auto;
     grid-template-areas:
         "left-hand-container container-between-hands right-hand-container";
-}
+    margin-top: -40vh;
+    }
 
 
 .left-hand-container,
