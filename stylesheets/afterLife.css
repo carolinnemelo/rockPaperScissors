@@ -409,17 +409,17 @@ p#computerScore {
 /* ==================================================== */
 
 .grid-container-for-battling-hands {
-    height: 50vh;
+    height: 40vh;
     width: 100vw;
     /* margin-top: 7vh; */
     justify-content: center;
 
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 40vh;
     grid-template-areas:
         "left-hand-container container-between-hands right-hand-container";
-    margin-top: -40vh;
+    /* margin-top: -40vh; */
     }
 
 
